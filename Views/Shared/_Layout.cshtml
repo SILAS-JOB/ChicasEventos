@@ -5,10 +5,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>@ViewData["Title"] - Chicas Eventos</title>
     <script type="importmap"></script>
-    <link rel="icon" href="~/wwwroot/favicon.ico"  />
+    <link rel="icon" href="~/favicon.ico" type="image/x-icon"  />
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
     <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
     <link rel="stylesheet" href="~/ChicasEventos.styles.css" asp-append-version="true" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&display=swap" rel="stylesheet">
 </head>
 <body>
     <header class="header container">
@@ -16,9 +19,9 @@
             <img src="~/img/props/ChicasLogo.png" style="width: 100px; height: 70px; position: absolute; left: 200px; top: 0px"/>
         </a>
         <nav>
-            <a asp-controller="Home" asp-action="Index">Home</a>
-            <a asp-controller="Home" asp-action="Portifolio">Portfólio</a>
-            <a asp-controller="Home" asp-action="Sobre">Sobre Nós</a>
+            <a asp-controller="Home" asp-action="Index"><b>HOME</b></a>
+            <a asp-controller="Home" asp-action="Portifolio"><b>PORTIFÓLIO</b></a>
+            <a asp-controller="Home" asp-action="Sobre"><b>SOBRE NÓS</b></a>
         </nav>
             <a asp-controller="Shop" asp-action="Cart">
                 <img src="~/img/icons/icones/carrinho.png" style="width: 30px; height: 30px; position: absolute; right: 200px; top: 25px"/>

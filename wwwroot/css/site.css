@@ -1,5 +1,13 @@
 html {
   font-size: 14px;
+  font-family: 'Outfit', sans-serif !important;
+}
+
+
+.outfit {
+  font-family: "Outfit", sans-serif;
+  font-optical-sizing: auto;
+  font-style: normal;
 }
 
 @media (min-width: 768px) {
@@ -17,8 +25,14 @@ html {
   min-height: 100%;
 }
 
+header {
+  font-family: 'Outfit' !important;
+
+}
+
 body {
   margin-bottom: 60px;
+  font-family: 'Outfit' !important;
 }
 
 .form-floating > .form-control-plaintext::placeholder, .form-floating > .form-control::placeholder {

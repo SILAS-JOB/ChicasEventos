@@ -6,7 +6,7 @@
         }
 
         body {
-            font-family: 'Poppins', sans-serif;
+            
             color: #333;
             background-color: #ffffff;
         }
@@ -291,65 +291,7 @@
             height: 200px;
             object-fit: cover;
             border-radius: 10px;
-        }
-
-        /* --- Footer / Rodapé --- */
-        .footer {
-            background-color: #f7f7f7;
-            padding: 60px 40px;
-            border-top: 1px solid #e0e0e0;
-        }
-        
-        .footer-content {
-            display: grid;
-            grid-template-columns: 2fr 1fr 1fr 1fr;
-            gap: 40px;
-        }
-
-        .footer-about .logo img {
-            width: 120px;
-            margin-bottom: 15px;
-        }
-
-        .footer-column h4 {
-            font-size: 1.2rem;
-            margin-bottom: 20px;
-        }
-
-        .footer-column ul {
-            list-style: none;
-        }
-
-        .footer-column ul li {
-            margin-bottom: 10px;
-        }
-
-        .footer-column ul li a {
-            color: #666;
-            transition: color 0.3s ease;
-        }
-
-        .footer-column ul li a:hover {
-            color: #c77b5a;
-        }
-        
-        .footer-socials a {
-            font-size: 1.5rem;
-            margin-right: 15px;
-        }
-
-        .footer-bottom {
-            text-align: center;
-            padding-top: 30px;
-            margin-top: 40px;
-            border-top: 1px solid #ddd;
-        }
-        
-        .footer-bottom p {
-            font-size: 0.9rem;
-            color: #888;
-        }
-        
+        }        
         /* --- Responsividade --- */
         @media (max-width: 992px) {
             .hero {

@@ -1,4 +1,4 @@
-        * {
+* {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
@@ -28,7 +28,42 @@
         a {
             text-decoration: none;
             color: inherit;
-        }        
+        }
+
+        /* --- Header / Cabeçalho --- */
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 40px;
+            background-color: #fff;
+        }
+
+        .header .logo img { width: 120px; }
+
+        .header nav a {
+            margin: 0 15px;
+            font-weight: 500;
+            color: #555;
+            transition: color 0.3s ease;
+        }
+
+        .header nav a:hover { color: #d18261; }
+
+        .header .login-btn {
+            border: 1px solid #d18261;
+            padding: 8px 25px;
+            border-radius: 20px;
+            color: #d18261;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+
+        .header .login-btn:hover {
+            background-color: #d18261;
+            color: #fff;
+        }
+        
         /* --- Seção de Serviço --- */
         .service-page {
             text-align: center;
@@ -113,7 +148,7 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background: linear-gradient(to top, rgba(0,0,0,0.85), transparent);
+            background: linear-gradient(to top, rgba(0,0,0,0.85), rgba(0,0,0,0.1));
             z-index: 2;
         }
         
@@ -139,6 +174,31 @@
             color: #fff;
             text-decoration: underline;
         }
+
+        /* --- Footer --- */
+        .footer {
+            background-color: #fcfcfc;
+            padding: 80px 40px 40px 40px;
+            border-top: 1px solid #f0f0f0;
+            margin-top: 60px;
+        }
+        
+        .footer-content {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1fr;
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+
+        .footer-about .logo { margin-bottom: 15px; }
+        .footer-about p { font-size: 0.9rem; }
+        .footer-column h4 { font-size: 1.1rem; margin-bottom: 15px; }
+        .footer-column ul { list-style: none; }
+        .footer-column ul li { margin-bottom: 10px; }
+        .footer-column ul li a { font-size: 0.9rem; }
+        .footer-socials a { font-size: 1.2rem; margin-right: 15px; }
+        .footer-bottom { text-align: center; padding-top: 30px; border-top: 1px solid #eee; font-size: 0.9rem; }
+
         /* --- Responsividade --- */
         @media (max-width: 992px) {
             .service-grid { grid-template-columns: repeat(2, 1fr); }
