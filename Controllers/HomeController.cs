@@ -1,6 +1,7 @@
 using System.Diagnostics;
 using Microsoft.AspNetCore.Mvc;
 using ChicasEventos.Models;
+using Microsoft.AspNetCore.Authorization;
 
 namespace ChicasEventos.Controllers
 {
