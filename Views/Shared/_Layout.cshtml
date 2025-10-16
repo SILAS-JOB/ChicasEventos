@@ -1,0 +1,79 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - Chicas Eventos</title>
+    <script type="importmap"></script>
+    <link rel="icon" href="~/wwwroot/favicon.ico"  />
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/ChicasEventos.styles.css" asp-append-version="true" />
+</head>
+<body>
+    <header class="header container">
+        <a href="#" class="logo">
+            <img src="~/img/props/ChicasLogo.png" style="width: 100px; height: 70px; position: absolute; left: 200px; top: 0px"/>
+        </a>
+        <nav>
+            <a asp-controller="Home" asp-action="Index">Home</a>
+            <a asp-controller="Home" asp-action="Portifolio">Portfólio</a>
+            <a asp-controller="Home" asp-action="Sobre">Sobre Nós</a>
+        </nav>
+            <a>
+                <img href="" />
+            </a>
+    </header>
+    <div class="container">
+        <main role="main" class="pb-3">
+            @RenderBody()
+        </main>
+    </div>
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-about">
+                    <a href="#" class="logo">
+                       Chicas Eventos
+                    </a>
+                    <p>Transformando momentos em memórias inesquecíveis. Organização de eventos com criatividade e excelência.</p>
+                </div>
+                <div class="footer-column">
+                    <h4>Serviços</h4>
+                    <ul>
+                        <li><a href="#">Corporativo</a></li>
+                        <li><a href="#">Casamentos</a></li>
+                        <li><a href="#">Festas</a></li>
+                        <li><a href="#">Debutantes</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h4>Empresa</h4>
+                    <ul>
+                        <li><a href="#">Sobre Nós</a></li>
+                        <li><a href="#">Contato</a></li>
+                        <li><a href="#">Carreiras</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h4>Endereços</h4>
+                    <p>Rua Exemplo, 123<br>Cidade, Estado<br>CEP 12345-678</p>
+                    <div class="footer-socials">
+                        <a href="#"><i class="fab fa-linkedin"></i></a>
+                        <a href="#"><i class="fab fa-facebook"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 Chicas Eventos. Todos os direitos reservados.</p>
+            </div>
+        </div>
+    </footer>
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+    @await RenderSectionAsync("Scripts", required: false)
+</body>
+</html>
