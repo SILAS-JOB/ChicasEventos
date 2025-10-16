@@ -2,35 +2,52 @@ using System.Diagnostics;
 using Microsoft.AspNetCore.Mvc;
 using ChicasEventos.Models;
 using ChicasEventos.Services;
+using Org.BouncyCastle.Crypto.Prng;
 
 namespace ChicasEventos.Controllers
 {
     public class PagesController : Controller
     {
-        private readonly ServicoDataService _servicoData;
+        private readonly StaticDataService _dataService;
 
         public PagesController()
         {
-            _servicoData = new ServicoDataService();
+            _dataService = new StaticDataService();
         }
         public IActionResult Buffet()
         {
-            var todosServicos = _servicoData.GetTodosServicos();
-
-            return View();
+            ViewData["ServiceTitle"] = "Buffet";
+            var services = _dataService.GetServicesByCategory("Buffet");
+            return View(services);
         }
         public IActionResult Audiovisual()
         {
-            return View();
+            ViewData["ServiceTitle"] = "Audiovisual";
+            var services = _dataService.GetServicesByCategory("Audiovisual");
+            return View(services);
         }
         public IActionResult RH()
         {
-            return View();
+            ViewData["ServiceTitle"] = "RH";
+            var services = _dataService.GetServicesByCategory("RH");
+            return View(services);
         }
 
         public IActionResult Cerimonial()
         {
-            return View();
+            ViewData["ServiceTitle"] = "Cerimonial";
+            var services = _dataService.GetServicesByCategory("Cerimonial");
+            return View(services);
+        }
+
+        public IActionResult _ServiceDetailPartial(int id)
+        {
+            var service = _dataService.GetServiceById(id);
+            if (service == null)
+            {
+                return Content("Detalhes não encontrados.");
+            }
+            return PartialView("_ServiceDetailPartial", service);
         }
     }
 }
