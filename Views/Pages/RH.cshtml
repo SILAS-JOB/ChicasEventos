@@ -1,4 +1,9 @@
-<link rel="stylesheet" href="~/css/Pages/Audiovisual.css" />
+@{
+    ViewBag.Title = "RH ";
+}
+
+<link rel="stylesheet" href="~/css/Pages/Services.css" />
+<link rel="stylesheet" href="~/css/Partial/ServicePartial.css"/>
 
 <body>
     <main class="container">
@@ -8,63 +13,38 @@
             <p>Garçons, recepção, segurança e apoio. Escala planejada e briefing antes do evento.</p>
             <a href="#" class="main-cta-button">Adicionar ao Evento</a>
 
-            <div class="service-grid">
-                <div class="service-card">
-                    <img src="https://images.unsplash.com/photo-1555949524-753c39a09337?w=500" alt="Garçom" class="bg-image">
-                    <div class="overlay"></div>
-                    <div class="service-card-content">
-                        <h3>Garçom</h3>
-                        <p>Simpatia para servir e zelar</p>
-                        <a href="#">Ver detalhes</a>
+            <div class="services-grid">
+                        @foreach (var service in Model)
+                        {
+                            <div class="service-card">
+                                <img src="@service.ImagemPrincipalCard" class="card-background" alt="@service.Titulo">
+                                <div class="card-overlay"></div>
+                                <div class="card-content">
+                                    <h3>@service.Titulo</h3>
+                                    <p>@service.DescricaoBreve</p>
+                                        <button type="button" 
+                                                class="btn btn-outline-light btn-detalhes" 
+                                                data-bs-toggle="modal" 
+                                                data-bs-target="#detailsModal"
+                                                data-id="@service.Id">
+                                            VER DETALHES
+                                        </button>
+                                </div>
+                            </div>
+                        }
                     </div>
-                </div>
-                <div class="service-card">
-                    <img src="https://images.unsplash.com/photo-1560250097-4b9b2e2af355?w=500" alt="Recepção" class="bg-image">
-                    <div class="overlay"></div>
-                    <div class="service-card-content">
-                        <h3>Recepção</h3>
-                        <p>Formato para marcar a memória</p>
-                        <a href="#">Ver detalhes</a>
-                    </div>
-                </div>
-                <div class="service-card">
-                    <img src="https://images.unsplash.com/photo-1563281577-4497b7a02a0a?w=500" alt="Segurança" class="bg-image">
-                    <div class="overlay"></div>
-                    <div class="service-card-content">
-                        <h3>Segurança</h3>
-                        <p>Visão de cima do seu evento</p>
-                        <a href="#">Ver detalhes</a>
-                    </div>
-                </div>
-                <div class="service-card">
-                    <img src="https://images.unsplash.com/photo-1596205251911-3077a063b469?w=500" alt="Apoio/Operação" class="bg-image">
-                    <div class="overlay"></div>
-                    <div class="service-card-content">
-                        <h3>Apoio/Operação</h3>
-                        <p>Selfie com a gente por perto</p>
-                        <a href="#">Ver detalhes</a>
-                    </div>
-                </div>
-                <div class="service-card">
-                    <img src="https://images.unsplash.com/photo-1523580494863-6f3031224c94?w=500" alt="Coordenação de sala" class="bg-image">
-                    <div class="overlay"></div>
-                    <div class="service-card-content">
-                        <h3>Coordenação de sala</h3>
-                        <p>Transmissão dos melhores lances</p>
-                        <a href="#">Ver detalhes</a>
-                    </div>
-                </div>
-                <div class="service-card">
-                    <img src="https://images.unsplash.com/photo-1581578731548-c64695cc6952?w=500" alt="Limpeza de Áreas" class="bg-image">
-                    <div class="overlay"></div>
-                    <div class="service-card-content">
-                        <h3>Limpeza de Áreas</h3>
-                        <p>TV e mais equipamentos</p>
-                        <a href="#">Ver detalhes</a>
+                    <div class="modal fade" id="detailsModal" tabindex="-1" aria-hidden="true">
+                        <div class="modal-dialog modal-xl modal-dialog-centered">
+                            <div class="modal-content" style="border-radius: 1rem;">
+                            
+                            <div class="modal-body p-0" id="modalBodyContent">
                     </div>
                 </div>
             </div>
+        </div>
         </section>
     </main>
+<script src="~/js/CardModal.js">
+</script>
 </body>
 </html>

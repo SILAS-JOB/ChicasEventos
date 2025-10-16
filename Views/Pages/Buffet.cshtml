@@ -1,4 +1,11 @@
-<link rel="stylesheet" href="~/css/Pages/Audiovisual.css" />
+@model List<ChicasEventos.Models.ServiceViewModel>
+
+@{
+    ViewBag.Title = "Buffet ";
+}
+
+<link rel="stylesheet" href="~/css/Pages/Services.css" />
+<link rel="stylesheet" href="~/css/Partial/ServicePartial.css"/>
 
 <body>
     <main class="container">
@@ -7,64 +14,38 @@
             <h1>Buffet</h1>
             <p>Cardápios sob medida para cada ocasião: coquetéis, coffee break, brunch e refeições completas. Clique nos cartões para ver os detalhes.</p>
             <a href="#" class="main-cta-button">Ver pacotes</a>
-
-            <div class="service-grid">
-                <div class="service-card">
-                    <img src="https://images.unsplash.com/photo-1570729706343-6880a5a3061a?w=500" alt="Coquetéis" class="bg-image">
-                    <div class="overlay"></div>
-                    <div class="service-card-content">
-                        <h3>Coquetéis</h3>
-                        <p>Serviço para criar sinergia</p>
-                        <a href="#">Ver detalhes</a>
+            <div class="services-grid">
+                @foreach (var service in Model)
+                {
+                    <div class="service-card">
+                        <img src="@service.ImagemPrincipalCard" class="card-background" alt="@service.Titulo">
+                        <div class="card-overlay"></div>
+                        <div class="card-content">
+                            <h3>@service.Titulo</h3>
+                            <p>@service.DescricaoBreve</p>
+                                <button type="button" 
+                                        class="btn btn-outline-light btn-detalhes" 
+                                        data-bs-toggle="modal" 
+                                        data-bs-target="#detailsModal"
+                                        data-id="@service.Id">
+                                    VER DETALHES
+                                </button>
+                        </div>
                     </div>
-                </div>
-                <div class="service-card">
-                    <img src="https://images.unsplash.com/photo-1559305417-7d2a2223a3a4?w=500" alt="Coffee Break" class="bg-image">
-                    <div class="overlay"></div>
-                    <div class="service-card-content">
-                        <h3>Coffee Break</h3>
-                        <p>Forte para marcar a memória</p>
-                        <a href="#">Ver detalhes</a>
-                    </div>
-                </div>
-                <div class="service-card">
-                    <img src="https://images.unsplash.com/photo-1585698378729-37e4a414e5b3?w=500" alt="Brunch" class="bg-image">
-                    <div class="overlay"></div>
-                    <div class="service-card-content">
-                        <h3>Brunch</h3>
-                        <p>Visão de cima do seu evento</p>
-                        <a href="#">Ver detalhes</a>
-                    </div>
-                </div>
-                <div class="service-card">
-                    <img src="https://images.unsplash.com/photo-1543353071-873f6b6e6a89?w=500" alt="Almoço/Jantar" class="bg-image">
-                    <div class="overlay"></div>
-                    <div class="service-card-content">
-                        <h3>Almoço/Jantar</h3>
-                        <p>Selfie com a gente por perto</p>
-                        <a href="#">Ver detalhes</a>
-                    </div>
-                </div>
-                <div class="service-card">
-                    <img src="https://images.unsplash.com/photo-1621939514649-280e2ee25f61?w=500" alt="Sobremesas & Doces" class="bg-image">
-                    <div class="overlay"></div>
-                    <div class="service-card-content">
-                        <h3>Sobremesas & Doces</h3>
-                        <p>Transmissão dos melhores lances</p>
-                        <a href="#">Ver detalhes</a>
-                    </div>
-                </div>
-                <div class="service-card">
-                    <img src="https://images.unsplash.com/photo-1514362545857-3bc96c4cc7a1?w=500" alt="Bebidas & Bar" class="bg-image">
-                    <div class="overlay"></div>
-                    <div class="service-card-content">
-                        <h3>Bebidas & Bar</h3>
-                        <p>TV e mais equipamentos</p>
-                        <a href="#">Ver detalhes</a>
-                    </div>
-                </div>
+                }
             </div>
+            <div class="modal fade" id="detailsModal" tabindex="-1" aria-hidden="true">
+                <div class="modal-dialog modal-xl modal-dialog-centered">
+                    <div class="modal-content" style="border-radius: 1rem;">
+                    
+                    <div class="modal-body p-0" id="modalBodyContent">
+            </div>
+        </div>
+      </div>
+    </div>
         </section>
     </main>
 </body>
+<script src="~/js/CardModal.js">
+</script>
 </html>

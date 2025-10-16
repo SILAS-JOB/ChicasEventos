@@ -1,4 +1,10 @@
-<link  rel="stylesshet" href="~/css/Pages/Audiovisual.css"/>
+@{
+    ViewBag.Title = "Cerimonial ";
+}
+
+<link rel="stylesheet" href="~/css/Pages/Services.css" />
+<link rel="stylesheet" href="~/css/Partial/ServicePartial.css"/>
+
 
 <body>
     <main class="container">
@@ -8,63 +14,38 @@
             <p>Planejamento, cronograma, fornecedores e execução no dia. Você curte, a gente coordena.</p>
             <a href="#" class="main-cta-button">Adicionar ao Evento</a>
 
-            <div class="service-grid">
-                <div class="service-card">
-                    <img src="https://images.unsplash.com/photo-1516534775068-ba3e7458af70?w=500" alt="Planejamento" class="bg-image">
-                    <div class="overlay"></div>
-                    <div class="service-card-content">
-                        <h3>Planejamento</h3>
-                        <p>Serviço para criar o roteiro</p>
-                        <a href="#">Ver detalhes</a>
+            <div class="services-grid">
+                        @foreach (var service in Model)
+                        {
+                            <div class="service-card">
+                                <img src="@service.ImagemPrincipalCard" class="card-background" alt="@service.Titulo">
+                                <div class="card-overlay"></div>
+                                <div class="card-content">
+                                    <h3>@service.Titulo</h3>
+                                    <p>@service.DescricaoBreve</p>
+                                        <button type="button" 
+                                                class="btn btn-outline-light btn-detalhes" 
+                                                data-bs-toggle="modal" 
+                                                data-bs-target="#detailsModal"
+                                                data-id="@service.Id">
+                                            VER DETALHES
+                                        </button>
+                                </div>
+                            </div>
+                        }
                     </div>
-                </div>
-                <div class="service-card">
-                    <img src="https://images.unsplash.com/photo-1542626991-cbc4e32524cc?w=500" alt="Coordenação do dia" class="bg-image">
-                    <div class="overlay"></div>
-                    <div class="service-card-content">
-                        <h3>Coordenação do dia</h3>
-                        <p>Formato para marcar a memória</p>
-                        <a href="#">Ver detalhes</a>
-                    </div>
-                </div>
-                <div class="service-card">
-                    <img src="https://images.unsplash.com/photo-1578575437130-527eed3abbec?w=500" alt="Gestão de fornecedores" class="bg-image">
-                    <div class="overlay"></div>
-                    <div class="service-card-content">
-                        <h3>Gestão de fornecedores</h3>
-                        <p>Visão de cima do seu evento</p>
-                        <a href="#">Ver detalhes</a>
-                    </div>
-                </div>
-                <div class="service-card">
-                    <img src="https://images.unsplash.com/photo-1552664730-d307ca884978?w=500" alt="Consultoria" class="bg-image">
-                    <div class="overlay"></div>
-                    <div class="service-card-content">
-                        <h3>Consultoria</h3>
-                        <p>Selfie com a gente por perto</p>
-                        <a href="#">Ver detalhes</a>
-                    </div>
-                </div>
-                <div class="service-card">
-                    <img src="https://images.unsplash.com/photo-1517048676732-d65bc937f952?w=500" alt="Roteiro & Timeline" class="bg-image">
-                    <div class="overlay"></div>
-                    <div class="service-card-content">
-                        <h3>Roteiro & Timeline</h3>
-                        <p>Transmissão dos melhores lances</p>
-                        <a href="#">Ver detalhes</a>
-                    </div>
-                </div>
-                <div class="service-card">
-                    <img src="https://images.unsplash.com/photo-1511285560921-4c9272f5142f?w=500" alt="Pós-evento" class="bg-image">
-                    <div class="overlay"></div>
-                    <div class="service-card-content">
-                        <h3>Pós-evento</h3>
-                        <p>TV e mais equipamentos</p>
-                        <a href="#">Ver detalhes</a>
+                    <div class="modal fade" id="detailsModal" tabindex="-1" aria-hidden="true">
+                        <div class="modal-dialog modal-xl modal-dialog-centered">
+                            <div class="modal-content" style="border-radius: 1rem;">
+                            
+                            <div class="modal-body p-0" id="modalBodyContent">
                     </div>
                 </div>
             </div>
+        </div>
         </section>
     </main>
+<script src="~/js/CardModal.js">
+</script>
 </body>
 </html>

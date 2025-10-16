@@ -1,0 +1,44 @@
+@model ChicasEventos.Models.ServiceViewModel
+
+<div class="p-4">
+    <div class="d-flex justify-content-between align-items-center mb-3">
+        <h3 class="modal-title">@Model.Titulo</h3>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+    </div>
+
+    <div class="row">
+        <div class="col-lg-6">
+            <div class="info-block p-4 mb-4" style="background-color: #f8f9fa; border-radius: 0.5rem;">
+                <h6 class="fw-bold" style="color: #d97706;">@Model.SubtituloModal</h6>
+                <p>@Model.DescricaoCompleta</p>
+            </div>
+            
+            <div class="info-block p-4" style="background-color: #f8f9fa; border-radius: 0.5rem;">
+                <h6 class="fw-bold">O QUE ESTÁ INCLUSO:</h6>
+                <ul class="list-unstyled">
+                    @foreach (var item in Model.ItensInclusos)
+                    {
+                        <li><i class="bi bi-check text-success"></i> @item</li>
+                    }
+                </ul>
+            </div>
+        </div>
+
+        <div class="col-lg-6">
+            <img src="@Model.ImagemGrandeModal" class="img-fluid rounded mb-3" alt="Imagem principal de @Model.Titulo">
+            <div class="row">
+                @foreach(var imgPequena in Model.ImagensPequenasModal)
+                {
+                    <div class="col-4">
+                        <img src="@imgPequena" class="img-fluid rounded" alt="Detalhe de @Model.Titulo">
+                    </div>
+                }
+            </div>
+        </div>
+    </div>
+
+    <div class="modal-footer border-0 mt-4">
+        <button type="button" class="btn" style="background-color: #ca8a04; color: white;">FALAR COM ESPECIALISTA</button>
+        <button type="button" class="btn btn-outline-secondary">CONTRATAR</button>
+    </div>
+</div>
