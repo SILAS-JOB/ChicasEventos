@@ -33,27 +33,5 @@
 </div>
 
 @section Scripts {
-    <script src="~/js/cart-page.js"></script>
-    <script>
-        document.addEventListener("DOMContentLoaded", function() {
-            const cartContainer = document.getElementById('cart-items-container');
-            const itemsFromStorage = JSON.parse(localStorage.getItem('chicasCart') || '[]');
-
-            if (itemsFromStorage.length > 0) {
-                fetch('/Pages/_GetCartItemsPartial', {
-                    method: 'POST',
-                    headers: {
-                        'Content-Type': 'application/json'
-                    },
-                    body: JSON.stringify(itemsFromStorage)
-                })
-                .then(response => response.text())
-                .then(html => {
-                    cartContainer.innerHTML = html;
-                });
-            } else {
-                cartContainer.innerHTML = "<h5>Seu carrinho está vazio.</h5>";
-            }
-        });
-    </script>
+    <script src="~/js/CartPage.js"></script>
 }

@@ -5,10 +5,19 @@ document.addEventListener("DOMContentLoaded", function () {
     const orderFormModal = new bootstrap.Modal(orderFormModalEl);
     const orderFormModalContent = document.getElementById('orderFormModalContent');
 
-    // Função para carregar os itens do carrinho (já existente)
     function loadCartItems() {
         if (itemsFromStorage.length > 0) {
-            fetch('/Pages/_GetCartItemsPartial', { /* ... */ }).then(/* ... */);
+            fetch('/Pages/_GetCartItemsPartial', { 
+                method: 'POST',
+                headers: {
+                    'Content-type': 'application/json'
+                },
+                body: JSON.stringify(itemsFromStorage)
+            })
+            .then(response => response.text())
+            .then(html => {
+                cartContainer.innerHTML = html;
+            })
         } else {
             cartContainer.innerHTML = "<h5>Seu carrinho está vazio.</h5>";
         }
@@ -29,7 +38,7 @@ document.addEventListener("DOMContentLoaded", function () {
         if (event.target.id === 'order-form') {
             event.preventDefault();
             const form = event.target;
-            const submitButton = form.querySelector('button[type="submit"]');
+            const submitButton = orderFormModalContent.querySelector('button[type="submit"]');
             submitButton.disabled = true;
             submitButton.innerHTML = '<span class="spinner-border spinner-border-sm"></span> Enviando...';
 
