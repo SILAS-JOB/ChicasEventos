@@ -2,7 +2,7 @@ using System.Diagnostics;
 using Microsoft.AspNetCore.Mvc;
 using ChicasEventos.Models;
 using ChicasEventos.Services;
-using Org.BouncyCastle.Crypto.Prng;
+using Org.BouncyCastle.Crypto.Prng; //Cryptografia 
 using System.Text;
 
 namespace ChicasEventos.Controllers
@@ -133,7 +133,7 @@ namespace ChicasEventos.Controllers
 
             try
             {
-                var companyEmail = "tiilas777@gmail.com"; // Substitua pelo email real
+                var companyEmail = "luiseduardolima51@gmail.com"; // Substitua pelo email real
                 var subject = $"Novo Orçamento de {fullOrder.FormData.Nome} - Evento: {fullOrder.FormData.NomeEvento}";
                 await _emailService.SendOrderEmailAsync(companyEmail, subject, emailBody.ToString());
                 

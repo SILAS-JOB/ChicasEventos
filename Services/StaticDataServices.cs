@@ -53,15 +53,61 @@ namespace ChicasEventos.Services
                     DescricaoBreve = "A",
                     SubtituloModal = "A",
                     ItensInclusos = ["A","A"],
-                    ImagemPrincipalCard = "/img/buffet/coquetel_card.jpg",
+                    ImagemPrincipalCard = "~/img/products/coqueteis/coq1.jpg",
                     ImagemGrandeModal = ".",
                     ImagensPequenasModal = ["Sas","a"]
                     },
-                new ServiceViewModel { Id = 102, Category = "Buffet", Titulo = "Coffee Break", /* ... */ ImagemPrincipalCard = "/img/buffet/coffee_card.jpg" },
-                new ServiceViewModel { Id = 103, Category = "Buffet", Titulo = "Brunch", /* ... */ ImagemPrincipalCard = "/img/buffet/brunch_card.jpg" },
-                new ServiceViewModel { Id = 104, Category = "Buffet", Titulo = "Almoço/Jantar", /* ... */ ImagemPrincipalCard = "/img/buffet/jantar_card.jpg" },
-                new ServiceViewModel { Id = 105, Category = "Buffet", Titulo = "Sobremesas & Doces", /* ... */ ImagemPrincipalCard = "/img/buffet/doces_card.jpg" },
-                new ServiceViewModel { Id = 106, Category = "Buffet", Titulo = "Bebidas & Bar", /* ... */ ImagemPrincipalCard = "/img/buffet/bar_card.jpg" },
+                new ServiceViewModel {
+                Id = 102,
+                Category = "Buffet",
+                Titulo = "Coffee Break",
+                DescricaoBreve = "A",
+                SubtituloModal = "A",
+                ItensInclusos = ["A"],
+                ImagemPrincipalCard = "/img/buffet/coffee_card.jpg",
+                ImagemGrandeModal = "A",
+                ImagensPequenasModal = ["A"]
+                },
+                new ServiceViewModel { 
+                Id = 103,
+                Category = "Buffet",
+                Titulo = "Brunch",
+                DescricaoBreve = "A",
+                SubtituloModal = "A",
+                ItensInclusos = ["A"],
+                ImagemPrincipalCard = "/img/buffet/coffee_card.jpg",
+                ImagemGrandeModal = "A",
+                ImagensPequenasModal = ["A"]},
+                new ServiceViewModel { 
+                Id = 104,
+                Category = "Buffet",
+                Titulo = "Almoço/Jantar",
+                DescricaoBreve = "A",
+                SubtituloModal = "A",
+                ItensInclusos = ["A"],
+                ImagemPrincipalCard = "/img/buffet/coffee_card.jpg",
+                ImagemGrandeModal = "A",
+                ImagensPequenasModal = ["A"]},
+                new ServiceViewModel { 
+                Id = 105,
+                Category = "Buffet",
+                Titulo = "Sobremesas & Doces",
+                DescricaoBreve = "A",
+                SubtituloModal = "A",
+                ItensInclusos = ["A"],
+                ImagemPrincipalCard = "/img/buffet/coffee_card.jpg",
+                ImagemGrandeModal = "A",
+                ImagensPequenasModal = ["A"] },
+                new ServiceViewModel { 
+                Id = 106,
+                Category = "Buffet",
+                Titulo = "Bebidas & Bar",
+                DescricaoBreve = "A",
+                SubtituloModal = "A",
+                ItensInclusos = ["A"],
+                ImagemPrincipalCard = "/img/buffet/coffee_card.jpg",
+                ImagemGrandeModal = "A",
+                ImagensPequenasModal = ["A"]},
             };
         }
         
@@ -108,8 +154,82 @@ namespace ChicasEventos.Services
         
         private List<ServiceViewModel> GetAudiovisualData() {
             return new List<ServiceViewModel> {
-                new ServiceViewModel { Id = 201, Category = "Audiovisual", Titulo = "Sonorização", /* ... */ ImagemPrincipalCard = "/img/audiovisual/som_card.jpg" },
-                // ... outros 5 itens de Audiovisual ...
+                new ServiceViewModel {
+                Id = 201,
+                Category = "Audiovisual",
+                Titulo = "Sonorização",
+                DescricaoBreve = "A",
+                SubtituloModal = "A",
+                ItensInclusos = ["A"],
+                ImagemPrincipalCard = "/img/buffet/coffee_card.jpg",
+                ImagemGrandeModal = "A",
+                ImagensPequenasModal = ["A"] },
+
+                new ServiceViewModel
+                {
+                    Id = 202,
+                Category = "Audiovisual",
+                Titulo = "Sonorização",
+                DescricaoBreve = "A",
+                SubtituloModal = "A",
+                ItensInclusos = ["A"],
+                ImagemPrincipalCard = "/img/buffet/coffee_card.jpg",
+                ImagemGrandeModal = "A",
+                ImagensPequenasModal = ["A"],
+                },
+
+                new ServiceViewModel
+                {
+                    Id = 203,
+                Category = "Audiovisual",
+                Titulo = "Sonorização",
+                DescricaoBreve = "A",
+                SubtituloModal = "A",
+                ItensInclusos = ["A"],
+                ImagemPrincipalCard = "/img/buffet/coffee_card.jpg",
+                ImagemGrandeModal = "A",
+                ImagensPequenasModal = ["A"],
+                },
+
+                new ServiceViewModel
+                {
+                    Id = 204,
+                Category = "Audiovisual",
+                Titulo = "Sonorização",
+                DescricaoBreve = "A",
+                SubtituloModal = "A",
+                ItensInclusos = ["A"],
+                ImagemPrincipalCard = "/img/buffet/coffee_card.jpg",
+                ImagemGrandeModal = "A",
+                ImagensPequenasModal = ["A"],
+                },
+
+                new ServiceViewModel
+                {
+                    Id = 205,
+                Category = "Audiovisual",
+                Titulo = "Sonorização",
+                DescricaoBreve = "A",
+                SubtituloModal = "A",
+                ItensInclusos = ["A"],
+                ImagemPrincipalCard = "/img/buffet/coffee_card.jpg",
+                ImagemGrandeModal = "A",
+                ImagensPequenasModal = ["A"],
+                },
+
+                new ServiceViewModel
+                {
+                    Id = 206,
+                Category = "Audiovisual",
+                Titulo = "Sonorização",
+                DescricaoBreve = "A",
+                SubtituloModal = "A",
+                ItensInclusos = ["A"],
+                ImagemPrincipalCard = "/img/buffet/coffee_card.jpg",
+                ImagemGrandeModal = "A",
+                ImagensPequenasModal = ["A"],
+                }
+
             };
         }
 
