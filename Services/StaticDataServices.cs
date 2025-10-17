@@ -50,12 +50,12 @@ namespace ChicasEventos.Services
                     Id = 101,
                     Category = "Buffet",
                     Titulo = "Coquetéis",
-                    DescricaoBreve = "A",
-                    SubtituloModal = "A",
-                    ItensInclusos = ["A","A"],
+                    DescricaoBreve = "Serviço volante com finger food",
+                    SubtituloModal = "Nossos coquetéis são preparados com ingredientes frescos e selecionados, oferecendo uma experiência gastronômica única. Inclui finger foods variados e bebidas especiais.",
+                    ItensInclusos = ["Bartender profissional", "Coquetéis clássicos e autorais", "Finger foods variados", "Equipamentos de bar completos", "Decoração temática"],
                     ImagemPrincipalCard = "/img/products/coqueteis/coq1.jpg",
-                    ImagemGrandeModal = ".",
-                    ImagensPequenasModal = ["Sas","a"]
+                    ImagemGrandeModal = "/img/products/coqueteis/coq1.jpg",
+                    ImagensPequenasModal = ["/img/products/coqueteis/coq1.jpg", "/img/products/coqueteis/coq2.jpg", "/img/products/coqueteis/coq3.jpeg"]
                     },
                 new ServiceViewModel {
                 Id = 102,

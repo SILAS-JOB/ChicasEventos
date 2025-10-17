@@ -4,6 +4,7 @@ using ChicasEventos.Models;
 using ChicasEventos.Services;
 using Org.BouncyCastle.Crypto.Prng; //Cryptografia 
 using System.Text;
+using Microsoft.Extensions.Logging;
 
 namespace ChicasEventos.Controllers
 {
@@ -11,10 +12,12 @@ namespace ChicasEventos.Controllers
     {
         private readonly StaticDataService _dataService;
         private readonly IEmailService _emailService;
-        public PagesController(StaticDataService dataService, IEmailService emailService)
+        private readonly ILogger _logger;
+        public PagesController(StaticDataService dataService, IEmailService emailService, ILogger<PagesController> logger )
         {
             _dataService = dataService;
             _emailService = emailService;
+            _logger = logger;
         }
         public IActionResult Buffet()
         {
@@ -136,10 +139,12 @@ namespace ChicasEventos.Controllers
                 var companyEmail = "luiseduardolima51@gmail.com"; // Substitua pelo email real
                 var subject = $"Novo Orçamento de {fullOrder.FormData.Nome} - Evento: {fullOrder.FormData.NomeEvento}";
                 await _emailService.SendOrderEmailAsync(companyEmail, subject, emailBody.ToString());
-                
+
                 return Ok(new { message = "Orçamento enviado com sucesso! Entraremos em contato em breve." });
-            } catch(Exception ex)
+            }
+            catch (Exception ex)
             {
+                _logger.LogError(ex, "Ocorreu uma exceção ao tentar enviar o e-mail do pedido");
                 return StatusCode(500, "Ocorreu um erro ao enviar seu orçamento. Por favor, tente novamente.");
             }
         }
