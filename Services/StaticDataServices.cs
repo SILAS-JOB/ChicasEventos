@@ -7,7 +7,7 @@ namespace ChicasEventos.Services
     public class StaticDataService
     {
         private readonly List<ServiceViewModel> _allServices;
-
+        private readonly List<PackageViewModel> _allPackages;
         public StaticDataService()
         {
             _allServices = new List<ServiceViewModel>();
@@ -15,6 +15,10 @@ namespace ChicasEventos.Services
             _allServices.AddRange(GetAudiovisualData());
             _allServices.AddRange(GetCerimonialData());
             _allServices.AddRange(GetRhData());
+
+
+            _allPackages = new List<PackageViewModel>();
+            _allPackages.AddRange(GetBuffetPackages());
         }
 
         public List<ServiceViewModel> GetServicesByCategory(string category)
@@ -22,14 +26,25 @@ namespace ChicasEventos.Services
             return _allServices.Where(s => s.Category.Equals(category, System.StringComparison.OrdinalIgnoreCase)).ToList();
         }
 
+        public List<PackageViewModel> GetPackageByCategory(string category)
+        {
+            return _allPackages.Where(p => p.Categoria.Equals(category, System.StringComparison.OrdinalIgnoreCase)).ToList();
+        }
+
         public ServiceViewModel GetServiceById(int id)
         {
             return _allServices.FirstOrDefault(s => s.Id == id);
         }
 
+        public PackageViewModel GetPackageById(int id)
+        {
+            return _allPackages.FirstOrDefault(p => p.Id == id);    
+        }
+
         // --- Métodos privados para carregar os dados de cada categoria ---
 
-        private List<ServiceViewModel> GetBuffetData() {
+        private List<ServiceViewModel> GetBuffetData()
+        {
             return new List<ServiceViewModel> {
                 new ServiceViewModel {
                     Id = 101,
@@ -47,6 +62,47 @@ namespace ChicasEventos.Services
                 new ServiceViewModel { Id = 104, Category = "Buffet", Titulo = "Almoço/Jantar", /* ... */ ImagemPrincipalCard = "/img/buffet/jantar_card.jpg" },
                 new ServiceViewModel { Id = 105, Category = "Buffet", Titulo = "Sobremesas & Doces", /* ... */ ImagemPrincipalCard = "/img/buffet/doces_card.jpg" },
                 new ServiceViewModel { Id = 106, Category = "Buffet", Titulo = "Bebidas & Bar", /* ... */ ImagemPrincipalCard = "/img/buffet/bar_card.jpg" },
+            };
+        }
+        
+        private List<PackageViewModel> GetBuffetPackages()
+        {
+            return new List<PackageViewModel>
+            {
+                new PackageViewModel
+                {
+                    Id = 501,
+                    Categoria = "Buffet",
+                    Descricao = "AAAA",
+                    ImagemPrincipal = "a",
+                    ImagensPequenas = ["a","a"],
+                    ItensInclusos= ["a"],
+                    Nome = "a",
+                    PrecoPorPessoa= "R$29.99"
+                },
+                new PackageViewModel
+                {
+                    Id = 502,
+                    Categoria = "Buffet",
+                    Descricao = "AAAA",
+                    ImagemPrincipal = "a",
+                    ImagensPequenas = ["a","a"],
+                    ItensInclusos= ["a"],
+                    Nome = "a",
+                    PrecoPorPessoa= "R$29.99"
+                },
+                new PackageViewModel
+                {
+                    Id = 503,
+                    Categoria = "Buffet",
+                    Descricao = "AAAA",
+                    ImagemPrincipal = "a",
+                    ImagensPequenas = ["a","a"],
+                    ItensInclusos= ["a"],
+                    Nome = "a",
+                    PrecoPorPessoa= "R$29.99"
+                }
+
             };
         }
         
