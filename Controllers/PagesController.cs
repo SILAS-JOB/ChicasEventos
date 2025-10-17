@@ -11,9 +11,10 @@ namespace ChicasEventos.Controllers
     {
         private readonly StaticDataService _dataService;
         private readonly IEmailService _emailService;
-        public PagesController(StaticDataService staticDataService, IEmailService emailService)
+        public PagesController(StaticDataService dataService, IEmailService emailService)
         {
-            _dataService = new StaticDataService();
+            _dataService = dataService;
+            _emailService = emailService;
         }
         public IActionResult Buffet()
         {
@@ -132,7 +133,7 @@ namespace ChicasEventos.Controllers
 
             try
             {
-                var companyEmail = "contato@chicas-eventos.com.br"; // Substitua pelo email real
+                var companyEmail = "tiilas777@gmail.com"; // Substitua pelo email real
                 var subject = $"Novo Orçamento de {fullOrder.FormData.Nome} - Evento: {fullOrder.FormData.NomeEvento}";
                 await _emailService.SendOrderEmailAsync(companyEmail, subject, emailBody.ToString());
                 
