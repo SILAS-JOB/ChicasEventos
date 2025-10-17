@@ -1,6 +1,13 @@
+
+using ChicasEventos.Models;
+using ChicasEventos.Services;
+
 var builder = WebApplication.CreateBuilder(args);
 
 builder.Services.AddControllersWithViews();
+builder.Services.AddTransient<IEmailService, EmailService>();
+builder.Services.Configure<EmailSettings>(builder.Configuration.GetSection("EmailSettings"));
+builder.Services.AddSingleton<StaticDataService>();
 
 var app = builder.Build();
 
