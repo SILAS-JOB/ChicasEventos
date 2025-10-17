@@ -1,0 +1,45 @@
+@model ChicasEventos.Models.PackageViewModel
+
+<div class="p-4">
+    <div class="d-flex justify-content-between align-items-center mb-3">
+        <h3 class="modal-title">@Model.Nome</h3>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+    </div>
+
+    @* Botão para voltar para a lista de pacotes *@
+    <button class="btn btn-light btn-sm mb-3 btn-voltar-pacotes" data-category="@Model.Categoria">
+        &larr; Voltar aos pacotes
+    </button>
+    
+    <div class="row">
+        <div class="col-lg-6">
+            <div class="info-block p-4 mb-4">
+                 <p>@Model.Descricao</p>
+            </div>
+            <div class="info-block p-4">
+                <h6 class="fw-bold">O QUE ESTÁ INCLUSO:</h6>
+                <ul class="list-unstyled">
+                    @foreach (var item in Model.ItensInclusos)
+                    {
+                        <li><i class="bi bi-check text-success"></i> @item</li>
+                    }
+                </ul>
+            </div>
+        </div>
+        <div class="col-lg-6">
+            <img src="@Model.ImagemPrincipal" class="img-fluid rounded mb-3">
+            <div class="row">
+                @foreach(var imgPequena in Model.ImagensPequenas)
+                {
+                    <div class="col-4"><img src="@imgPequena" class="img-fluid rounded"></div>
+                }
+            </div>
+        </div>
+    </div>
+
+    <div class="modal-footer border-0 mt-4">
+        <button type="button" class="btn btn-primary btn-add-to-cart" data-id="@Model.Id" data-type="package">
+        ADICIONAR AO EVENTO
+        </button>
+    </div>
+</div>

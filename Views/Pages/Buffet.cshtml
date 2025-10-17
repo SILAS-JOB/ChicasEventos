@@ -13,7 +13,9 @@
             <p class="section-subtitle">Serviços</p>
             <h1>Buffet</h1>
             <p>Cardápios sob medida para cada ocasião: coquetéis, coffee break, brunch e refeições completas. Clique nos cartões para ver os detalhes.</p>
-            <a href="#" class="main-cta-button">Ver pacotes</a>
+            <button class="main-cta-button btn-pacotes" data-bs-toggle="modal" data-bs-target="#detailsModal" data-category="Buffet">
+            Ver pacotes
+            </button>
             <div class="services-grid">
                 @foreach (var service in Model)
                 {

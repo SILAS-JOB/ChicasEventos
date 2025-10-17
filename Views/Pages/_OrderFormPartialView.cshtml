@@ -1,0 +1,26 @@
+@model OrderFormViewModel
+
+<div class="modal-header">
+    <h5 class="modal-title">Finalizar Orçamento</h5>
+    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+</div>
+<div class="modal-body">
+    <p>Por favor, preencha seus dados para concluirmos a solicitação.</p>
+    <form id="order-form">
+        <div class="row">
+            <div class="col-md-6 mb-3"><input asp-for="Nome" class="form-control" placeholder="Seu nome completo"></div>
+            <div class="col-md-6 mb-3"><input asp-for="Telefone" class="form-control" placeholder="Seu telefone"></div>
+            <div class="col-12 mb-3"><input asp-for="Email" class="form-control" placeholder="Seu melhor e-mail"></div>
+            <hr>
+            <div class="col-md-6 mb-3"><input asp-for="NomeEvento" class="form-control" placeholder="Nome do evento (ex: Confraternização Acme)"></div>
+            <div class="col-md-6 mb-3"><input type="date" asp-for="DataEvento" class="form-control" placeholder="Data do evento"></div>
+            <div class="col-md-6 mb-3"><input type="number" asp-for="NumeroConvidados" class="form-control" placeholder="Nº de convidados"></div>
+            <div class="col-md-6 mb-3"><input asp-for="LocalEvento" class="form-control" placeholder="Local do evento"></div>
+            <div class="col-12 mb-3"><textarea asp-for="Observacoes" class="form-control" rows="3" placeholder="Observações adicionais..."></textarea></div>
+        </div>
+    </form>
+</div>
+<div class="modal-footer">
+    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+    <button type="submit" class="btn btn-primary" form="order-form">Enviar Orçamento</button>
+</div>
