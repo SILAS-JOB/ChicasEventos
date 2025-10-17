@@ -136,7 +136,7 @@ namespace ChicasEventos.Controllers
 
             try
             {
-                var companyEmail = "contato@chicaseventos.com.br"; //email hardcoded
+                var companyEmail = "atendimentochicas@gmail.com"; //email hardcoded
                 var subject = $"Novo Orçamento de {fullOrder.FormData.Nome} - Evento: {fullOrder.FormData.NomeEvento}";
                 await _emailService.SendOrderEmailAsync(companyEmail, subject, emailBody.ToString());
 
