@@ -5,46 +5,44 @@
 <link rel="stylesheet" href="~/css/Pages/Services.css" />
 <link rel="stylesheet" href="~/css/Partial/ServicePartial.css"/>
 
-<body>
-    <main class="container">
-        <section class="service-page">
-            <p class="section-subtitle">Serviços</p>
-            <h1>Equipe Operacional (RH)</h1>
-            <p>Garçons, recepção, segurança e apoio. Escala planejada e briefing antes do evento.</p>
-            <a href="#" class="main-cta-button">Adicionar ao Evento</a>
 
-            <div class="services-grid">
-                        @foreach (var service in Model)
-                        {
-                            <div class="service-card">
-                                <img src="@service.ImagemPrincipalCard" class="card-background" alt="@service.Titulo">
-                                <div class="card-overlay"></div>
-                                <div class="card-content">
-                                    <h3>@service.Titulo</h3>
-                                    <p>@service.DescricaoBreve</p>
-                                        <button type="button" 
-                                                class="btn btn-outline-light btn-detalhes" 
-                                                data-bs-toggle="modal" 
-                                                data-bs-target="#detailsModal"
-                                                data-id="@service.Id">
-                                            VER DETALHES
-                                        </button>
-                                </div>
+<main class="container">
+    <section class="service-page">
+        <p class="section-subtitle">Serviços</p>
+        <h1>Equipe Operacional (RH)</h1>
+        <p>Garçons, recepção, segurança e apoio. Escala planejada e briefing antes do evento.</p>
+        <a href="#" class="main-cta-button">Adicionar ao Evento</a>
+
+        <div class="services-grid">
+                    @foreach (var service in Model)
+                    {
+                        <div class="service-card">
+                            <img src="@service.ImagemPrincipalCard" class="card-background" alt="@service.Titulo">
+                            <div class="card-overlay"></div>
+                            <div class="card-content">
+                                <h3>@service.Titulo</h3>
+                                <p>@service.DescricaoBreve</p>
+                                    <button type="button" 
+                                            class="btn btn-outline-light btn-detalhes" 
+                                            data-bs-toggle="modal" 
+                                            data-bs-target="#detailsModal"
+                                            data-id="@service.Id">
+                                        VER DETALHES
+                                    </button>
                             </div>
-                        }
-                    </div>
-                    <div class="modal fade" id="detailsModal" tabindex="-1" aria-hidden="true">
-                        <div class="modal-dialog modal-xl modal-dialog-centered">
-                            <div class="modal-content" style="border-radius: 1rem;">
-                            
-                            <div class="modal-body p-0" id="modalBodyContent">
-                    </div>
+                        </div>
+                    }
+                </div>
+                <div class="modal fade" id="detailsModal" tabindex="-1" aria-hidden="true">
+                    <div class="modal-dialog modal-xl modal-dialog-centered">
+                        <div class="modal-content" style="border-radius: 1rem;">
+                        
+                        <div class="modal-body p-0" id="modalBodyContent">
                 </div>
             </div>
         </div>
-        </section>
-    </main>
+    </div>
+    </section>
+</main>
 <script src="~/js/CardModal.js">
 </script>
-</body>
-</html>

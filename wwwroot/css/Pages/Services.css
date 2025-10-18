@@ -1,3 +1,4 @@
+/* --- Reset Básico e Estilos Globais --- */
         * {
             margin: 0;
             padding: 0;
@@ -5,9 +6,68 @@
         }
 
         body {
-            
-            color: #4f4f4f;
+            font-family: 'Outfit', sans-serif;
+            color: #FFF;
+            background-color: #ffffff;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        h1, h2, h3 {
+            color: #FFF !important;
+        }
+        
+        nav li {
+          list-style: none;
+          display:inline;
+        }
+
+        p {
+            color: #FFF !important;
+            line-height: 1.6;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        img {
+            max-width: 100%;
+            display: block;
+        }
+
+        /* --- Header / Cabeçalho --- */
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 40px;
             background-color: #fff;
+        }
+
+        .header .logo {
+            font-weight: 700;
+            font-size: 24px;
+        }
+        
+        .header .logo img {
+            width: 120px; /* Ajuste o tamanho do seu logo */
+        }
+
+        .header nav a {
+            margin: 0 15px;
+            font-weight: 500;
+            color: #555;
+            transition: color 0.3s ease;
+        }
+
+        .header nav a:hover {
+            color: #c77b5a;
         }
 
         .container {
