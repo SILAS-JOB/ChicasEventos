@@ -1,10 +1,8 @@
 @model ChicasEventos.Models.ServiceViewModel
 
 @{
-    // Criamos um ID único para o carrossel, usando o ID do serviço. Isso é uma boa prática.
     var carouselId = $"serviceCarousel_{Model.Id}";
     
-    // Juntamos a imagem principal com as pequenas para ter uma lista completa para o carrossel.
     var allImages = new List<string> { Model.ImagemGrandeModal };
     allImages.AddRange(Model.ImagensPequenasModal);
 }
