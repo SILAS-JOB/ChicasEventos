@@ -55,7 +55,7 @@ namespace ChicasEventos.Services
                     ItensInclusos = ["Bartender profissional", "Coquetéis clássicos e autorais", "Finger foods variados", "Equipamentos de bar completos", "Decoração temática"],
                     ImagemPrincipalCard = "/img/products/coqueteis/coq1.jpg",
                     ImagemGrandeModal = "/img/products/coqueteis/coq1.jpg",
-                    ImagensPequenasModal = ["/img/products/coqueteis/coq1.jpg", "/img/products/coqueteis/coq2.jpg", "/img/products/coqueteis/coq3.jpeg"]
+                    ImagensPequenasModal = ["/img/products/coqueteis/coq2.jpg", "/img/products/coqueteis/coq3.jpeg"]
                     },
                 new ServiceViewModel {
                 Id = 102,
@@ -66,7 +66,7 @@ namespace ChicasEventos.Services
                 ItensInclusos = ["Café premium e chás especiais", "Lanches e salgados variados", "Sucos naturais e água", "Equipamentos profissionais", "Atendimento especializado"],
                 ImagemPrincipalCard = "/img/products/coffe_break/cb3.jpg",
                 ImagemGrandeModal = "/img/products/coffe_break/cb3.jpg",
-                ImagensPequenasModal = ["/img/products/coffe_break/cb3.jpg", "/img/products/coffe_break/cb4.jpg", "/img/products/coffe_break/cb2.jpg"]
+                ImagensPequenasModal = ["/img/products/coffe_break/cb4.jpg", "/img/products/coffe_break/cb2.jpg"]
                 },
                 new ServiceViewModel { 
                 Id = 103,
@@ -77,7 +77,7 @@ namespace ChicasEventos.Services
                 ItensInclusos = ["Pratos quentes e frios", "Frutas frescas da estação", "Pães artesanais", "Ovos preparados de várias formas", "Bebidas variadas"],
                 ImagemPrincipalCard = "/img/products/brunch/bb4.jpg",
                 ImagemGrandeModal = "/img/products/brunch/bb4",
-                ImagensPequenasModal = ["/img/products/brunch/bb4.jpg", "/img/products/brunch/bb3.jpg", "/img/products/brunch/bb1.jpeg"]},
+                ImagensPequenasModal = [ "/img/products/brunch/bb3.jpg", "/img/products/brunch/bb1.jpeg"]},
                 new ServiceViewModel { 
                 Id = 104,
                 Category = "Buffet",
@@ -87,7 +87,7 @@ namespace ChicasEventos.Services
                 ItensInclusos = ["Pratos quentes variados", "Saladas frescas", "Acompanhamentos especiais", "Sobremesas caseiras", "Bebidas inclusas"],
                 ImagemPrincipalCard = "/img/products/almoco_jantar/aljn4.jpg",
                 ImagemGrandeModal = "/img/products/almoco_jantar/aljn4.jpg",
-                ImagensPequenasModal = ["/img/products/almoco_jantar/aljn4.jpg", "/img/products/almoco_jantar/aljn3.jpeg", "/img/products/almoco_jantar/aljn1.jpg"]},
+                ImagensPequenasModal = [ "/img/products/almoco_jantar/aljn3.jpeg", "/img/products/almoco_jantar/aljn1.jpg"]},
                 new ServiceViewModel { 
                 Id = 105,
                 Category = "Buffet",
@@ -97,7 +97,7 @@ namespace ChicasEventos.Services
                 ItensInclusos = ["Bolos e tortas artesanais", "Docinhos variados", "Mesa temática decorada", "Doces sem açúcar (opcional)", "Decoração especial"],
                 ImagemPrincipalCard = "/img/products/sobremesas/ss1.png",
                 ImagemGrandeModal = "/img/products/sobremesas/ss1.png",
-                ImagensPequenasModal = ["/img/products/sobremesas/ss1.png", "/img/products/sobremesas/ss2.png", "/img/products/sobremesas/ss4.png"] ,  },
+                ImagensPequenasModal = [ "/img/products/sobremesas/ss2.png", "/img/products/sobremesas/ss4.png"] ,  },
                 new ServiceViewModel { 
                 Id = 106,
                 Category = "Buffet",
@@ -107,7 +107,7 @@ namespace ChicasEventos.Services
                 ItensInclusos = ["Bar completo montado", "Bartender profissional", "Drinks especiais e clássicos", "Espumantes e vinhos", "Bebidas não alcoólicas"],
                 ImagemPrincipalCard = "/img/products/bebida_bar/bbb1.jpg",
                 ImagemGrandeModal = "/img/products/bebida_bar/bbb1.jpg",
-                ImagensPequenasModal = ["/img/products/bebida_bar/bbb1.jpg", "/img/products/bebida_bar/bbb2.jpg", "/img/products/bebida_bar/bbb3.jpg"]},
+                ImagensPequenasModal = ["/img/products/bebida_bar/bbb2.jpg", "/img/products/bebida_bar/bbb3.jpg"]},
             };
         }
         
@@ -158,24 +158,24 @@ namespace ChicasEventos.Services
                 Id = 201,
                 Category = "Audiovisual",
                 Titulo = "Fotografia",
-                DescricaoBreve = "A",
-                SubtituloModal = "A",
-                ItensInclusos = ["A"],
-                ImagemPrincipalCard = "/img/buffet/coffee_card.jpg",
-                ImagemGrandeModal = "A",
-                ImagensPequenasModal = ["A"] },
+                DescricaoBreve = "Cobertura completa do evento",
+                SubtituloModal = "Cobertura fotográfica profissional com equipamentos de última geração. Capturamos os melhores momentos do seu evento com qualidade excepcional.",
+                ItensInclusos = ["Fotógrafo profissional experiente", "Equipamentos de última geração", "Cobertura completa do evento", "Entrega rápida das fotos", "Edição profissional incluída"],
+                ImagemPrincipalCard = "/img/products/fotografia/ff4.jpg",
+                ImagemGrandeModal = "/img/products/fotografia/ff4.jpg",
+                ImagensPequenasModal = ["/img/products/fotografia/ff3.jpg", "/img/products/fotografia/ff2.jpg"] },
 
                 new ServiceViewModel
                 {
                     Id = 202,
                 Category = "Audiovisual",
                 Titulo = "Vídeo",
-                DescricaoBreve = "A",
-                SubtituloModal = "A",
-                ItensInclusos = ["A"],
-                ImagemPrincipalCard = "/img/buffet/coffee_card.jpg",
-                ImagemGrandeModal = "A",
-                ImagensPequenasModal = ["A"],
+                DescricaoBreve = "Filmagem e edição profissional",
+                SubtituloModal = "Filmagem profissional com equipamentos de alta qualidade e edição especializada. Criamos vídeos que contam a história do seu evento.",
+                ItensInclusos = ["Filmagem profissional HD/4K", "Equipamentos de alta qualidade", "Edição especializada", "Múltiplas câmeras", "Entrega em diferentes formatos"],
+                ImagemPrincipalCard = "/img/products/video/vv3.jpg",
+                ImagemGrandeModal = "/img/products/video/vv3.jpg",
+                ImagensPequenasModal = ["/img/products/video/vv2.jpeg", "/img/products/video/vv1.jpg"],
                 },
 
                 new ServiceViewModel
