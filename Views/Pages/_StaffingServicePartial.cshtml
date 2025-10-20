@@ -1,77 +1,34 @@
 @model List<ChicasEventos.Models.StaffingServiceViewModel>
 
 <style>
-    .staffing-item {
-        border: 1px solid #e5e7eb;
-        border-radius: 8px;
-        padding: 15px;
-        margin-bottom: 15px;
-        cursor: pointer;
-        transition: border-color 0.2s;
-        position: relative;
-    }
-    .staffing-item:hover {
-        border-color: #f97316; 
-    }
-    .staffing-item.selected {
-        border-color: #f97316;
-        border-width: 2px;
-        padding: 14px; 
-    }
-    .staffing-item .custom-radio {
-        width: 22px;
-        height: 22px;
-        border: 2px solid #ddd;
-        border-radius: 50%;
-        margin-right: 15px;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        flex-shrink: 0;
-    }
-    .staffing-item.selected .custom-radio {
-        border-color: #f97316;
-    }
-    .staffing-item .custom-radio::after {
-        content: '';
-        display: none;
-        width: 12px;
-        height: 12px;
-        border-radius: 50%;
-        background-color: #f97316;
-    }
-    .staffing-item.selected .custom-radio::after {
-        display: block;
-    }
-    /* Esconde o radio button real */
-    .staffing-item input[type="radio"] {
-        display: none;
+    .staffing-service-checkbox {
+        width: 1.5em; height: 1.5em; border-width: 2px;
+        cursor: pointer; vertical-align: middle; margin-top: 0.5em;
     }
 </style>
 
 <div class="modal-header">
-    <h5 class="modal-title">Adicionar ao evento</h5>
+    <h5 class="modal-title">Adicionar Serviços de Equipe</h5>
     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
 </div>
 <div class="modal-body">
-    <p>Cardápios sob medida para cada ocasião...</p>
+    <p>Selecione os serviços e a duração desejada para cada um.</p>
     <div class="row">
-        <div class="col-md-7" id="staffing-options-list">
-            @foreach (var service in Model)
-            {
-                <label class="staffing-item d-flex align-items-start" for="service_@service.Id">
-                    <input type="radio" name="selectedStaffingService" class="staffing-radio"
-                           id="service_@service.Id"
-                           data-id="@service.Id"
-                           data-title="@service.Title">
-                    <div class="custom-radio mt-1"></div>
-                    <div class="flex-grow-1">
-                        <strong>@service.Title</strong>
-                        <div class="text-muted small">@service.Description</div>
-
+        <div class="col-md-7">
+            <form id="staffing-form">
+                @foreach (var service in Model)
+                {
+                    <div class="form-check mb-3">
+                        <input class="form-check-input staffing-service-checkbox" type="checkbox" 
+                               id="service_@service.Id" value="@service.Id" data-title="@service.Title">
+                        <label class="form-check-label ms-2" for="service_@service.Id">
+                            <strong>@service.Title</strong>
+                            <small class="d-block text-muted">@service.Description</small>
+                        </label>
+                        
                         @if (service.PricingOptions.Any())
                         {
-                            <select class="form-select form-select-sm mt-2 staffing-duration-select">
+                            <select class="form-select form-select-sm mt-2 staffing-duration-select" disabled>
                                 <option value="0" data-price="0" data-label="">Selecione a duração</option>
                                 @foreach (var option in service.PricingOptions)
                                 {
@@ -84,25 +41,21 @@
                             </select>
                         }
                     </div>
-                </label>
-            }
+                }
+            </form>
         </div>
 
         <div class="col-md-5">
             <div class="card p-3 h-100">
                 <h6>Resumo da Seleção</h6>
                 <hr>
-                <div id="summary-items-list" class="flex-grow-1">
-                    <div class="d-flex justify-content-between small text-muted">
-                        <span>Item</span>
-                        <span>0</span>
-                    </div>
-                    <div class="mt-2 text-muted small">Nenhum item selecionado</div>
+                <div id="summary-items-list" class="flex-grow-1 mb-2">
+                    <span class="text-muted small">Nenhum item selecionado</span>
                 </div>
                 <hr>
-                <div class="d-flex justify-content-between align-items-center mt-3">
+                <div class="d-flex justify-content-between align-items-center mt-auto">
                     <strong>Total</strong>
-                    <span id="summary-total" class="fs-5 fw-bold" style="color: #f97316;">R$ 0,00</span>
+                    <span id="summary-total" class="fs-5 fw-bold text-success">R$ 0,00</span>
                 </div>
             </div>
         </div>
@@ -110,105 +63,119 @@
 </div>
 <div class="modal-footer">
     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">CANCELAR</button>
-    <button type="button" id="btn-add-staffing-to-cart" class="btn btn-primary" disabled >ADICIONAR AO CARRINHO</button>
+    <button type="button" id="btn-add-staffing-to-cart" class="btn btn-primary" disabled>ADICIONAR SELEÇÃO</button>
 </div>
 
 <script>
     (function() {
-        const listContainer = document.getElementById('staffing-options-list');
+        const form = document.getElementById('staffing-form');
         const summaryItemsList = document.getElementById('summary-items-list');
         const summaryTotal = document.getElementById('summary-total');
         const addToCartButton = document.getElementById('btn-add-staffing-to-cart');
+        
+        // Estrutura para guardar os detalhes dos itens selecionados para o carrinho
+        let currentSelectionForCart = []; 
 
-        listContainer.addEventListener('change', updateSummary);
+        // Ouve qualquer mudança no formulário
+        form.addEventListener('change', function() {
+            manageDropdownStates();
+            updateSummary();
+        });
 
+        // Habilita/Desabilita dropdowns
+        function manageDropdownStates() {
+             form.querySelectorAll('.staffing-service-checkbox').forEach(checkbox => {
+                const select = checkbox.closest('.form-check').querySelector('.staffing-duration-select');
+                if (select) {
+                    select.disabled = !checkbox.checked;
+                    if (!checkbox.checked) {
+                        select.selectedIndex = 0;
+                    }
+                }
+            });
+        }
+
+        // Atualiza o resumo e o total
         function updateSummary() {
             let total = 0;
             let itemsHtml = '';
-            let isSelectionValid = false;
+            currentSelectionForCart = []; // Limpa a seleção para recalcular
+            let allValidSelectionsMade = true; // Assumimos que está tudo ok inicialmente
 
-            listContainer.querySelectorAll('.staffing-item').forEach(item => {
-                item.classList.toggle('selected', item.querySelector('input').checked);
+            const checkedBoxes = form.querySelectorAll('.staffing-service-checkbox:checked');
+
+            checkedBoxes.forEach(box => {
+                const title = box.dataset.title;
+                const serviceId = parseInt(box.value);
+                let itemDescription = title;
+                let itemPrice = 0;
+                let optionId = 0;
+                let isValid = false; // Flag para este item específico
+
+                const select = box.closest('.form-check').querySelector('.staffing-duration-select');
+                
+                if (select) { // Se tem dropdown
+                    if (select.selectedIndex > 0) { // E uma duração foi selecionada
+                        const option = select.options[select.selectedIndex];
+                        const price = parseFloat(option.dataset.price);
+                        optionId = parseInt(option.value);
+                        itemPrice = price;
+                        itemDescription += ` (${option.dataset.label})`; // Adiciona a duração ex: (2h - R$ 70)
+                        isValid = true;
+                    } else {
+                        // Se tem dropdown mas NENHUMA duração foi selecionada, a seleção GERAL é inválida
+                        allValidSelectionsMade = false; 
+                    }
+                } else { // Se não tem dropdown (preço fixo ou a combinar)
+                    // Assumimos que é válido (adaptar se tiver preço fixo no data-price do checkbox)
+                    isValid = true; 
+                    itemDescription += ` (A combinar)`; 
+                }
+
+                if (isValid) {
+                     total += itemPrice;
+                     itemsHtml += `<div class="d-flex justify-content-between small"><span>${title}</span> <span>${itemPrice > 0 ? itemPrice.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' }) : 'A combinar'}</span></div>`;
+                     // Adiciona o item válido à lista para o carrinho
+                     currentSelectionForCart.push({ id: serviceId, type: 'staffing', optionId: optionId }); 
+                } else {
+                     // Adiciona o item inválido ao resumo visual, mas não ao carrinho/total
+                     itemsHtml += `<div class="d-flex justify-content-between small text-warning"><span>${title}</span> <span>Selecione a duração</span></div>`;
+                }
             });
 
-            const selectedRadio = listContainer.querySelector('input[type="radio"]:checked');
-
-            if (selectedRadio) {
-                const title = selectedRadio.dataset.title;
-                const select = selectedRadio.closest('.staffing-item').querySelector('.staffing-duration-select');
-                let price = 0;
-                let durationLabel = '';
-
-                if (select) {
-                    if (select.selectedIndex > 0) {
-                        const option = select.options[select.selectedIndex];
-                        price = parseFloat(option.dataset.price);
-                        durationLabel = option.dataset.label.split(' - ')[0];
-                        isSelectionValid = true;
-                    }
-                } else {
-                    isSelectionValid = true;
-                }
-                
-                total = price;
-                itemsHtml = `
-                    <div class="d-flex justify-content-between small">
-                        <span>Item</span>
-                        <span>${isSelectionValid ? 1 : 0}</span>
-                    </div>
-                    <div class="d-flex justify-content-between small mt-2">
-                        <span>${title} ${durationLabel ? '(' + durationLabel + ')' : ''}</span>
-                        <span class="fw-bold">${price.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' })}</span>
-                    </div>
-                `;
-            }
-
-            if (!isSelectionValid) {
-                itemsHtml = `
-                    <div class="d-flex justify-content-between small text-muted">
-                        <span>Item</span>
-                        <span>0</span>
-                    </div>
-                    <div class="mt-2 text-muted small">Nenhum item selecionado</div>
-                `;
-                total = 0;
-            }
-
-            summaryItemsList.innerHTML = itemsHtml;
+            summaryItemsList.innerHTML = itemsHtml || '<span class="text-muted small">Nenhum item selecionado</span>';
             summaryTotal.textContent = total.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' });
-            addToCartButton.disabled = !isSelectionValid;
+            
+            // O botão só habilita se houver itens marcados E todas as durações necessárias foram selecionadas
+            addToCartButton.disabled = checkedBoxes.length === 0 || !allValidSelectionsMade; 
         }
         
+        // Adiciona a seleção ao carrinho principal
         addToCartButton.addEventListener('click', function() {
-            const selectedRadio = listContainer.querySelector('input[type="radio"]:checked');
-            if (!selectedRadio) return;
+            const cartItems = JSON.parse(localStorage.getItem('chicasCart') || '[]');
+            let itemsAddedCount = 0;
 
-            const id = parseInt(selectedRadio.dataset.id);
-            const title = selectedRadio.dataset.title;
-            const select = selectedRadio.closest('.staffing-item').querySelector('.staffing-duration-select');
-            let price = 0;
-            let durationLabel = '';
-
-            if (select && select.selectedIndex > 0) {
-                const option = select.options[select.selectedIndex];
-                price = parseFloat(option.dataset.price);
-                durationLabel = option.dataset.label;
-            }
-
-            const itemToAdd = {
-                id: id,
-                type: 'staffing',
-                title: title,
-                price: price,
-                duration: durationLabel,
-                quantity: 1 
-            };
+            currentSelectionForCart.forEach(itemToAdd => {
+                // Verificação para evitar duplicatas EXATAS (mesmo serviço, mesma opção)
+                const exists = cartItems.some(cartItem => cartItem.id === itemToAdd.id && cartItem.optionId === itemToAdd.optionId && cartItem.type === itemToAdd.type);
+                if (!exists) {
+                    cartItems.push(itemToAdd);
+                    itemsAddedCount++;
+                }
+            });
             
-            addToCart(itemToAdd);
+            localStorage.setItem('chicasCart', JSON.stringify(cartItems));
+
+            if (typeof updateCartCounter === 'function') { updateCartCounter(); }
+            alert(`${itemsAddedCount} novo(s) item(ns) adicionado(s) ao orçamento!`);
             
-            const modalElement = document.getElementById('detailsModal');
+            const modalElement = document.getElementById('detailsModal'); // Assumindo que este é o ID do seu modal container
             const modalInstance = bootstrap.Modal.getInstance(modalElement);
             if (modalInstance) { modalInstance.hide(); }
         });
+        
+        manageDropdownStates();
+        updateSummary();
+
     })();
 </script>

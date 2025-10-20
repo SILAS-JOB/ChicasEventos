@@ -25,6 +25,11 @@ document.addEventListener("DOMContentLoaded", function() {
             const category = event.target.getAttribute('data-category');
             loadModalContent(`/Pages/_PackagesPartial?category=${category}`);
         }
+
+        if (event.target.matches('.btn-show-staffing')) {
+            const category = event.target.getAttribute('data-category');
+            loadModalContent(`/Pages/_StaffingServicePartial?category=${category}`);
+        }
         
         if (event.target.matches('.btn-package-details')) {
             const packageId = event.target.getAttribute('data-id');

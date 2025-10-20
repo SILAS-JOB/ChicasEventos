@@ -66,6 +66,11 @@ namespace ChicasEventos.Controllers
             var packages = _dataService.GetPackageById(id);
             return PartialView("_PackageDetailPartial", packages);
         }
+        public IActionResult _StaffingServicePartial(string category)
+        {
+            var model = _dataService.GetStaffingServicesByCategory(category);
+            return PartialView("_StaffingServicePartial", model);
+        }
 
         public IActionResult Carrinho()
         {

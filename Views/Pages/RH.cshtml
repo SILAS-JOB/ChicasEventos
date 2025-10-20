@@ -11,7 +11,12 @@
         <p class="section-subtitle">Serviços</p>
         <h1>Equipe Operacional (RH)</h1>
         <p>Garçons, recepção, segurança e apoio. Escala planejada e briefing antes do evento.</p>
-        <a href="#" class="main-cta-button">Adicionar ao Evento</a>
+        <button class="main-cta-button btn-show-staffing" 
+                data-bs-toggle="modal" 
+                data-bs-target="#detailsModal" 
+                data-category="SuaCategoriaAqui">
+            Montar Equipe
+        </button>
 
         <div class="service-grid">
                     @foreach (var service in Model)
