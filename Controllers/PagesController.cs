@@ -13,11 +13,14 @@ namespace ChicasEventos.Controllers
         private readonly StaticDataService _dataService;
         private readonly IEmailService _emailService;
         private readonly ILogger _logger;
-        public PagesController(StaticDataService dataService, IEmailService emailService, ILogger<PagesController> logger )
+        public PagesController(StaticDataService dataService, IEmailService emailService, ILogger<PagesController> logger, IConfiguration config )
         {
             _dataService = dataService;
             _emailService = emailService;
             _logger = logger;
+
+            var valorTeste = config["TesteDeLeitura"];
+            Console.WriteLine($"--- VALOR DE TESTE LIDO DO APPSETTINGS: {valorTeste} ---");
         }
         public IActionResult Buffet()
         {
