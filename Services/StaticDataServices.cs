@@ -411,66 +411,53 @@ namespace ChicasEventos.Services
             return new List<StaffingServiceViewModel>
             {
                 new StaffingServiceViewModel {
-                Id = 701, Category = "RH", Title = "Garçom (por pessoa)", Description = "Atendimento profissional e especializado",
+                Id = 701, Category = "Audiovisual", Title = "Fotógrafo", Description = "Cobertura fotográfica profissional",
                 PricingOptions = new List<PricingOptionViewModel> {
-                    new PricingOptionViewModel { Id = 801, Label = "2h - R$ 70", Price = 70.00m },
-                    new PricingOptionViewModel { Id = 802, Label = "4h - R$ 120", Price = 120.00m },
-                    new PricingOptionViewModel { Id = 803, Label = "6h - R$ 160", Price = 160.00m },
-                    new PricingOptionViewModel { Id = 804, Label = "Acima de 6h - A combinar ", Price = 0}
+                    new PricingOptionViewModel { Id = 801, Label = "2h - R$ 300", Price = 300.00m },
+                    new PricingOptionViewModel { Id = 802, Label = "4h - R$ 550", Price = 550.00m },
+                    new PricingOptionViewModel { Id = 803, Label = "6h - R$ 750", Price = 750.00m },
+                    new PricingOptionViewModel { Id = 804, Label = "Acima de 6h - A combinar", Price = 0}
                 }
             },
                 new StaffingServiceViewModel {
-                Id = 701, Category = "RH", Title = "Garçom (por pessoa)", Description = "Atendimento profissional e especializado",
+                Id = 702, Category = "Audiovisual", Title = "Cinegrafista", Description = "Filmagem profissional do evento",
                 PricingOptions = new List<PricingOptionViewModel> {
-                    new PricingOptionViewModel { Id = 805, Label = "2h - R$ 70", Price = 70.00m },
-                    new PricingOptionViewModel { Id = 806, Label = "4h - R$ 120", Price = 120.00m },
-                    new PricingOptionViewModel { Id = 807, Label = "6h - R$ 160", Price = 160.00m },
-                    new PricingOptionViewModel { Id = 808, Label = "Acima de 6h - A combinar ", Price = 0}
+                    new PricingOptionViewModel { Id = 805, Label = "2h - R$ 350", Price = 350.00m },
+                    new PricingOptionViewModel { Id = 806, Label = "4h - R$ 650", Price = 650.00m },
+                    new PricingOptionViewModel { Id = 807, Label = "6h - R$ 900", Price = 900.00m },
+                    new PricingOptionViewModel { Id = 808, Label = "Acima de 6h - A combinar", Price = 0}
                 }
             },
                 new StaffingServiceViewModel {
-                Id = 701, Category = "RH", Title = "Garçom (por pessoa)", Description = "Atendimento profissional e especializado",
+                Id = 703, Category = "Audiovisual", Title = "Operador de Drone", Description = "Imagens aéreas com drone",
                 PricingOptions = new List<PricingOptionViewModel> {
-                    new PricingOptionViewModel { Id = 809, Label = "2h - R$ 70", Price = 70.00m },
-                    new PricingOptionViewModel { Id = 810, Label = "4h - R$ 120", Price = 120.00m },
-                    new PricingOptionViewModel { Id = 811, Label = "6h - R$ 160", Price = 160.00m },
-                    new PricingOptionViewModel { Id = 812, Label = "Acima de 6h - A combinar ", Price = 0}
+                    new PricingOptionViewModel { Id = 809, Label = "1h - R$ 400", Price = 400.00m },
+                    new PricingOptionViewModel { Id = 810, Label = "2h - R$ 700", Price = 700.00m },
+                    new PricingOptionViewModel { Id = 811, Label = "4h - R$ 1200", Price = 1200.00m },
+                    new PricingOptionViewModel { Id = 812, Label = "Acima de 4h - A combinar", Price = 0}
+                }
+            },
+                 new StaffingServiceViewModel {
+                Id = 704, Category = "Audiovisual", Title = "Técnico de Som", Description = "Operação de equipamentos de som",
+                PricingOptions = new List<PricingOptionViewModel> {
+                    new PricingOptionViewModel { Id = 813, Label = "Até 4h - R$ 250", Price = 250.00m },
+                    new PricingOptionViewModel { Id = 814, Label = "Até 8h - R$ 450", Price = 450.00m },
+                    new PricingOptionViewModel { Id = 815, Label = "Hora extra - R$ 70", Price = 70.00m }
                 }
             },
                 new StaffingServiceViewModel {
-                Id = 701, Category = "RH", Title = "Garçom (por pessoa)", Description = "Atendimento profissional e especializado",
+                Id = 705, Category = "Audiovisual", Title = "Técnico de Luz", Description = "Operação de equipamentos de iluminação",
                 PricingOptions = new List<PricingOptionViewModel> {
-                    new PricingOptionViewModel { Id = 813, Label = "2h - R$ 70", Price = 70.00m },
-                    new PricingOptionViewModel { Id = 814, Label = "4h - R$ 120", Price = 120.00m },
-                    new PricingOptionViewModel { Id = 815, Label = "6h - R$ 160", Price = 160.00m },
-                    new PricingOptionViewModel { Id = 816, Label = "Acima de 6h - A combinar ", Price = 0}
+                    new PricingOptionViewModel { Id = 816, Label = "Até 4h - R$ 250", Price = 250.00m },
+                    new PricingOptionViewModel { Id = 817, Label = "Até 8h - R$ 450", Price = 450.00m },
+                    new PricingOptionViewModel { Id = 818, Label = "Hora extra - R$ 70", Price = 70.00m }
                 }
             },
                 new StaffingServiceViewModel {
-                Id = 701, Category = "RH", Title = "Garçom (por pessoa)", Description = "Atendimento profissional e especializado",
+                Id = 706, Category = "Audiovisual", Title = "Editor de Vídeo", Description = "Edição e pós-produção de vídeos",
                 PricingOptions = new List<PricingOptionViewModel> {
-                    new PricingOptionViewModel { Id = 817, Label = "2h - R$ 70", Price = 70.00m },
-                    new PricingOptionViewModel { Id = 818, Label = "4h - R$ 120", Price = 120.00m },
-                    new PricingOptionViewModel { Id = 819, Label = "6h - R$ 160", Price = 160.00m },
-                    new PricingOptionViewModel { Id = 820, Label = "Acima de 6h - A combinar ", Price = 0}
-                }
-            },
-                new StaffingServiceViewModel {
-                Id = 701, Category = "RH", Title = "Garçom (por pessoa)", Description = "Atendimento profissional e especializado",
-                PricingOptions = new List<PricingOptionViewModel> {
-                    new PricingOptionViewModel { Id = 821, Label = "2h - R$ 70", Price = 70.00m },
-                    new PricingOptionViewModel { Id = 822, Label = "4h - R$ 120", Price = 120.00m },
-                    new PricingOptionViewModel { Id = 823, Label = "6h - R$ 160", Price = 160.00m },
-                    new PricingOptionViewModel { Id = 824, Label = "Acima de 6h - A combinar ", Price = 0}
-                }
-            },
-                new StaffingServiceViewModel {
-                Id = 701, Category = "RH", Title = "Garçom (por pessoa)", Description = "Atendimento profissional e especializado",
-                PricingOptions = new List<PricingOptionViewModel> {
-                    new PricingOptionViewModel { Id = 825, Label = "2h - R$ 70", Price = 70.00m },
-                    new PricingOptionViewModel { Id = 826, Label = "4h - R$ 120", Price = 120.00m },
-                    new PricingOptionViewModel { Id = 827, Label = "6h - R$ 160", Price = 160.00m },
-                    new PricingOptionViewModel { Id = 828, Label = "Acima de 6h - A combinar ", Price = 0}
+                    new PricingOptionViewModel { Id = 819, Label = "Por vídeo - a partir de R$ 300", Price = 300.00m },
+                    new PricingOptionViewModel { Id = 820, Label = "Diária - R$ 400", Price = 400.00m },
                 }
             },
             };
@@ -481,57 +468,61 @@ namespace ChicasEventos.Services
             return new List<StaffingServiceViewModel>
             {
                 new StaffingServiceViewModel {
-                Id = 701, Category = "RH", Title = "Garçom (por pessoa)", Description = "Atendimento profissional e especializado",
-                PricingOptions = new List<PricingOptionViewModel> {
-                    new PricingOptionViewModel { Id = 801, Label = "2h - R$ 70", Price = 70.00m },
-                    new PricingOptionViewModel { Id = 802, Label = "4h - R$ 120", Price = 120.00m },
-                    new PricingOptionViewModel { Id = 803, Label = "6h - R$ 160", Price = 160.00m },
-                    new PricingOptionViewModel { Id = 804, Label = "Acima de 6h - A combinar ", Price = 0}
-                }
-            },
-                new StaffingServiceViewModel {
-                Id = 701, Category = "RH", Title = "Garçom (por pessoa)", Description = "Atendimento profissional e especializado",
-                PricingOptions = new List<PricingOptionViewModel> {
-                    new PricingOptionViewModel { Id = 805, Label = "2h - R$ 70", Price = 70.00m },
-                    new PricingOptionViewModel { Id = 806, Label = "4h - R$ 120", Price = 120.00m },
-                    new PricingOptionViewModel { Id = 807, Label = "6h - R$ 160", Price = 160.00m },
-                    new PricingOptionViewModel { Id = 808, Label = "Acima de 6h - A combinar ", Price = 0}
-                }
-            },
-                new StaffingServiceViewModel {
-                Id = 701, Category = "RH", Title = "Garçom (por pessoa)", Description = "Atendimento profissional e especializado",
-                PricingOptions = new List<PricingOptionViewModel> {
-                    new PricingOptionViewModel { Id = 809, Label = "2h - R$ 70", Price = 70.00m },
-                    new PricingOptionViewModel { Id = 810, Label = "4h - R$ 120", Price = 120.00m },
-                    new PricingOptionViewModel { Id = 811, Label = "6h - R$ 160", Price = 160.00m },
-                    new PricingOptionViewModel { Id = 812, Label = "Acima de 6h - A combinar ", Price = 0}
-                }
-            },
-                new StaffingServiceViewModel {
-                Id = 701, Category = "RH", Title = "Garçom (por pessoa)", Description = "Atendimento profissional e especializado",
-                PricingOptions = new List<PricingOptionViewModel> {
-                    new PricingOptionViewModel { Id = 813, Label = "2h - R$ 70", Price = 70.00m },
-                    new PricingOptionViewModel { Id = 814, Label = "4h - R$ 120", Price = 120.00m },
-                    new PricingOptionViewModel { Id = 815, Label = "6h - R$ 160", Price = 160.00m },
-                    new PricingOptionViewModel { Id = 816, Label = "Acima de 6h - A combinar ", Price = 0}
-                }
-            },
-                new StaffingServiceViewModel {
-                Id = 701, Category = "RH", Title = "Garçom (por pessoa)", Description = "Atendimento profissional e especializado",
-                PricingOptions = new List<PricingOptionViewModel> {
-                    new PricingOptionViewModel { Id = 817, Label = "2h - R$ 70", Price = 70.00m },
-                    new PricingOptionViewModel { Id = 818, Label = "4h - R$ 120", Price = 120.00m },
-                    new PricingOptionViewModel { Id = 819, Label = "6h - R$ 160", Price = 160.00m },
-                    new PricingOptionViewModel { Id = 820, Label = "Acima de 6h - A combinar ", Price = 0}
-                }
-            },
-                new StaffingServiceViewModel {
-                Id = 701, Category = "RH", Title = "Garçom (por pessoa)", Description = "Atendimento profissional e especializado",
+                Id = 707, Category = "RH", Title = "Garçom", Description = "Atendimento profissional e especializado",
                 PricingOptions = new List<PricingOptionViewModel> {
                     new PricingOptionViewModel { Id = 821, Label = "2h - R$ 70", Price = 70.00m },
                     new PricingOptionViewModel { Id = 822, Label = "4h - R$ 120", Price = 120.00m },
                     new PricingOptionViewModel { Id = 823, Label = "6h - R$ 160", Price = 160.00m },
-                    new PricingOptionViewModel { Id = 824, Label = "Acima de 6h - A combinar ", Price = 0}
+                    new PricingOptionViewModel { Id = 824, Label = "Acima de 6h - A combinar", Price = 0}
+                }
+            },
+                new StaffingServiceViewModel {
+                Id = 708, Category = "RH", Title = "Recepcionista", Description = "Boas-vindas e orientação aos convidados",
+                PricingOptions = new List<PricingOptionViewModel> {
+                    new PricingOptionViewModel { Id = 825, Label = "2h - R$ 80", Price = 80.00m },
+                    new PricingOptionViewModel { Id = 826, Label = "4h - R$ 140", Price = 140.00m },
+                    new PricingOptionViewModel { Id = 827, Label = "6h - R$ 190", Price = 190.00m },
+                    new PricingOptionViewModel { Id = 828, Label = "Acima de 6h - A combinar", Price = 0}
+                }
+            },
+                new StaffingServiceViewModel {
+                Id = 709, Category = "RH", Title = "Segurança", Description = "Proteção e controle de acesso",
+                PricingOptions = new List<PricingOptionViewModel> {
+                    new PricingOptionViewModel { Id = 829, Label = "4h - R$ 150", Price = 150.00m },
+                    new PricingOptionViewModel { Id = 830, Label = "6h - R$ 220", Price = 220.00m },
+                    new PricingOptionViewModel { Id = 831, Label = "8h - R$ 280", Price = 280.00m },
+                    new PricingOptionViewModel { Id = 832, Label = "Acima de 8h - A combinar", Price = 0}
+                }
+            },
+                new StaffingServiceViewModel {
+                Id = 710, Category = "RH", Title = "Apoio Operacional", Description = "Suporte logístico completo",
+                PricingOptions = new List<PricingOptionViewModel> {
+                    new PricingOptionViewModel { Id = 833, Label = "4h - R$ 100", Price = 100.00m },
+                    new PricingOptionViewModel { Id = 834, Label = "6h - R$ 150", Price = 150.00m },
+                    new PricingOptionViewModel { Id = 835, Label = "8h - R$ 200", Price = 200.00m },
+                    new PricingOptionViewModel { Id = 836, Label = "Acima de 8h - A combinar", Price = 0}
+                }
+            },
+                new StaffingServiceViewModel {
+                Id = 711, Category = "RH", Title = "Bartender", Description = "Preparo de drinks e coquetéis",
+                PricingOptions = new List<PricingOptionViewModel> {
+                    new PricingOptionViewModel { Id = 837, Label = "4h - R$ 200", Price = 200.00m },
+                    new PricingOptionViewModel { Id = 838, Label = "6h - R$ 280", Price = 280.00m },
+                    new PricingOptionViewModel { Id = 839, Label = "8h - R$ 350", Price = 350.00m },
+                }
+            },
+                new StaffingServiceViewModel {
+                Id = 712, Category = "RH", Title = "Copeira", Description = "Organização e limpeza da copa",
+                PricingOptions = new List<PricingOptionViewModel> {
+                    new PricingOptionViewModel { Id = 840, Label = "4h - R$ 90", Price = 90.00m },
+                    new PricingOptionViewModel { Id = 841, Label = "6h - R$ 130", Price = 130.00m },
+                    new PricingOptionViewModel { Id = 842, Label = "8h - R$ 170", Price = 170.00m },
+                }
+            },
+                new StaffingServiceViewModel {
+                Id = 713, Category = "RH", Title = "Carregador", Description = "Carga e descarga de materiais",
+                PricingOptions = new List<PricingOptionViewModel> {
+                    new PricingOptionViewModel { Id = 843, Label = "Diária - R$ 150", Price = 150.00m },
                 }
             },
             };
@@ -542,66 +533,54 @@ namespace ChicasEventos.Services
             return new List<StaffingServiceViewModel>
             {
                 new StaffingServiceViewModel {
-                Id = 701, Category = "RH", Title = "Garçom (por pessoa)", Description = "Atendimento profissional e especializado",
+                Id = 714, Category = "Cerimonial", Title = "Coordenador de Evento", Description = "Gestão e coordenação completa do evento",
                 PricingOptions = new List<PricingOptionViewModel> {
-                    new PricingOptionViewModel { Id = 801, Label = "2h - R$ 70", Price = 70.00m },
-                    new PricingOptionViewModel { Id = 802, Label = "4h - R$ 120", Price = 120.00m },
-                    new PricingOptionViewModel { Id = 803, Label = "6h - R$ 160", Price = 160.00m },
-                    new PricingOptionViewModel { Id = 804, Label = "Acima de 6h - A combinar ", Price = 0}
+                    new PricingOptionViewModel { Id = 844, Label = "Dia do evento - R$ 500", Price = 500.00m },
+                    new PricingOptionViewModel { Id = 845, Label = "Semana do evento - R$ 1200", Price = 1200.00m },
+                    new PricingOptionViewModel { Id = 846, Label = "Mês do evento - R$ 2500", Price = 2500.00m },
+                    new PricingOptionViewModel { Id = 847, Label = "Projeto completo - A combinar", Price = 0}
                 }
             },
                 new StaffingServiceViewModel {
-                Id = 701, Category = "RH", Title = "Garçom (por pessoa)", Description = "Atendimento profissional e especializado",
+                Id = 715, Category = "Cerimonial", Title = "Produtor de Evento", Description = "Produção e execução do evento",
                 PricingOptions = new List<PricingOptionViewModel> {
-                    new PricingOptionViewModel { Id = 805, Label = "2h - R$ 70", Price = 70.00m },
-                    new PricingOptionViewModel { Id = 806, Label = "4h - R$ 120", Price = 120.00m },
-                    new PricingOptionViewModel { Id = 807, Label = "6h - R$ 160", Price = 160.00m },
-                    new PricingOptionViewModel { Id = 808, Label = "Acima de 6h - A combinar ", Price = 0}
+                    new PricingOptionViewModel { Id = 848, Label = "Dia do evento - R$ 400", Price = 400.00m },
+                    new PricingOptionViewModel { Id = 849, Label = "Semana do evento - R$ 900", Price = 900.00m },
+                    new PricingOptionViewModel { Id = 850, Label = "Mês do evento - R$ 1800", Price = 1800.00m },
+                    new PricingOptionViewModel { Id = 851, Label = "Projeto completo - A combinar", Price = 0}
                 }
             },
                 new StaffingServiceViewModel {
-                Id = 701, Category = "RH", Title = "Garçom (por pessoa)", Description = "Atendimento profissional e especializado",
+                Id = 716, Category = "Cerimonial", Title = "Assistente de Produção", Description = "Apoio na produção e execução",
                 PricingOptions = new List<PricingOptionViewModel> {
-                    new PricingOptionViewModel { Id = 809, Label = "2h - R$ 70", Price = 70.00m },
-                    new PricingOptionViewModel { Id = 810, Label = "4h - R$ 120", Price = 120.00m },
-                    new PricingOptionViewModel { Id = 811, Label = "6h - R$ 160", Price = 160.00m },
-                    new PricingOptionViewModel { Id = 812, Label = "Acima de 6h - A combinar ", Price = 0}
+                    new PricingOptionViewModel { Id = 852, Label = "Diária - R$ 200", Price = 200.00m },
+                    new PricingOptionViewModel { Id = 853, Label = "Semana - R$ 800", Price = 800.00m },
+                    new PricingOptionViewModel { Id = 854, Label = "Mês - R$ 2000", Price = 2000.00m }
                 }
             },
                 new StaffingServiceViewModel {
-                Id = 701, Category = "RH", Title = "Garçom (por pessoa)", Description = "Atendimento profissional e especializado",
+                Id = 717, Category = "Cerimonial", Title = "Mestre de Cerimônias", Description = "Condução e apresentação do evento",
                 PricingOptions = new List<PricingOptionViewModel> {
-                    new PricingOptionViewModel { Id = 813, Label = "2h - R$ 70", Price = 70.00m },
-                    new PricingOptionViewModel { Id = 814, Label = "4h - R$ 120", Price = 120.00m },
-                    new PricingOptionViewModel { Id = 815, Label = "6h - R$ 160", Price = 160.00m },
-                    new PricingOptionViewModel { Id = 816, Label = "Acima de 6h - A combinar ", Price = 0}
+                    new PricingOptionViewModel { Id = 855, Label = "Por evento - a partir de R$ 600", Price = 600.00m },
                 }
             },
                 new StaffingServiceViewModel {
-                Id = 701, Category = "RH", Title = "Garçom (por pessoa)", Description = "Atendimento profissional e especializado",
+                Id = 718, Category = "Cerimonial", Title = "Celebrante Social", Description = "Realização de cerimônias personalizadas",
                 PricingOptions = new List<PricingOptionViewModel> {
-                    new PricingOptionViewModel { Id = 817, Label = "2h - R$ 70", Price = 70.00m },
-                    new PricingOptionViewModel { Id = 818, Label = "4h - R$ 120", Price = 120.00m },
-                    new PricingOptionViewModel { Id = 819, Label = "6h - R$ 160", Price = 160.00m },
-                    new PricingOptionViewModel { Id = 820, Label = "Acima de 6h - A combinar ", Price = 0}
+                    new PricingOptionViewModel { Id = 856, Label = "Por cerimônia - a partir de R$ 800", Price = 800.00m },
                 }
             },
                 new StaffingServiceViewModel {
-                Id = 701, Category = "RH", Title = "Garçom (por pessoa)", Description = "Atendimento profissional e especializado",
+                Id = 719, Category = "Cerimonial", Title = "Protocolo e Etiqueta", Description = "Consultoria e treinamento",
                 PricingOptions = new List<PricingOptionViewModel> {
-                    new PricingOptionViewModel { Id = 821, Label = "2h - R$ 70", Price = 70.00m },
-                    new PricingOptionViewModel { Id = 822, Label = "4h - R$ 120", Price = 120.00m },
-                    new PricingOptionViewModel { Id = 823, Label = "6h - R$ 160", Price = 160.00m },
-                    new PricingOptionViewModel { Id = 824, Label = "Acima de 6h - A combinar ", Price = 0}
+                    new PricingOptionViewModel { Id = 857, Label = "Workshop - R$ 1500", Price = 1500.00m },
+                    new PricingOptionViewModel { Id = 858, Label = "Consultoria - A combinar", Price = 0 },
                 }
             },
                 new StaffingServiceViewModel {
-                Id = 701, Category = "RH", Title = "Garçom (por pessoa)", Description = "Atendimento profissional e especializado",
+                Id = 720, Category = "Cerimonial", Title = "Roteirista", Description = "Criação de roteiros para o evento",
                 PricingOptions = new List<PricingOptionViewModel> {
-                    new PricingOptionViewModel { Id = 825, Label = "2h - R$ 70", Price = 70.00m },
-                    new PricingOptionViewModel { Id = 826, Label = "4h - R$ 120", Price = 120.00m },
-                    new PricingOptionViewModel { Id = 827, Label = "6h - R$ 160", Price = 160.00m },
-                    new PricingOptionViewModel { Id = 828, Label = "Acima de 6h - A combinar ", Price = 0}
+                    new PricingOptionViewModel { Id = 859, Label = "Por roteiro - a partir de R$ 500", Price = 500.00m },
                 }
             },
             }; 
