@@ -159,7 +159,10 @@
         }
 
         .footer-about .logo img {
-            width: 120px;
+            height: auto;
+            max-height: 30px;
+            max-width: 100%;
+            width: auto;
             margin-bottom: 15px;
         }
         

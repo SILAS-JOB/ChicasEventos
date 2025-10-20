@@ -12,13 +12,14 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 <body>
     <header>
         <nav class="navbar navbar-expand-lg navbar-light bg-white py-3">
-            <div class="container">
+            <div class="container d-flex align-items-center">
                 
-                <a class="navbar-brand" asp-controller="Home" asp-action="Index">
+                <a class="navbar-brand d-flex align-items-center" asp-controller="Home" asp-action="Index">
                     <img src="~/img/props/ChicasLogo.png" alt="Chicas Eventos Logo" style="height: 50px;">
                 </a>
 
@@ -28,21 +29,26 @@
 
                 <div class="collapse navbar-collapse" id="navbarNav">
                     
-                    <ul class="navbar-nav mx-auto">
+                    <ul class="navbar-nav mx-auto d-flex align-items-center">
                         <li class="nav-item">
-                            <a class="nav-link" asp-controller="Home" asp-action="Index"><b>HOME</b></a>
+                            <a class="nav-link d-flex align-items-center" asp-controller="Home" asp-action="Index" style="height: 50px;"><b>HOME</b></a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" asp-controller="Home" asp-action="Portifolio"><b>PORTIFÓLIO</b></a>
+                            <a class="nav-link d-flex align-items-center" asp-controller="Home" asp-action="Portifolio" style="height: 50px;"><b>PORTIFÓLIO</b></a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" asp-controller="Home" asp-action="Sobre"><b>SOBRE NÓS</b></a>
+                            <a class="nav-link d-flex align-items-center" asp-controller="Home" asp-action="Sobre" style="height: 50px;"><b>SOBRE NÓS</b></a>
                         </li>
                     </ul>
 
-                    <ul class="navbar-nav">
-                        <li class="nav-item">
-                            <a class="nav-link cart-icon-container" asp-controller="Pages" asp-action="Carrinho">
+                    <ul class="navbar-nav d-flex align-items-center">
+                        <li class="nav-item me-3 d-flex align-items-center">
+                            <a class="btn btn-outline-primary contact-btn d-flex align-items-center" href="https://wa.me/5591991722306?text=Olá! Gostaria de solicitar um orçamento para meu evento." target="_blank" style="border-color: #A0522D; color: #A0522D; border-radius: 25px; padding: 8px 20px; font-weight: 600; text-decoration: none; transition: all 0.3s ease; height: 40px;">
+                                ENTRE EM CONTATO
+                            </a>
+                        </li>
+                        <li class="nav-item d-flex align-items-center">
+                            <a class="nav-link cart-icon-container d-flex align-items-center" asp-controller="Pages" asp-action="Carrinho" style="height: 50px;">
                                 <img src="https://img.icons8.com/?size=100&id=59997&format=png&color=000000" style="height: 30px;"/>
                                 <span id="cart-counter" class="badge bg-danger rounded-pill">0</span>
                             </a>
@@ -63,41 +69,49 @@
         <div class="container">
             <div class="footer-content">
                 <div class="footer-about">
-                    <a href="#" class="logo">
-                       Chicas Eventos
-                    </a>
-                    <p>Transformando momentos em memórias inesquecíveis. Organização de eventos com criatividade e excelência.</p>
+                    <div class="footer-logo">
+                        <img src="~/img/icons/logo/logo rem.png" alt="Chicas Eventos Logo" class="footer-logo-img">
+                    </div>
+                    <p>Transformamos cada evento em uma experiência única, com excelência, criatividade e cuidado em cada detalhe.</p>
                 </div>
                 <div class="footer-column">
                     <h4>Serviços</h4>
                     <ul>
-                        <li><a href="#">Corporativo</a></li>
-                        <li><a href="#">Casamentos</a></li>
-                        <li><a href="#">Festas</a></li>
-                        <li><a href="#">Debutantes</a></li>
+                        <li><a href="#">Buffet</a></li>
+                        <li><a href="#">Audiovisual</a></li>
+                        <li><a href="#">RH</a></li>
+                        <li><a href="#">Cerimonial</a></li>
                     </ul>
                 </div>
                 <div class="footer-column">
                     <h4>Empresa</h4>
                     <ul>
-                        <li><a href="#">Sobre Nós</a></li>
+                        <li><a href="#">Sobre</a></li>
+                        <li><a href="#">Portfólio</a></li>
                         <li><a href="#">Contato</a></li>
-                        <li><a href="#">Carreiras</a></li>
+                        <li><a href="#">Faça seu evento</a></li>
                     </ul>
                 </div>
                 <div class="footer-column">
-                    <h4>Endereços</h4>
-                    <p>Rua Exemplo, 123<br>Cidade, Estado<br>CEP 12345-678</p>
+                    <h4>Conecte-se</h4>
                     <div class="footer-socials">
-                        <a href="#"><i class="fab fa-linkedin"></i></a>
-                        <a href="#"><i class="fab fa-facebook"></i></a>
-                        <a href="#"><i class="fab fa-instagram"></i></a>
-                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="social-icon instagram">
+                            <img src="~/img/icons/icones/Group.svg" alt="Instagram" style="width: 22px; height: 22px;">
+                        </a>
+                        <a href="#" class="social-icon linkedin">
+                            <img src="~/img/icons/icones/LinkedIn - Original.svg" alt="LinkedIn" style="width: 22px; height: 22px;">
+                        </a>
+                        <a href="#" class="social-icon facebook">
+                            <img src="~/img/icons/icones/Facebook - Original.svg" alt="Facebook" style="width: 22px; height: 22px;">
+                        </a>
+                        <a href="#" class="social-icon twitter">
+                            <img src="~/img/icons/icones/Twitter - Original.svg" alt="Twitter" style="width: 22px; height: 22px;">
+                        </a>
                     </div>
                 </div>
             </div>
             <div class="footer-bottom">
-                <p>&copy; 2024 Chicas Eventos. Todos os direitos reservados.</p>
+                <p>&copy; 2025 Chicas Eventos. Todos os direitos reservados. Ketsudsgn & Silas-DEV</p>
             </div>
         </div>
     </footer>

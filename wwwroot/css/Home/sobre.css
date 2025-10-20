@@ -126,7 +126,17 @@
         .about-story-images {
             display: grid;
             grid-template-columns: 1fr 1fr;
-            gap: 15px;
+            gap: 30px;
+        }
+        
+        .about-story-images img {
+            width: 100%;
+            border-radius: 12px;
+            transition: transform 0.3s ease;
+        }
+        
+        .about-story-images img:hover {
+            transform: scale(1.05);
         }
         
         /* --- Seção "O que guia" --- */
@@ -154,7 +164,13 @@
             border: 1px solid #e0e0e0;
             padding: 30px;
             border-radius: 12px;
-            text-align: left;
+            text-align: center;
+        }
+        
+        .principle-card i {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+            color: #d18261;
         }
         
         .principle-card h3 {
@@ -166,30 +182,32 @@
         .cta-section .container {
             background: linear-gradient(45deg, #3498db, #2ecc71);
             color: #fff;
-            padding: 60px;
-            border-radius: 20px;
+            padding: 40px;
+            border-radius: 15px;
             text-align: center;
         }
         
         .cta-section h2 {
             color: #fff;
-            font-size: 2.2rem;
-            margin-bottom: 15px;
+            font-size: 1.8rem;
+            margin-bottom: 12px;
         }
         
         .cta-section p {
             color: #ecf0f1;
-            margin-bottom: 30px;
+            margin-bottom: 25px;
+            font-size: 0.95rem;
         }
         
         .cta-button {
             background-color: #fff;
             color: #333;
-            padding: 12px 30px;
-            border-radius: 25px;
+            padding: 10px 25px;
+            border-radius: 20px;
             font-weight: 600;
             transition: transform 0.3s ease;
             display: inline-block;
+            font-size: 0.9rem;
         }
 
         .cta-button:hover {
@@ -275,6 +293,37 @@
             font-size: 1.5rem;
             margin-bottom: 10px;
         }
+        
+        .address-actions {
+            margin-top: 20px;
+        }
+        
+        .map-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background-color: #d18261;
+            color: #fff;
+            padding: 10px 20px;
+            border-radius: 25px;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            text-decoration: none;
+        }
+        
+        .map-link:hover {
+            background-color: #b86d4f;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(209, 130, 97, 0.3);
+        }
+        
+        .google-map-embed {
+            width: 100%;
+            height: 300px;
+            border: none;
+            border-radius: 12px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        }
 
         /* --- Footer (simplificado, baseado nos anteriores) --- */
         .footer {
@@ -309,8 +358,15 @@
             .about-story-text {
                 text-align: center;
             }
+            .about-story-images {
+                grid-template-columns: 1fr 1fr;
+                gap: 20px;
+            }
             .footer-content {
                 grid-template-columns: 1fr 1fr;
+            }
+            .google-map-embed {
+                height: 250px;
             }
         }
         
@@ -325,7 +381,17 @@
             .principles-grid, .contact-grid {
                 gap: 15px;
             }
+            .about-story-images {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
             h1, h2 {
                 font-size: 2rem !important;
+            }
+            .google-map-embed {
+                height: 200px;
+            }
+            .address-section .container {
+                padding: 20px;
             }
         }

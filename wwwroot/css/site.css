@@ -27,7 +27,48 @@ html {
 
 header {
   font-family: 'Outfit' !important;
+}
 
+/* Alinhamento perfeito do header */
+.navbar {
+  min-height: 70px;
+}
+
+.navbar-brand {
+  height: 50px;
+  display: flex !important;
+  align-items: center !important;
+}
+
+.navbar-nav {
+  height: 50px;
+}
+
+.navbar-nav .nav-item {
+  display: flex !important;
+  align-items: center !important;
+}
+
+.navbar-nav .nav-link {
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  height: 50px !important;
+  padding: 0 15px !important;
+}
+
+.contact-btn {
+  height: 40px !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+}
+
+.cart-icon-container {
+  height: 50px !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
 }
 
 body {
@@ -55,4 +96,36 @@ body {
     right: -10px;
     font-size: 0.7rem;
     padding: 3px 6px;
+}
+
+/* Estilos para o botão de contato */
+.contact-btn {
+    border: 2px solid #A0522D !important;
+    color: #A0522D !important;
+    background-color: transparent !important;
+    border-radius: 25px !important;
+    padding: 8px 20px !important;
+    font-weight: 600 !important;
+    text-decoration: none !important;
+    transition: all 0.3s ease !important;
+    font-size: 0.9rem !important;
+    text-transform: uppercase !important;
+    letter-spacing: 0.5px !important;
+}
+
+.contact-btn:hover {
+    background-color: #A0522D !important;
+    color: white !important;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(160, 82, 45, 0.3) !important;
+}
+
+.contact-btn:focus {
+    box-shadow: 0 0 0 0.2rem rgba(160, 82, 45, 0.25) !important;
+    outline: none !important;
+}
+
+.contact-btn:active {
+    transform: translateY(0);
+    box-shadow: 0 2px 4px rgba(160, 82, 45, 0.3) !important;
 }

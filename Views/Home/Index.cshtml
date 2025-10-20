@@ -21,60 +21,86 @@
             <p>Acreditamos que cada evento é único. Por isso, oferecemos soluções completas e flexíveis que se adaptam às suas necessidades, do planejamento à execução.</p>
             <div class="service-cards">
                 <div class="service-card">
-                    <a asp-controller="Pages" asp-action="Buffet">
-                        <img src="https://images.unsplash.com/photo-1522204523234-8729aa6e3d54?q=80&w=2070&auto=format&fit=crop" alt="Buffet completo">
-                        <h3>Buffet completo</h3>
-                    </a>
+                    <img src="~/img/products/brunch/bb3.jpg" alt="Buffet corporativo">
+                    <div class="service-card-content">
+                        <h3>Buffet corporativo</h3>
+                        <p>Coffee breaks, coquetéis e menus sob medida</p>
+                        <a asp-controller="Pages" asp-action="Buffet" class="service-btn">VER DETALHES</a>
+                    </div>
                 </div>
                 <div class="service-card">
-                    <a asp-controller="Pages" asp-action="Audiovisual">
-                        <img src="https://images.unsplash.com/photo-1511795409834-ef04bbd51622?q=80&w=2070&auto=format&fit=crop" alt="Equipe profissional">
-                        <h3>Captação Audiovisual</h3>
-                    </a>
+                    <img src="~/img/products/fotografia/ff1.jpg" alt="Captação audiovisual">
+                    <div class="service-card-content">
+                        <h3>Captação audiovisual</h3>
+                        <p>Foto, vídeo, cobertura social e drone</p>
+                        <a asp-controller="Pages" asp-action="Audiovisual" class="service-btn">VER DETALHES</a>
+                    </div>
                 </div>
                 <div class="service-card">
-                    <a asp-controller="Pages" asp-action="RH">
-                        <img src="https://images.unsplash.com/photo-1556761175-b413da4b248a?q=80&w=1974&auto=format&fit=crop" alt="Bebidas">
-                        <h3>Recursos Humanos</h3>
-                    </a>
+                    <img src="~/img/products/garçom/gg1.jpg" alt="Recursos humanos">
+                    <div class="service-card-content">
+                        <h3>Recursos humanos</h3>
+                        <p>Recepção, apoio e controle de acesso</p>
+                        <a asp-controller="Pages" asp-action="RH" class="service-btn">VER DETALHES</a>
+                    </div>
                 </div>
                 <div class="service-card">
-                    <a asp-controller="Pages" asp-action="Cerimonial">
-                        <img src="https://images.unsplash.com/photo-1587825140708-dfaf72ae4b04?q=80&w=2070&auto=format&fit=crop" alt="Organização">
-                        <h3>Organização Cerimonial</h3>
-                    </a>
+                    <img src="https://images.unsplash.com/photo-1587825140708-dfaf72ae4b04?q=80&w=2070&auto=format&fit=crop" alt="Organização cerimonial">
+                    <div class="service-card-content">
+                        <h3>Organização cerimonial</h3>
+                        <p>Planejamento, fornecedores e execução</p>
+                        <a asp-controller="Pages" asp-action="Cerimonial" class="service-btn">VER DETALHES</a>
+                    </div>
                 </div>
             </div>
         </section>
         
         <section class="why-us">
             <div class="container">
-                <p class="section-subtitle">Nossos Diferenciais</p>
                 <h2>Por que escolher a Chicas Eventos?</h2>
+                <p class="section-description">Transformamos cada detalhe em uma experiência única. Conheça os diferenciais que fazem da Chicas a escolha certa para o seu evento.</p>
                 <div class="features-grid">
                     <div class="feature-card">
-                        <i class="fa-solid fa-lightbulb"></i>
-                        <h3>Inovação completa</h3>
+                        <div class="feature-icon">
+                            <img src="~/img/icons/icones/integraçaõ.png" alt="Integração completa">
+                        </div>
+                        <h3>Integração completa</h3>
+                        <p>Tudo em um só lugar: buffet, audiovisual, RH e cerimonial com gestão unificada.</p>
                     </div>
                     <div class="feature-card">
-                        <i class="fa-solid fa-bolt"></i>
+                        <div class="feature-icon">
+                            <img src="~/img/icons/icones/raio.png" alt="Agilidade garantida">
+                        </div>
                         <h3>Agilidade garantida</h3>
+                        <p>Equipe treinada e cronograma ágil para montar e executar sem atrasos.</p>
                     </div>
                     <div class="feature-card">
-                        <i class="fa-solid fa-gem"></i>
+                        <div class="feature-icon">
+                            <img src="~/img/icons/icones/coração.png" alt="Beleza funcional">
+                        </div>
                         <h3>Beleza funcional</h3>
+                        <p>Soluções que unem estética impecável e praticidade no dia do evento.</p>
                     </div>
                     <div class="feature-card">
-                        <i class="fa-solid fa-handshake-angle"></i>
-                        <h3>Responsabilidade social</h3>
+                        <div class="feature-icon">
+                            <img src="~/img/icons/icones/check.png" alt="Rede confiável">
+                        </div>
+                        <h3>Rede confiável</h3>
+                        <p>Fornecedores homologados que asseguram qualidade em cada etapa.</p>
                     </div>
                     <div class="feature-card">
-                        <i class="fa-solid fa-map-marker-alt"></i>
+                        <div class="feature-icon">
+                            <img src="~/img/icons/icones/regional.png" alt="Identidade regional">
+                        </div>
                         <h3>Identidade regional</h3>
+                        <p>Valorizamos a cultura amazônica, trazendo um toque único e autêntico.</p>
                     </div>
                     <div class="feature-card">
-                        <i class="fa-solid fa-headset"></i>
+                        <div class="feature-icon">
+                            <img src="~/img/icons/icones/calendar.png" alt="Acompanhamento total">
+                        </div>
                         <h3>Acompanhamento total</h3>
+                        <p>Estamos ao seu lado do pré até o pós-evento, sem deixar nada escapar.</p>
                     </div>
                 </div>
             </div>
@@ -83,23 +109,15 @@
         <section class="portfolio container">
             <h2>Portfólio</h2>
             <p>Uma seleção dos nossos melhores projetos para você se inspirar e conhecer a qualidade do nosso trabalho.</p>
-            <div class="portfolio-filters">
-                <button class="active">Ver todos</button>
-                <button>Corporativo</button>
-                <button>Social</button>
-                <button>Casamento</button>
-                <button>Debutante</button>
-                <button>Temático</button>
-            </div>
             <div class="portfolio-gallery">
-                <img src="https://images.unsplash.com/photo-1511578314322-379afb476865?q=80&w=2070&auto=format&fit=crop" alt="Galeria imagem 1">
-                <img src="https://images.unsplash.com/photo-1519167758481-83f550bb49b3?q=80&w=2070&auto=format&fit=crop" alt="Galeria imagem 2">
-                <img src="https://images.unsplash.com/photo-1505373877841-8d25f7d46678?q=80&w=2012&auto=format&fit=crop" alt="Galeria imagem 3">
-                <img src="https://images.unsplash.com/photo-1485178654271-8c8368151a8f?q=80&w=2070&auto=format&fit=crop" alt="Galeria imagem 4">
-                <img src="https://images.unsplash.com/photo-1516048015947-89335ba41262?q=80&w=2070&auto=format&fit=crop" alt="Galeria imagem 5">
-                <img src="https://images.unsplash.com/photo-1540555233512-2c6deaa22c23?q=80&w=2070&auto=format&fit=crop" alt="Galeria imagem 6">
-                <img src="https://images.unsplash.com/photo-1561494265-b143b7891781?q=80&w=1974&auto=format&fit=crop" alt="Galeria imagem 7">
-                <img src="https://images.unsplash.com/photo-1530103862676-de8c9debad1d?q=80&w=2070&auto=format&fit=crop" alt="Galeria imagem 8">
+                <img src="~/img/port/1.jpg" alt="Evento corporativo - Sala de conferências">
+                <img src="~/img/port/2.png" alt="Evento social - Decoração elegante">
+                <img src="~/img/port/3.png" alt="Evento temático - Decoração criativa">
+                <img src="~/img/port/4.png" alt="Evento corporativo - Apresentação">
+                <img src="~/img/port/5.JPG" alt="Evento social - Decoração festiva">
+                <img src="~/img/port/6.JPG" alt="Evento corporativo - Networking">
+                <img src="~/img/port/7.JPG" alt="Evento social - Celebração">
+                <img src="~/img/port/8.jpeg" alt="Evento temático - Decoração especial".>
             </div>
         </section>
     </main>
