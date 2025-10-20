@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "w9yuquL10UI=",
+  "dgSpecHash": "Om2O+WhZxfY=",
   "success": true,
-  "projectFilePath": "C:\\Users\\user\\Dev\\Projetos\\netchicas\\ChicasEventos\\ChicasEventos.csproj",
+  "projectFilePath": "C:\\Users\\user\\Dev\\Projetos\\netchicas\\ChicasEventos\\ChicasEventos\\ChicasEventos.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\user\\.nuget\\packages\\bouncycastle.cryptography\\2.6.1\\bouncycastle.cryptography.2.6.1.nupkg.sha512",
     "C:\\Users\\user\\.nuget\\packages\\mailkit\\4.14.1\\mailkit.4.14.1.nupkg.sha512",
