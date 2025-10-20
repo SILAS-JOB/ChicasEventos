@@ -1,0 +1,214 @@
+@model List<ChicasEventos.Models.StaffingServiceViewModel>
+
+<style>
+    .staffing-item {
+        border: 1px solid #e5e7eb;
+        border-radius: 8px;
+        padding: 15px;
+        margin-bottom: 15px;
+        cursor: pointer;
+        transition: border-color 0.2s;
+        position: relative;
+    }
+    .staffing-item:hover {
+        border-color: #f97316; 
+    }
+    .staffing-item.selected {
+        border-color: #f97316;
+        border-width: 2px;
+        padding: 14px; 
+    }
+    .staffing-item .custom-radio {
+        width: 22px;
+        height: 22px;
+        border: 2px solid #ddd;
+        border-radius: 50%;
+        margin-right: 15px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-shrink: 0;
+    }
+    .staffing-item.selected .custom-radio {
+        border-color: #f97316;
+    }
+    .staffing-item .custom-radio::after {
+        content: '';
+        display: none;
+        width: 12px;
+        height: 12px;
+        border-radius: 50%;
+        background-color: #f97316;
+    }
+    .staffing-item.selected .custom-radio::after {
+        display: block;
+    }
+    /* Esconde o radio button real */
+    .staffing-item input[type="radio"] {
+        display: none;
+    }
+</style>
+
+<div class="modal-header">
+    <h5 class="modal-title">Adicionar ao evento</h5>
+    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+</div>
+<div class="modal-body">
+    <p>Cardápios sob medida para cada ocasião...</p>
+    <div class="row">
+        <div class="col-md-7" id="staffing-options-list">
+            @foreach (var service in Model)
+            {
+                <label class="staffing-item d-flex align-items-start" for="service_@service.Id">
+                    <input type="radio" name="selectedStaffingService" class="staffing-radio"
+                           id="service_@service.Id"
+                           data-id="@service.Id"
+                           data-title="@service.Title">
+                    <div class="custom-radio mt-1"></div>
+                    <div class="flex-grow-1">
+                        <strong>@service.Title</strong>
+                        <div class="text-muted small">@service.Description</div>
+
+                        @if (service.PricingOptions.Any())
+                        {
+                            <select class="form-select form-select-sm mt-2 staffing-duration-select">
+                                <option value="0" data-price="0" data-label="">Selecione a duração</option>
+                                @foreach (var option in service.PricingOptions)
+                                {
+                                    <option value="@option.Id" 
+                                            data-price="@option.Price.ToString(System.Globalization.CultureInfo.InvariantCulture)" 
+                                            data-label="@option.Label">
+                                        @option.Label
+                                    </option>
+                                }
+                            </select>
+                        }
+                    </div>
+                </label>
+            }
+        </div>
+
+        <div class="col-md-5">
+            <div class="card p-3 h-100">
+                <h6>Resumo da Seleção</h6>
+                <hr>
+                <div id="summary-items-list" class="flex-grow-1">
+                    <div class="d-flex justify-content-between small text-muted">
+                        <span>Item</span>
+                        <span>0</span>
+                    </div>
+                    <div class="mt-2 text-muted small">Nenhum item selecionado</div>
+                </div>
+                <hr>
+                <div class="d-flex justify-content-between align-items-center mt-3">
+                    <strong>Total</strong>
+                    <span id="summary-total" class="fs-5 fw-bold" style="color: #f97316;">R$ 0,00</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="modal-footer">
+    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">CANCELAR</button>
+    <button type="button" id="btn-add-staffing-to-cart" class="btn btn-primary" disabled >ADICIONAR AO CARRINHO</button>
+</div>
+
+<script>
+    (function() {
+        const listContainer = document.getElementById('staffing-options-list');
+        const summaryItemsList = document.getElementById('summary-items-list');
+        const summaryTotal = document.getElementById('summary-total');
+        const addToCartButton = document.getElementById('btn-add-staffing-to-cart');
+
+        listContainer.addEventListener('change', updateSummary);
+
+        function updateSummary() {
+            let total = 0;
+            let itemsHtml = '';
+            let isSelectionValid = false;
+
+            listContainer.querySelectorAll('.staffing-item').forEach(item => {
+                item.classList.toggle('selected', item.querySelector('input').checked);
+            });
+
+            const selectedRadio = listContainer.querySelector('input[type="radio"]:checked');
+
+            if (selectedRadio) {
+                const title = selectedRadio.dataset.title;
+                const select = selectedRadio.closest('.staffing-item').querySelector('.staffing-duration-select');
+                let price = 0;
+                let durationLabel = '';
+
+                if (select) {
+                    if (select.selectedIndex > 0) {
+                        const option = select.options[select.selectedIndex];
+                        price = parseFloat(option.dataset.price);
+                        durationLabel = option.dataset.label.split(' - ')[0];
+                        isSelectionValid = true;
+                    }
+                } else {
+                    isSelectionValid = true;
+                }
+                
+                total = price;
+                itemsHtml = `
+                    <div class="d-flex justify-content-between small">
+                        <span>Item</span>
+                        <span>${isSelectionValid ? 1 : 0}</span>
+                    </div>
+                    <div class="d-flex justify-content-between small mt-2">
+                        <span>${title} ${durationLabel ? '(' + durationLabel + ')' : ''}</span>
+                        <span class="fw-bold">${price.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' })}</span>
+                    </div>
+                `;
+            }
+
+            if (!isSelectionValid) {
+                itemsHtml = `
+                    <div class="d-flex justify-content-between small text-muted">
+                        <span>Item</span>
+                        <span>0</span>
+                    </div>
+                    <div class="mt-2 text-muted small">Nenhum item selecionado</div>
+                `;
+                total = 0;
+            }
+
+            summaryItemsList.innerHTML = itemsHtml;
+            summaryTotal.textContent = total.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' });
+            addToCartButton.disabled = !isSelectionValid;
+        }
+        
+        addToCartButton.addEventListener('click', function() {
+            const selectedRadio = listContainer.querySelector('input[type="radio"]:checked');
+            if (!selectedRadio) return;
+
+            const id = parseInt(selectedRadio.dataset.id);
+            const title = selectedRadio.dataset.title;
+            const select = selectedRadio.closest('.staffing-item').querySelector('.staffing-duration-select');
+            let price = 0;
+            let durationLabel = '';
+
+            if (select && select.selectedIndex > 0) {
+                const option = select.options[select.selectedIndex];
+                price = parseFloat(option.dataset.price);
+                durationLabel = option.dataset.label;
+            }
+
+            const itemToAdd = {
+                id: id,
+                type: 'staffing',
+                title: title,
+                price: price,
+                duration: durationLabel,
+                quantity: 1 
+            };
+            
+            addToCart(itemToAdd);
+            
+            const modalElement = document.getElementById('detailsModal');
+            const modalInstance = bootstrap.Modal.getInstance(modalElement);
+            if (modalInstance) { modalInstance.hide(); }
+        });
+    })();
+</script>
