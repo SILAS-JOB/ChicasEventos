@@ -16,7 +16,7 @@ if (!app.Environment.IsDevelopment())
     app.UseExceptionHandler("/Home/Error");
     app.UseHsts();
 }
-
+//Deploy main
 // app.UseHttpsRedirection();
 app.UseRouting();
 
