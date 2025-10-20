@@ -5,6 +5,7 @@ using ChicasEventos.Services;
 using Org.BouncyCastle.Crypto.Prng; //Cryptografia 
 using System.Text;
 using Microsoft.Extensions.Logging;
+using Microsoft.Extensions.Options;
 
 namespace ChicasEventos.Controllers
 {
@@ -12,15 +13,18 @@ namespace ChicasEventos.Controllers
     {
         private readonly StaticDataService _dataService;
         private readonly IEmailService _emailService;
+        
         private readonly ILogger _logger;
-        public PagesController(StaticDataService dataService, IEmailService emailService, ILogger<PagesController> logger, IConfiguration config )
+        private readonly EmailSettings _emailSettings;
+
+        public PagesController(StaticDataService dataService, IEmailService emailService, ILogger<PagesController> logger, IConfiguration config, IOptions<EmailSettings> emailSettings)
         {
             _dataService = dataService;
             _emailService = emailService;
             _logger = logger;
+            _emailSettings = emailSettings.Value;
 
-            var valorTeste = config["TesteDeLeitura"];
-            Console.WriteLine($"--- VALOR DE TESTE LIDO DO APPSETTINGS: {valorTeste} ---");
+
         }
         public IActionResult Buffet()
         {
@@ -240,7 +244,7 @@ namespace ChicasEventos.Controllers
 
             try
             {
-                var companyEmail = "atendimentochicas@gmail.com";
+                var companyEmail = _emailSettings.SenderEmail;
                 var subject = $"Novo Orçamento de {fullOrder.FormData.Nome}";
                 await _emailService.SendOrderEmailAsync(companyEmail, subject, emailBody.ToString());
                 return Ok(new { message = "Orçamento enviado com sucesso!" });
