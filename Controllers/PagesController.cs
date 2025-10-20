@@ -237,7 +237,6 @@ namespace ChicasEventos.Controllers
 
             try
             {
-                // ... sua lógica de envio de e-mail ...
                 var companyEmail = "atendimentochicas@gmail.com";
                 var subject = $"Novo Orçamento de {fullOrder.FormData.Nome}";
                 await _emailService.SendOrderEmailAsync(companyEmail, subject, emailBody.ToString());
