@@ -7,7 +7,7 @@
 
         body {
             
-            color: #333;
+            color: #000;
             background-color: #ffffff;
         }
 
@@ -18,7 +18,7 @@
         }
 
         h1, h2, h3 {
-            color: #3b3b3b;
+            color: #000;
         }
 
         p {
@@ -57,7 +57,7 @@
         .header nav a {
             margin: 0 15px;
             font-weight: 500;
-            color: #555;
+            color: #000 !important;
             transition: color 0.3s ease;
         }
 
