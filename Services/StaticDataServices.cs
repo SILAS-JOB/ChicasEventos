@@ -307,9 +307,9 @@ namespace ChicasEventos.Services
                 DescricaoBreve = "Criação e desenvolvimento do evento",
                 SubtituloModal = "Produção completa do evento, desde a concepção criativa até a execução final.",
                 ItensInclusos = ["Concepção criativa", "Desenvolvimento do conceito", "Produção de materiais", "Coordenação artística", "Execução final"],
-                ImagemPrincipalCard = "/img/products/producao",
-                ImagemGrandeModal = "A",
-                ImagensPequenasModal = ["A"],
+                ImagemPrincipalCard = "/img/products/producao/ppp1.jpeg",
+                ImagemGrandeModal = "/img/products/producao/ppp1.jpeg",
+                ImagensPequenasModal = ["/img/products/producao/ppp2.png"],
                 }
             };
         }
@@ -320,9 +320,9 @@ namespace ChicasEventos.Services
                 Id = 401,
                 Category = "RH",
                 Titulo = "Garçons",
-                DescricaoBreve = "A",
-                SubtituloModal = "A",
-                ItensInclusos = ["A"],
+                DescricaoBreve = "Atendimento profissional e eficiente",
+                SubtituloModal = "Equipe de garçons treinados e experientes para garantir um atendimento de excelência durante todo o evento.",
+                ItensInclusos = ["Garçons profissionais treinados", "Atendimento personalizado", ""],
                 ImagemPrincipalCard = "/img/buffet/coffee_card.jpg",
                 ImagemGrandeModal = "A",
                 ImagensPequenasModal = ["A"] },
