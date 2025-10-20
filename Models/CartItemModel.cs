@@ -4,5 +4,6 @@ namespace ChicasEventos.Models
     {
         public int Id { get; set; }
         public string Type { get; set; }
+        public int OptionId { get; set; }
     }
 }

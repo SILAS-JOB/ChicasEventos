@@ -94,8 +94,23 @@ namespace ChicasEventos.Controllers
                     var package = _dataService.GetPackageById(item.Id);
                     if (package != null) viewModel.Add(package);
                 }
+                else if (item.Type == "staffing")
+                {
+                    var staffingService = _dataService.GetStaffingServiceById(item.Id); 
+                    if (staffingService != null)
+                    {
+                        var selectedOption = staffingService.PricingOptions.FirstOrDefault(p => p.Id == item.OptionId);
+                        if (selectedOption != null)
+                        {
+                            viewModel.Add(new {
+                                Title = staffingService.Title,
+                                Label = selectedOption.Label,
+                                Price = selectedOption.Price
+                            });
+                        }
+                    }
+                }
             }
-
             return PartialView("_CartItemsListPartial", viewModel);
         }
 
@@ -103,6 +118,56 @@ namespace ChicasEventos.Controllers
         {
             return PartialView("_OrderFormPartial", new OrderFormViewModel());
         }
+
+        // [HttpPost]
+        // public async Task<IActionResult> SendOrder([FromBody] FullOrderViewModel fullOrder)
+        // {
+        //     if (!ModelState.IsValid)
+        //     {
+        //         return BadRequest("Dados do formulário inválidos");
+        //     }
+
+        //     var emailBody = new StringBuilder();
+        //     emailBody.AppendLine("<h1>Novo Pedido de Orçamento Recebido</h1>");
+        //     emailBody.AppendLine("<h2>Dados do Cliente:</h2>");
+        //     emailBody.AppendLine($"<p><strong>Nome:</strong> {fullOrder.FormData.Nome}</p>");
+        //     emailBody.AppendLine($"<p><strong>Email:</strong> {fullOrder.FormData.Email}</p>");
+        //     emailBody.AppendLine($"<p><strong>Telefone:</strong> {fullOrder.FormData.Telefone}</p>");
+        //     emailBody.AppendLine("<h2>Detalhes do Evento:</h2>");
+        //     emailBody.AppendLine($"<p><strong>Nome do Evento:</strong> {fullOrder.FormData.NomeEvento}</p>");
+        //     //Add Resto
+        //     emailBody.AppendLine("<hr><h2>Itens do Orçamento:</h2><ul>");
+
+        //     foreach (var item in fullOrder.CartItems)
+        //     {
+        //         if (item.Type == "service")
+        //         {
+        //             var service = _dataService.GetServiceById(item.Id);
+        //             if (service != null) emailBody.AppendLine($"<li>Serviço: {service.Titulo} ({service.Category})</li>");
+
+        //         }
+        //         else if (item.Type == "package")
+        //         {
+        //             var package = _dataService.GetPackageById(item.Id);
+        //             if (package != null) emailBody.AppendLine($"<li>Pacote: {package.Nome} ({package.PrecoPorPessoa})");
+        //         }
+        //     }
+        //     emailBody.AppendLine("</ul>");
+
+        //     try
+        //     {
+        //         var companyEmail = "atendimentochicas@gmail.com"; //email hardcoded
+        //         var subject = $"Novo Orçamento de {fullOrder.FormData.Nome} - Evento: {fullOrder.FormData.NomeEvento}";
+        //         await _emailService.SendOrderEmailAsync(companyEmail, subject, emailBody.ToString());
+
+        //         return Ok(new { message = "Orçamento enviado com sucesso! Entraremos em contato em breve." });
+        //     }
+        //     catch (Exception ex)
+        //     {
+        //         _logger.LogError(ex, "Ocorreu uma exceção ao tentar enviar o e-mail do pedido");
+        //         return StatusCode(500, "Ocorreu um erro ao enviar seu orçamento. Por favor, tente novamente.");
+        //     }
+        // }
 
         [HttpPost]
         public async Task<IActionResult> SendOrder([FromBody] FullOrderViewModel fullOrder)
@@ -113,44 +178,75 @@ namespace ChicasEventos.Controllers
             }
 
             var emailBody = new StringBuilder();
-            emailBody.AppendLine("<h1>Novo Pedido de Orçamento Recebido</h1>");
-            emailBody.AppendLine("<h2>Dados do Cliente:</h2>");
-            emailBody.AppendLine($"<p><strong>Nome:</strong> {fullOrder.FormData.Nome}</p>");
-            emailBody.AppendLine($"<p><strong>Email:</strong> {fullOrder.FormData.Email}</p>");
-            emailBody.AppendLine($"<p><strong>Telefone:</strong> {fullOrder.FormData.Telefone}</p>");
-            emailBody.AppendLine("<h2>Detalhes do Evento:</h2>");
-            emailBody.AppendLine($"<p><strong>Nome do Evento:</strong> {fullOrder.FormData.NomeEvento}</p>");
-            //Add Resto
-            emailBody.AppendLine("<hr><h2>Itens do Orçamento:</h2><ul>");
+            decimal totalCost = 0; // <-- Variável para o total
+            var itemDescriptions = new List<string>(); // <-- Lista para guardar as descrições dos itens
 
+            // --- PRIMEIRO, CALCULAMOS O TOTAL E COLETAMOS AS DESCRIÇÕES ---
             foreach (var item in fullOrder.CartItems)
             {
                 if (item.Type == "service")
                 {
                     var service = _dataService.GetServiceById(item.Id);
-                    if (service != null) emailBody.AppendLine($"<li>Serviço: {service.Titulo} ({service.Category})</li>");
-
+                    if (service != null) 
+                    {
+                        itemDescriptions.Add($"Serviço: {service.Titulo} ({service.Category})");
+                        // Serviços simples não têm preço definido no seu modelo, então não somamos
+                    }
                 }
                 else if (item.Type == "package")
                 {
                     var package = _dataService.GetPackageById(item.Id);
-                    if (package != null) emailBody.AppendLine($"<li>Pacote: {package.Nome} ({package.PrecoPorPessoa})");
+                    if (package != null)
+                    {
+                        itemDescriptions.Add($"Pacote: {package.Nome} ({package.PrecoPorPessoa})");
+                        // PrecoPorPessoa é string, precisaria converter para decimal para somar
+                    }
                 }
+                // ✅ ADICIONE ESTE BLOCO PARA "STAFFING"
+                else if (item.Type == "staffing")
+                {
+                    var staffingService = _dataService.GetStaffingServiceById(item.Id);
+                    if (staffingService != null)
+                    {
+                        var selectedOption = staffingService.PricingOptions.FirstOrDefault(p => p.Id == item.OptionId);
+                        if (selectedOption != null && selectedOption.Price > 0)
+                        {
+                            itemDescriptions.Add($"Equipe: {staffingService.Title} ({selectedOption.Label})");
+                            totalCost += selectedOption.Price; // Soma o preço da opção escolhida
+                        }
+                    }
+                }
+            }
+
+            // --- AGORA, CONSTRUÍMOS O E-MAIL COM O TOTAL CALCULADO ---
+            emailBody.AppendLine("<h1>Novo Pedido de Orçamento Recebido</h1>");
+            emailBody.AppendLine("<h2>Dados do Cliente:</h2>");
+            emailBody.AppendLine($"<p><strong>Nome:</strong> {fullOrder.FormData.Nome}</p>");
+            // ... adicione os outros dados do cliente ...
+            emailBody.AppendLine("<hr><h2>Itens do Orçamento:</h2><ul>");
+
+            foreach(var description in itemDescriptions)
+            {
+                emailBody.AppendLine($"<li>{description}</li>");
             }
             emailBody.AppendLine("</ul>");
 
+            // ✅ ADICIONE O TOTAL AO FINAL DO E-MAIL
+            emailBody.AppendLine("<hr>");
+            emailBody.AppendLine($"<h3><strong>Total (serviços de equipe): {totalCost.ToString("C", new System.Globalization.CultureInfo("pt-BR"))}</strong></h3>");
+
             try
             {
-                var companyEmail = "atendimentochicas@gmail.com"; //email hardcoded
-                var subject = $"Novo Orçamento de {fullOrder.FormData.Nome} - Evento: {fullOrder.FormData.NomeEvento}";
+                // ... sua lógica de envio de e-mail ...
+                var companyEmail = "atendimentochicas@gmail.com";
+                var subject = $"Novo Orçamento de {fullOrder.FormData.Nome}";
                 await _emailService.SendOrderEmailAsync(companyEmail, subject, emailBody.ToString());
-
-                return Ok(new { message = "Orçamento enviado com sucesso! Entraremos em contato em breve." });
+                return Ok(new { message = "Orçamento enviado com sucesso!" });
             }
             catch (Exception ex)
             {
                 _logger.LogError(ex, "Ocorreu uma exceção ao tentar enviar o e-mail do pedido");
-                return StatusCode(500, "Ocorreu um erro ao enviar seu orçamento. Por favor, tente novamente.");
+                return StatusCode(500, "Ocorreu um erro ao enviar seu orçamento.");
             }
         }
     }

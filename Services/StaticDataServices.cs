@@ -138,19 +138,19 @@ namespace ChicasEventos.Services
                     Id = 502,
                     Categoria = "Buffet",
                     Descricao = "Ideal para eventos de médio porte e celebrações especiais. Inclui uma seleção mais elaborada de pratos e bebidas, com maior variedade e qualidade premium.",
-                    ImagemPrincipal = "/img/products/almoco_janta/aljn3.jpeg",
-                    ImagensPequenas = ["/img/products/almoco_janta/aljn3.jpeg","/img/products/almoco_janta/aljn3.jpeg"],
-                ItensInclusos= ["Bar de drinks premium", "Espumantes e champanhes selecionados", "Menu executivo completo", "Bartender especializado", "Equipamentos profissionais", "Decoração temática", "Garçom dedicado"],
+                    ImagemPrincipal = "/img/products/coffebreak/cb2.jpeg",
+                    ImagensPequenas = ["/img/products/brunch/bb2.png","/img/products/bebida_bar/bbb3.jpg"],
+                    ItensInclusos= ["Bar de drinks premium", "Espumantes e champanhes selecionados", "Menu executivo completo", "Bartender especializado", "Equipamentos profissionais", "Decoração temática", "Garçom dedicado"],
                     Nome = "Pacote prata",
                     PrecoPorPessoa= "R$149/pessoa"
                 },
-                new PackageViewModel
+                new PackageViewModel    
                 {
                     Id = 503,
                     Categoria = "Buffet",
                     Descricao = "Nossa opção mais luxuosa e completa. Perfeito para eventos de gala, casamentos e celebrações especiais. Oferece uma experiência gastronômica de alto nível com serviço personalizado.",
                     ImagemPrincipal = "/img/products/coffebreak/cb3.jpg",
-                    ImagensPequenas = ["/img/products/coffebreak/cb3.jpg","/img/products/coffebreak/cb3.jpg"],
+                    ImagensPequenas = ["/img/products/coffebreak/cb3.jpg","/img/products/coffebreak/cb1.jpeg",""],
                     ItensInclusos= ["Bar de drinks exclusivo", "Champanhes e vinhos premium", "Menu gourmet completo", "Chef especializado", "Equipamentos de luxo", "Decoração personalizada", "Equipe completa de garçons", "Serviço de maitre", "Menu sob medida"],
                     Nome = "Pacote ouro",
                     PrecoPorPessoa= "R$229/pessoa"
@@ -406,6 +406,11 @@ namespace ChicasEventos.Services
         {
             return _allStaffingServices.Where(s => s.Category.Equals(category, System.StringComparison.OrdinalIgnoreCase)).ToList();
         }
+
+        public StaffingServiceViewModel GetStaffingServiceById(int id)
+        {
+            return _allStaffingServices.FirstOrDefault(s => s.Id == id);
+        }
         private List<StaffingServiceViewModel> GetAudiovisualData_Staffing()
         {
             return new List<StaffingServiceViewModel>
@@ -416,7 +421,7 @@ namespace ChicasEventos.Services
                     new PricingOptionViewModel { Id = 801, Label = "2h - R$ 300", Price = 300.00m },
                     new PricingOptionViewModel { Id = 802, Label = "4h - R$ 550", Price = 550.00m },
                     new PricingOptionViewModel { Id = 803, Label = "6h - R$ 750", Price = 750.00m },
-                    new PricingOptionViewModel { Id = 804, Label = "Acima de 6h - A combinar", Price = 0}
+                    new PricingOptionViewModel { Id = 804, Label = "Acima de 6h - A combinar", Price = 1}
                 }
             },
                 new StaffingServiceViewModel {
@@ -425,7 +430,7 @@ namespace ChicasEventos.Services
                     new PricingOptionViewModel { Id = 805, Label = "2h - R$ 350", Price = 350.00m },
                     new PricingOptionViewModel { Id = 806, Label = "4h - R$ 650", Price = 650.00m },
                     new PricingOptionViewModel { Id = 807, Label = "6h - R$ 900", Price = 900.00m },
-                    new PricingOptionViewModel { Id = 808, Label = "Acima de 6h - A combinar", Price = 0}
+                    new PricingOptionViewModel { Id = 808, Label = "Acima de 6h - A combinar", Price = 1}
                 }
             },
                 new StaffingServiceViewModel {
@@ -434,7 +439,7 @@ namespace ChicasEventos.Services
                     new PricingOptionViewModel { Id = 809, Label = "1h - R$ 400", Price = 400.00m },
                     new PricingOptionViewModel { Id = 810, Label = "2h - R$ 700", Price = 700.00m },
                     new PricingOptionViewModel { Id = 811, Label = "4h - R$ 1200", Price = 1200.00m },
-                    new PricingOptionViewModel { Id = 812, Label = "Acima de 4h - A combinar", Price = 0}
+                    new PricingOptionViewModel { Id = 812, Label = "Acima de 4h - A combinar", Price = 1}
                 }
             },
                  new StaffingServiceViewModel {

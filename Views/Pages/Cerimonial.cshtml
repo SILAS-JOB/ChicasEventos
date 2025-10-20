@@ -12,8 +12,13 @@
         <p class="section-subtitle">Serviços</p>
         <h1>Cerimonial & Produção</h1>
         <p>Planejamento, cronograma, fornecedores e execução no dia. Você curte, a gente coordena.</p>
-        <a href="#" class="main-cta-button">Adicionar ao Evento</a>
 
+        <button class="main-cta-button btn-show-staffing" 
+                data-bs-toggle="modal" 
+                data-bs-target="#detailsModal" 
+                data-category="Cerimonial">
+            Montar Equipe
+        </button>
         <div class="service-grid">
                     @foreach (var service in Model)
                     {

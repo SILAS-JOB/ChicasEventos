@@ -29,4 +29,15 @@
             </div>
         </div>
     }
+    var itemType = item.GetType();
+    if (itemType.Name.Contains("AnonymousType"))
+    {
+        <div class="card mb-3">
+            <div class="card-body">
+                <strong>@itemType.GetProperty("Title").GetValue(item)</strong>
+                <div class="text-muted small">@itemType.GetProperty("Label").GetValue(item)</div>
+                <div class="fw-bold">@(((decimal)itemType.GetProperty("Price").GetValue(item)).ToString("C"))</div>
+            </div>
+        </div>
+    }
 }
