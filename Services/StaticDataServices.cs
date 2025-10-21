@@ -129,9 +129,9 @@ namespace ChicasEventos.Services
                     Id = 502,
                     Categoria = "Buffet",
                     Descricao = "Ideal para eventos de médio porte e celebrações especiais. Inclui uma seleção mais elaborada de pratos e bebidas, com maior variedade e qualidade premium.",
-                    ImagemPrincipal = "/img/products/almoco_janta/aljn3.jpeg",
-                    ImagensPequenas = ["/img/products/almoco_janta/aljn3.jpeg","/img/products/almoco_janta/aljn3.jpeg"],
-                ItensInclusos= ["Bar de drinks premium", "Espumantes e champanhes selecionados", "Menu executivo completo", "Bartender especializado", "Equipamentos profissionais", "Decoração temática", "Garçom dedicado"],
+                    ImagemPrincipal = "/img/products/brunch/bb1.jpeg",
+                    ImagensPequenas = ["/img/products/brunch/bb3.jpg","/img/products/brunch/bb4.jpg"],
+                    ItensInclusos= ["Bar de drinks premium", "Espumantes e champanhes selecionados", "Menu executivo completo", "Bartender especializado", "Equipamentos profissionais", "Decoração temática", "Garçom dedicado"],
                     Nome = "Pacote prata",
                     PrecoPorPessoa= "R$149/pessoa"
                 },

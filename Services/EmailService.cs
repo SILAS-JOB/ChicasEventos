@@ -35,8 +35,8 @@ namespace ChicasEventos.Services
 
             using (var client = new SmtpClient())
             {
-                await client.ConnectAsync(_emailSettings.SmtpServer, _emailSettings.Port, SecureSocketOptions.StartTls);
-                // await client.ConnectAsync(_emailSettings.SmtpServer, _emailSettings.Port, SecureSocketOptions.SslOnConnect);
+                // await client.ConnectAsync(_emailSettings.SmtpServer, _emailSettings.Port, SecureSocketOptions.StartTls);
+                await client.ConnectAsync(_emailSettings.SmtpServer, _emailSettings.Port, SecureSocketOptions.SslOnConnect);
                 await client.AuthenticateAsync(_emailSettings.Username, _emailSettings.Password);
                 await client.SendAsync(message);
                 await client.DisconnectAsync(true);
