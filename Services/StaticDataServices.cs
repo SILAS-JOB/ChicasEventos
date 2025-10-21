@@ -317,28 +317,28 @@ namespace ChicasEventos.Services
         { /* ... 6 itens ... */
             return new List<ServiceViewModel>
             {
-            new ServiceViewModel {
+                new ServiceViewModel {
                 Id = 401,
                 Category = "RH",
                 Titulo = "Garçons",
                 DescricaoBreve = "Atendimento profissional e eficiente",
-                SubtituloModal = "Equipe de garçons treinados e experientes para garantir um atendimento de excelência durante todo o evento.",
-                ItensInclusos = ["Garçons profissionais treinados", "Atendimento personalizado", ""],
-                ImagemPrincipalCard = "/img/buffet/coffee_card.jpg",
-                ImagemGrandeModal = "A",
-                ImagensPequenasModal = ["A"] },
+                SubtituloModal = "Equipe de garÃ§ons treinados e experientes para garantir um atendimento de excelÃªncia durante todo o evento.",
+                ItensInclusos = ["GarÃ§ons profissionais treinados", "Atendimento personalizado", ""],
+                ImagemPrincipalCard = "/img/products/garÃ§om/gg1.jpg",
+                ImagemGrandeModal = "/img/products/garÃ§om/gg1.jpg",
+                ImagensPequenasModal = ["/img/products/garÃ§om/gg3.jpg", "/img/products/garÃ§om/gg4.jpeg"] },
 
                 new ServiceViewModel
                 {
                     Id = 402,
                 Category = "RH",
                 Titulo = "Recepção",
-                DescricaoBreve = "A",
-                SubtituloModal = "A",
-                ItensInclusos = ["A"],
-                ImagemPrincipalCard = "/img/buffet/coffee_card.jpg",
-                ImagemGrandeModal = "A",
-                ImagensPequenasModal = ["A"],
+                DescricaoBreve = "Boas-vindas e orientação aos convidados",
+                SubtituloModal = "Equipe de recepção para dar as boas-vindas aos convidados, orientar sobre o evento e garantir uma experiÃªncia acolhedora.",
+                ItensInclusos = ["Recepcionistas treinadas", "Boas-vindas personalizadas", "OrientaÃ§Ã£o sobre o evento", "Controle de acesso", "Atendimento cordial"],
+                ImagemPrincipalCard = "/img/products/recepÃ§Ã£o/rr3.jpg",
+                ImagemGrandeModal = "/img/products/recepÃ§Ã£o/rr3.jpg",
+                ImagensPequenasModal = ["/img/products/recepÃ§Ã£o/rr4.jpg", "/img/products/recepÃ§Ã£o/rr1.jpeg"],
                 },
 
                 new ServiceViewModel
@@ -346,12 +346,12 @@ namespace ChicasEventos.Services
                     Id = 403,
                 Category = "RH",
                 Titulo = "Segurança",
-                DescricaoBreve = "A",
-                SubtituloModal = "A",
-                ItensInclusos = ["A"],
-                ImagemPrincipalCard = "/img/buffet/coffee_card.jpg",
-                ImagemGrandeModal = "A",
-                ImagensPequenasModal = ["A"],
+                DescricaoBreve = "Proteção e controle de acesso",
+                SubtituloModal = "Equipe de segurança especializada para garantir a proteÃ§Ã£o dos convidados e controle de acesso ao evento.",
+                ItensInclusos = ["Seguranças profissionais", "Controle de acesso", "Monitoramento do evento", "Proteção dos convidados", "Protocolos de seguranÃ§a"],
+                ImagemPrincipalCard = "/img/products/seguranÃ§a/ss4.jpg",
+                ImagemGrandeModal = "/img/products/seguranÃ§a/ss4.jpg",
+                ImagensPequenasModal = ["/img/products/seguranÃ§a/ss3.png", "/img/products/seguranÃ§a/ss2.png"],
                 },
 
                 new ServiceViewModel
@@ -359,12 +359,12 @@ namespace ChicasEventos.Services
                     Id = 404,
                 Category = "RH",
                 Titulo = "Apoio Operacional",
-                DescricaoBreve = "A",
-                SubtituloModal = "A",
-                ItensInclusos = ["A"],
-                ImagemPrincipalCard = "/img/buffet/coffee_card.jpg",
-                ImagemGrandeModal = "A",
-                ImagensPequenasModal = ["A"],
+                DescricaoBreve = "Suporte logí­stico completo",
+                SubtituloModal = "Equipe de apoio para todas as necessidades operacionais do evento, garantindo que tudo funcione perfeitamente.",
+                ItensInclusos = ["Suporte logí­stico completo", "Resolução de problemas", "Apoio aos fornecedores", "Coordenação de atividades", "Disponibilidade total"],
+                ImagemPrincipalCard = "/img/products/operacional/oo3.png",
+                ImagemGrandeModal = "/img/products/operacional/oo3.png",
+                ImagensPequenasModal = ["/img/products/operacional/oo1.png", "/img/products/operacional/oo2.jpeg"],
                 },
 
                 new ServiceViewModel
@@ -372,12 +372,12 @@ namespace ChicasEventos.Services
                     Id = 405,
                 Category = "RH",
                 Titulo = "Coordenação",
-                DescricaoBreve = "A",
-                SubtituloModal = "A",
-                ItensInclusos = ["A"],
-                ImagemPrincipalCard = "/img/buffet/coffee_card.jpg",
-                ImagemGrandeModal = "A",
-                ImagensPequenasModal = ["A"],
+                DescricaoBreve = "GestÃ£o completa do evento",
+                SubtituloModal = "Coordenação geral de todos os aspectos do evento, garantindo harmonia entre todos os serviços.",
+                ItensInclusos = ["Coordenação geral", "Gestão de equipes", "Comunicação eficiente", "ResoluÃ§Ã£o de conflitos", "Garantia de qualidade"],
+                ImagemPrincipalCard = "/img/products/coordenacao/cc1.jpg",
+                ImagemGrandeModal = "/img/products/coordenacao/cc1.jpg",
+                ImagensPequenasModal = ["/img/products/coordenacao/cc2.jpg"],
                 },
 
                 new ServiceViewModel
@@ -385,13 +385,14 @@ namespace ChicasEventos.Services
                     Id = 406,
                 Category = "RH",
                 Titulo = "Briefing",
-                DescricaoBreve = "A",
-                SubtituloModal = "A",
-                ItensInclusos = ["A"],
-                ImagemPrincipalCard = "/img/buffet/coffee_card.jpg",
-                ImagemGrandeModal = "A",
-                ImagensPequenasModal = ["A"],
+                DescricaoBreve = "Orientação prÃ©via da equipe",
+                SubtituloModal = "SessÃ£o de orientação prÃ©via com toda a equipe para alinhar expectativas e garantir execuÃ§Ã£o perfeita.",
+                ItensInclusos = ["Orientação prévia completa", "Alinhamento de expectativas", "Treinamento especí­fico", "Comunicação de diretrizes", "Preparação da equipe"],
+                ImagemPrincipalCard = "/img/products/briefing/bb1.jpeg",
+                ImagemGrandeModal = "/img/products/briefing/bb1.jpeg",
+                ImagensPequenasModal = ["/img/products/briefing/bb2.jpg"],
                 }
+            
             };
         }
                 public List<StaffingServiceViewModel> GetStaffingServicesByCategory(string category)
