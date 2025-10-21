@@ -226,8 +226,14 @@ namespace ChicasEventos.Controllers
             // --- AGORA, CONSTRUÍMOS O E-MAIL COM O TOTAL CALCULADO ---
             emailBody.AppendLine("<h1>Novo Pedido de Orçamento Recebido</h1>");
             emailBody.AppendLine("<h2>Dados do Cliente:</h2>");
-            emailBody.AppendLine($"<p><strong>Nome:</strong> {fullOrder.FormData.Nome}</p>");
-            emailBody.AppendLine($"<p><strong> {fullOrder.FormData.Email}</strong></p>");
+            emailBody.AppendLine($"<p><strong>Nome:</strong> Nome do Contratante : {fullOrder.FormData.Nome}</p>");
+            emailBody.AppendLine($"<p><strong> Email: {fullOrder.FormData.Email}</strong></p>");
+            emailBody.AppendLine($"<p><strong> Telefone: {fullOrder.FormData.Telefone}</strong></p>");
+            emailBody.AppendLine($"<p><strong> Evento: {fullOrder.FormData.NomeEvento}</strong></p>");
+            emailBody.AppendLine($"<p><strong> Data: {fullOrder.FormData.DataEvento}</strong></p>");
+            emailBody.AppendLine($"<p><strong> Local: {fullOrder.FormData.LocalEvento}</strong></p>");
+            emailBody.AppendLine($"<p><strong> N° de Convidados: {fullOrder.FormData.NumeroConvidados}</strong></p>");
+            emailBody.AppendLine($"<p><strong> Obs: {fullOrder.FormData.Observacoes}</strong></p>");
             emailBody.AppendLine("<hr><h2>Itens do Orçamento:</h2><ul>");
 
             foreach(var description in itemDescriptions)
