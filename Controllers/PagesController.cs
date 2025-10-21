@@ -229,7 +229,8 @@ namespace ChicasEventos.Controllers
             emailBody.AppendLine("<h1>Novo Pedido de Orçamento Recebido</h1>");
             emailBody.AppendLine("<h2>Dados do Cliente:</h2>");
             emailBody.AppendLine($"<p><strong>Nome:</strong> {fullOrder.FormData.Nome}</p>");
-            // ... adicione os outros dados do cliente ...
+            emailBody.AppendLine($"<p><strong> {fullOrder.FormData.Email}</strong></p>");
+            emailBody.AppendLine($"<p><strong> {fullOrder.FormData.Email}</strong></p>");
             emailBody.AppendLine("<hr><h2>Itens do Orçamento:</h2><ul>");
 
             foreach(var description in itemDescriptions)

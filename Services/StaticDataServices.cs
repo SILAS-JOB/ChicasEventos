@@ -1,7 +1,6 @@
 using ChicasEventos.Models;
 using System.Collections.Generic;
 using System.Linq;
-using System.Net.Http.Headers;
 
 namespace ChicasEventos.Services
 {
@@ -23,9 +22,11 @@ namespace ChicasEventos.Services
             _allPackages.AddRange(GetBuffetPackages());
 
             _allStaffingServices = new List<StaffingServiceViewModel>();
-            _allStaffingServices.AddRange(GetRhData_Staffing()); 
-            _allStaffingServices.AddRange(GetAudiovisualData_Staffing()); // Certifique-se que existe
+            _allStaffingServices.AddRange(GetRhData_Staffing());
+            _allStaffingServices.AddRange(GetAudiovisualData_Staffing());
             _allStaffingServices.AddRange(GetCerimonialData_Staffing());
+
+
         }
 
         public List<ServiceViewModel> GetServicesByCategory(string category)
@@ -45,7 +46,7 @@ namespace ChicasEventos.Services
 
         public PackageViewModel GetPackageById(int id)
         {
-            return _allPackages.FirstOrDefault(p => p.Id == id);    
+            return _allPackages.FirstOrDefault(p => p.Id == id);
         }
 
         // --- Métodos privados para carregar os dados de cada categoria ---
@@ -56,10 +57,10 @@ namespace ChicasEventos.Services
                 new ServiceViewModel {
                     Id = 101,
                     Category = "Buffet",
-                    Titulo = "Coquetéis",
+                    Titulo = "Coquetel",
                     DescricaoBreve = "Serviço volante com finger food",
-                    SubtituloModal = "Nossos coquetéis são preparados com ingredientes frescos e selecionados, oferecendo uma experiência gastronômica única. Inclui finger foods variados e bebidas especiais.",
-                    ItensInclusos = ["Bartender profissional", "Coquetéis clássicos e autorais", "Finger foods variados", "Equipamentos de bar completos", "Decoração temática"],
+                    SubtituloModal = "Tudo é preparado com ingredientes frescos e selecionados oferecendo assim uma experiência gastronômica única.",
+                    ItensInclusos = ["Bartender ", "Coquetéis clássicos e autorais","Decoração temática"],
                     ImagemPrincipalCard = "/img/products/coqueteis/coq1.jpg",
                     ImagemGrandeModal = "/img/products/coqueteis/coq1.jpg",
                     ImagensPequenasModal = ["/img/products/coqueteis/coq2.jpg", "/img/products/coqueteis/coq3.jpeg"]
@@ -69,55 +70,45 @@ namespace ChicasEventos.Services
                 Category = "Buffet",
                 Titulo = "Coffee Break",
                 DescricaoBreve = "Perfeito para reuniões e conferências",
-                SubtituloModal = "Coffee break completo com café premium, chás, sucos naturais e lanches variados. Ideal para eventos corporativos e reuniões.",
-                ItensInclusos = ["Café premium e chás especiais", "Lanches e salgados variados", "Sucos naturais e água", "Equipamentos profissionais", "Atendimento especializado"],
+                SubtituloModal = "Coffee break completo com seleção de cafés premium, chás e sucos especiais, além dos lanches variados. Uma solução ideal para eventos corporativos oferecendo qualidade, praticidade e sofisticação.",
+                ItensInclusos = ["Café premium e chás especiais", "Lanches e salgados variados", "Sucos naturais e água mineral", "Equipamentos profissionais de apoio ", "Atendimento especializado",],
                 ImagemPrincipalCard = "/img/products/coffebreak/cb3.jpg",
                 ImagemGrandeModal = "/img/products/coffebreak/cb3.jpg",
                 ImagensPequenasModal = ["/img/products/coffebreak/cb4.jpg", "/img/products/coffebreak/cb2.jpg"]
                 },
-                new ServiceViewModel { 
+                new ServiceViewModel {
                 Id = 103,
                 Category = "Buffet",
                 Titulo = "Brunch",
                 DescricaoBreve = "Mix café da manhã + almoço",
-                SubtituloModal = "Brunch completo combinando o melhor do café da manhã e almoço. Perfeito para eventos matinais e ocasiões especiais.",
-                ItensInclusos = ["Pratos quentes e frios", "Frutas frescas da estação", "Pães artesanais", "Ovos preparados de várias formas", "Bebidas variadas"],
+                SubtituloModal = "Brunch completo combinando o melhor do café da manhã e almoço. Perfeito para eventos matinais e próximos do horário de almoço",
+                ItensInclusos = ["Pratos quentes e frios", "Frutas frescas da estação", "Pães artesanais", "Pratos quentes e frios com receitas simples e também sofisticadas", "Bebidas variadas"],
                 ImagemPrincipalCard = "/img/products/brunch/bb4.jpg",
                 ImagemGrandeModal = "/img/products/brunch/bb4",
                 ImagensPequenasModal = [ "/img/products/brunch/bb3.jpg", "/img/products/brunch/bb1.jpeg"]},
-                new ServiceViewModel { 
+                new ServiceViewModel {
                 Id = 104,
                 Category = "Buffet",
                 Titulo = "Almoço/Jantar",
-                DescricaoBreve = "Buffet quente completo",
-                SubtituloModal = "Refeições completas com pratos quentes, saladas, acompanhamentos e sobremesas. Cardápio variado para todos os gostos.",
+                DescricaoBreve = "Pratos quentes e frios com receitas simples e também sofisticadas",
+                SubtituloModal = "Oferecemos refeições completas compostas por uma seleção de pratos quentes, saladas, acompanhamentos e sobremesas. Nosso cardápio é cuidadosamente elaborado para atender aos mais diversos paladares com sabor e variedade.",
                 ItensInclusos = ["Pratos quentes variados", "Saladas frescas", "Acompanhamentos especiais", "Sobremesas caseiras", "Bebidas inclusas"],
                 ImagemPrincipalCard = "/img/products/almoco_jantar/aljn4.jpg",
                 ImagemGrandeModal = "/img/products/almoco_jantar/aljn4.jpg",
                 ImagensPequenasModal = [ "/img/products/almoco_jantar/aljn3.jpeg", "/img/products/almoco_jantar/aljn1.jpg"]},
-                new ServiceViewModel { 
-                Id = 105,
-                Category = "Buffet",
-                Titulo = "Sobremesas & Doces",
-                DescricaoBreve = "Finalização doce com mesa temática",
-                SubtituloModal = "Mesa de sobremesas temática com doces variados, bolos, tortas e docinhos. Perfeito para finalizar seu evento com doçura.",
-                ItensInclusos = ["Bolos e tortas artesanais", "Docinhos variados", "Mesa temática decorada", "Doces sem açúcar (opcional)", "Decoração especial"],
-                ImagemPrincipalCard = "/img/products/sobremesas/ss1.png",
-                ImagemGrandeModal = "/img/products/sobremesas/ss1.png",
-                ImagensPequenasModal = [ "/img/products/sobremesas/ss2.png", "/img/products/sobremesas/ss4.png"] ,  },
-                new ServiceViewModel { 
+                new ServiceViewModel {
                 Id = 106,
                 Category = "Buffet",
-                Titulo = "Bebidas & Bar",
-                DescricaoBreve = "Bar de drinks e espumantes",
-                SubtituloModal = "Bar completo com drinks especiais, espumantes, vinhos e bebidas não alcoólicas. Bartender profissional para seu evento.",
-                ItensInclusos = ["Bar completo montado", "Bartender profissional", "Drinks especiais e clássicos", "Espumantes e vinhos", "Bebidas não alcoólicas"],
+                Titulo = "Ilha de Drinks",
+                DescricaoBreve = "Drinks e espumantes",
+                SubtituloModal = "Serviço completo de bar com uma seleção de drinks especiais, espumantes,vinhos e opções não alcoólicas. O bartender garantirá profissionalismo para seu evento.",
+                ItensInclusos = ["Estrutura completa", "Bartender especializado", "Drinks autorais e clássicos", "Seleção de espumantes e vinhos", "Variedade de bebidas não alcoólicas"],
                 ImagemPrincipalCard = "/img/products/bebida_bar/bbb1.jpg",
                 ImagemGrandeModal = "/img/products/bebida_bar/bbb1.jpg",
                 ImagensPequenasModal = ["/img/products/bebida_bar/bbb2.jpg", "/img/products/bebida_bar/bbb3.jpg"]},
             };
         }
-        
+
         private List<PackageViewModel> GetBuffetPackages()
         {
             return new List<PackageViewModel>
@@ -138,19 +129,19 @@ namespace ChicasEventos.Services
                     Id = 502,
                     Categoria = "Buffet",
                     Descricao = "Ideal para eventos de médio porte e celebrações especiais. Inclui uma seleção mais elaborada de pratos e bebidas, com maior variedade e qualidade premium.",
-                    ImagemPrincipal = "/img/products/coffebreak/cb2.jpeg",
-                    ImagensPequenas = ["/img/products/brunch/bb2.png","/img/products/bebida_bar/bbb3.jpg"],
-                    ItensInclusos= ["Bar de drinks premium", "Espumantes e champanhes selecionados", "Menu executivo completo", "Bartender especializado", "Equipamentos profissionais", "Decoração temática", "Garçom dedicado"],
+                    ImagemPrincipal = "/img/products/almoco_janta/aljn3.jpeg",
+                    ImagensPequenas = ["/img/products/almoco_janta/aljn3.jpeg","/img/products/almoco_janta/aljn3.jpeg"],
+                ItensInclusos= ["Bar de drinks premium", "Espumantes e champanhes selecionados", "Menu executivo completo", "Bartender especializado", "Equipamentos profissionais", "Decoração temática", "Garçom dedicado"],
                     Nome = "Pacote prata",
                     PrecoPorPessoa= "R$149/pessoa"
                 },
-                new PackageViewModel    
+                new PackageViewModel
                 {
                     Id = 503,
                     Categoria = "Buffet",
                     Descricao = "Nossa opção mais luxuosa e completa. Perfeito para eventos de gala, casamentos e celebrações especiais. Oferece uma experiência gastronômica de alto nível com serviço personalizado.",
                     ImagemPrincipal = "/img/products/coffebreak/cb3.jpg",
-                    ImagensPequenas = ["/img/products/coffebreak/cb3.jpg","/img/products/coffebreak/cb1.jpeg",""],
+                    ImagensPequenas = ["/img/products/coffebreak/cb3.jpg","/img/products/coffebreak/cb3.jpg"],
                     ItensInclusos= ["Bar de drinks exclusivo", "Champanhes e vinhos premium", "Menu gourmet completo", "Chef especializado", "Equipamentos de luxo", "Decoração personalizada", "Equipe completa de garçons", "Serviço de maitre", "Menu sob medida"],
                     Nome = "Pacote ouro",
                     PrecoPorPessoa= "R$229/pessoa"
@@ -158,8 +149,9 @@ namespace ChicasEventos.Services
 
             };
         }
-        
-        private List<ServiceViewModel> GetAudiovisualData() {
+
+        private List<ServiceViewModel> GetAudiovisualData()
+        {
             return new List<ServiceViewModel> {
                 new ServiceViewModel {
                 Id = 201,
@@ -240,7 +232,8 @@ namespace ChicasEventos.Services
             };
         }
 
-        private List<ServiceViewModel> GetCerimonialData() {
+        private List<ServiceViewModel> GetCerimonialData()
+        {
             return new List<ServiceViewModel>
             {
                 new ServiceViewModel {
@@ -331,21 +324,21 @@ namespace ChicasEventos.Services
                 DescricaoBreve = "Atendimento profissional e eficiente",
                 SubtituloModal = "Equipe de garçons treinados e experientes para garantir um atendimento de excelência durante todo o evento.",
                 ItensInclusos = ["Garçons profissionais treinados", "Atendimento personalizado", ""],
-                ImagemPrincipalCard = "/img/products/garçom/gg1.jpg",
-                ImagemGrandeModal = "/img/products/garçom/gg1.jpg",
-                ImagensPequenasModal = ["/img/products/garçom/gg3.jpg", "/img/products/garçom/gg4.jpeg"] },
+                ImagemPrincipalCard = "/img/buffet/coffee_card.jpg",
+                ImagemGrandeModal = "A",
+                ImagensPequenasModal = ["A"] },
 
                 new ServiceViewModel
                 {
                     Id = 402,
                 Category = "RH",
                 Titulo = "Recepção",
-                DescricaoBreve = "Boas-vindas e orientação aos convidados",
-                SubtituloModal = "Equipe de recepção para dar as boas-vindas aos convidados, orientar sobre o evento e garantir uma experiência acolhedora.",
-                ItensInclusos = ["Recepcionistas treinadas", "Boas-vindas personalizadas", "Orientação sobre o evento", "Controle de acesso", "Atendimento cordial"],
-                ImagemPrincipalCard = "/img/products/recepção/rr3.jpg",
-                ImagemGrandeModal = "/img/products/recepção/rr3.jpg",
-                ImagensPequenasModal = ["/img/products/recepção/rr4.jpg", "/img/products/recepção/rr1.jpeg"],
+                DescricaoBreve = "A",
+                SubtituloModal = "A",
+                ItensInclusos = ["A"],
+                ImagemPrincipalCard = "/img/buffet/coffee_card.jpg",
+                ImagemGrandeModal = "A",
+                ImagensPequenasModal = ["A"],
                 },
 
                 new ServiceViewModel
@@ -353,12 +346,12 @@ namespace ChicasEventos.Services
                     Id = 403,
                 Category = "RH",
                 Titulo = "Segurança",
-                DescricaoBreve = "Proteção e controle de acesso",
-                SubtituloModal = "Equipe de segurança especializada para garantir a proteção dos convidados e controle de acesso ao evento.",
-                ItensInclusos = ["Seguranças profissionais", "Controle de acesso", "Monitoramento do evento", "Proteção dos convidados", "Protocolos de segurança"],
-                ImagemPrincipalCard = "/img/products/segurança/ss4.jpg",
-                ImagemGrandeModal = "/img/products/segurança/ss4.jpg",
-                ImagensPequenasModal = ["/img/products/segurança/ss3.png", "/img/products/segurança/ss2.png"],
+                DescricaoBreve = "A",
+                SubtituloModal = "A",
+                ItensInclusos = ["A"],
+                ImagemPrincipalCard = "/img/buffet/coffee_card.jpg",
+                ImagemGrandeModal = "A",
+                ImagensPequenasModal = ["A"],
                 },
 
                 new ServiceViewModel
@@ -366,12 +359,12 @@ namespace ChicasEventos.Services
                     Id = 404,
                 Category = "RH",
                 Titulo = "Apoio Operacional",
-                DescricaoBreve = "Suporte logístico completo",
-                SubtituloModal = "Equipe de apoio para todas as necessidades operacionais do evento, garantindo que tudo funcione perfeitamente.",
-                ItensInclusos = ["Suporte logístico completo", "Resolução de problemas", "Apoio aos fornecedores", "Coordenação de atividades", "Disponibilidade total"],
-                ImagemPrincipalCard = "/img/products/operacional/oo3.png",
-                ImagemGrandeModal = "/img/products/operacional/oo3.png",
-                ImagensPequenasModal = ["/img/products/operacional/oo1.png", "/img/products/operacional/oo2.jpeg"],
+                DescricaoBreve = "A",
+                SubtituloModal = "A",
+                ItensInclusos = ["A"],
+                ImagemPrincipalCard = "/img/buffet/coffee_card.jpg",
+                ImagemGrandeModal = "A",
+                ImagensPequenasModal = ["A"],
                 },
 
                 new ServiceViewModel
@@ -379,12 +372,12 @@ namespace ChicasEventos.Services
                     Id = 405,
                 Category = "RH",
                 Titulo = "Coordenação",
-                DescricaoBreve = "Gestão completa do evento",
-                SubtituloModal = "Coordenação geral de todos os aspectos do evento, garantindo harmonia entre todos os serviços.",
-                ItensInclusos = ["Coordenação geral", "Gestão de equipes", "Comunicação eficiente", "Resolução de conflitos", "Garantia de qualidade"],
-                ImagemPrincipalCard = "/img/products/coordenacao/cc1.jpg",
-                ImagemGrandeModal = "/img/products/coordenacao/cc1.jpg",
-                ImagensPequenasModal = ["/img/products/coordenacao/cc2.jpg"],
+                DescricaoBreve = "A",
+                SubtituloModal = "A",
+                ItensInclusos = ["A"],
+                ImagemPrincipalCard = "/img/buffet/coffee_card.jpg",
+                ImagemGrandeModal = "A",
+                ImagensPequenasModal = ["A"],
                 },
 
                 new ServiceViewModel
@@ -392,17 +385,16 @@ namespace ChicasEventos.Services
                     Id = 406,
                 Category = "RH",
                 Titulo = "Briefing",
-                DescricaoBreve = "Orientação prévia da equipe",
-                SubtituloModal = "Sessão de orientação prévia com toda a equipe para alinhar expectativas e garantir execução perfeita.",
-                ItensInclusos = ["Orientação prévia completa", "Alinhamento de expectativas", "Treinamento específico", "Comunicação de diretrizes", "Preparação da equipe"],
-                ImagemPrincipalCard = "/img/products/briefing/bb1.jpeg",
-                ImagemGrandeModal = "/img/products/briefing/bb1.jpeg",
-                ImagensPequenasModal = ["/img/products/briefing/bb2.jpg"],
+                DescricaoBreve = "A",
+                SubtituloModal = "A",
+                ItensInclusos = ["A"],
+                ImagemPrincipalCard = "/img/buffet/coffee_card.jpg",
+                ImagemGrandeModal = "A",
+                ImagensPequenasModal = ["A"],
                 }
             };
         }
-
-        public List<StaffingServiceViewModel> GetStaffingServicesByCategory(string category)
+                public List<StaffingServiceViewModel> GetStaffingServicesByCategory(string category)
         {
             return _allStaffingServices.Where(s => s.Category.Equals(category, System.StringComparison.OrdinalIgnoreCase)).ToList();
         }
@@ -418,51 +410,55 @@ namespace ChicasEventos.Services
                 new StaffingServiceViewModel {
                 Id = 701, Category = "Audiovisual", Title = "Fotógrafo", Description = "Cobertura fotográfica profissional",
                 PricingOptions = new List<PricingOptionViewModel> {
-                    new PricingOptionViewModel { Id = 801, Label = "2h - R$ 300", Price = 300.00m },
-                    new PricingOptionViewModel { Id = 802, Label = "4h - R$ 550", Price = 550.00m },
-                    new PricingOptionViewModel { Id = 803, Label = "6h - R$ 750", Price = 750.00m },
-                    new PricingOptionViewModel { Id = 804, Label = "Acima de 6h - A combinar", Price = 1}
+                    new PricingOptionViewModel { Id = 801, Label = "2h - R$ 600", Price = 600.00m },
+                    new PricingOptionViewModel { Id = 802, Label = "4h - R$ 1000", Price = 1000.00m },
+                    new PricingOptionViewModel { Id = 803, Label = "6h - R$ 1300", Price = 1300.00m },
+                    new PricingOptionViewModel { Id = 804, Label = "Acima de 6h - A combinar", Price = 0}
                 }
             },
                 new StaffingServiceViewModel {
-                Id = 702, Category = "Audiovisual", Title = "Cinegrafista", Description = "Filmagem profissional do evento",
+                Id = 702, Category = "Audiovisual", Title = "Social Media", Description = "Conteúdo para redes sociais",
                 PricingOptions = new List<PricingOptionViewModel> {
-                    new PricingOptionViewModel { Id = 805, Label = "2h - R$ 350", Price = 350.00m },
-                    new PricingOptionViewModel { Id = 806, Label = "4h - R$ 650", Price = 650.00m },
-                    new PricingOptionViewModel { Id = 807, Label = "6h - R$ 900", Price = 900.00m },
-                    new PricingOptionViewModel { Id = 808, Label = "Acima de 6h - A combinar", Price = 1}
+                    new PricingOptionViewModel { Id = 805, Label = "2h - R$ 400", Price = 400.00m },
+                    new PricingOptionViewModel { Id = 806, Label = "4h - R$ 700", Price = 700.00m },
+                    new PricingOptionViewModel { Id = 807, Label = "6h - R$ 950", Price = 950.00m },
+                    new PricingOptionViewModel { Id = 808, Label = "Acima de 6h - A combinar", Price = 0}
                 }
             },
                 new StaffingServiceViewModel {
                 Id = 703, Category = "Audiovisual", Title = "Operador de Drone", Description = "Imagens aéreas com drone",
                 PricingOptions = new List<PricingOptionViewModel> {
-                    new PricingOptionViewModel { Id = 809, Label = "1h - R$ 400", Price = 400.00m },
-                    new PricingOptionViewModel { Id = 810, Label = "2h - R$ 700", Price = 700.00m },
-                    new PricingOptionViewModel { Id = 811, Label = "4h - R$ 1200", Price = 1200.00m },
-                    new PricingOptionViewModel { Id = 812, Label = "Acima de 4h - A combinar", Price = 1}
+                    new PricingOptionViewModel { Id = 809, Label = "2h - R$ 700", Price = 700.00m },
+                    new PricingOptionViewModel { Id = 810, Label = "4h - R$ 1250", Price = 1250.00m },
+                    new PricingOptionViewModel { Id = 811, Label = "6h - R$ 1600", Price = 1600.00m },
+                    new PricingOptionViewModel { Id = 812, Label = "Acima de 4h - A combinar", Price = 0}
                 }
             },
                  new StaffingServiceViewModel {
-                Id = 704, Category = "Audiovisual", Title = "Técnico de Som", Description = "Operação de equipamentos de som",
+                Id = 704, Category = "Audiovisual", Title = "Video", Description = "Filmagem e edição profissional",
                 PricingOptions = new List<PricingOptionViewModel> {
-                    new PricingOptionViewModel { Id = 813, Label = "Até 4h - R$ 250", Price = 250.00m },
-                    new PricingOptionViewModel { Id = 814, Label = "Até 8h - R$ 450", Price = 450.00m },
-                    new PricingOptionViewModel { Id = 815, Label = "Hora extra - R$ 70", Price = 70.00m }
+                    new PricingOptionViewModel { Id = 813, Label = "Até 2h - R$ 700", Price = 700.00m },
+                    new PricingOptionViewModel { Id = 814, Label = "Até 4h - R$ 1300", Price = 1300.00m },
+                    new PricingOptionViewModel { Id = 815, Label = "Até 6h - R$ 1800", Price = 1800.00m },
+                    new PricingOptionViewModel { Id = 11815, Label = "Acima de 6h - A combinar", Price = 0 }
                 }
             },
                 new StaffingServiceViewModel {
-                Id = 705, Category = "Audiovisual", Title = "Técnico de Luz", Description = "Operação de equipamentos de iluminação",
+                Id = 705, Category = "Audiovisual", Title = "Cobertura ao Vivo", Description = "Transmissão ao vivo do evento",
                 PricingOptions = new List<PricingOptionViewModel> {
-                    new PricingOptionViewModel { Id = 816, Label = "Até 4h - R$ 250", Price = 250.00m },
-                    new PricingOptionViewModel { Id = 817, Label = "Até 8h - R$ 450", Price = 450.00m },
-                    new PricingOptionViewModel { Id = 818, Label = "Hora extra - R$ 70", Price = 70.00m }
+                    new PricingOptionViewModel { Id = 816, Label = "Até 2h - R$ 700", Price = 700.00m },
+                    new PricingOptionViewModel { Id = 817, Label = "Até 4h - R$ 1200", Price = 1200.00m },
+                    new PricingOptionViewModel { Id = 818, Label = "Até 6h - R$ 1700", Price = 1700.00m },
+                    new PricingOptionViewModel { Id = 11818, Label = "Acima de 6h - A combinar", Price = 0 }
                 }
             },
                 new StaffingServiceViewModel {
                 Id = 706, Category = "Audiovisual", Title = "Editor de Vídeo", Description = "Edição e pós-produção de vídeos",
                 PricingOptions = new List<PricingOptionViewModel> {
-                    new PricingOptionViewModel { Id = 819, Label = "Por vídeo - a partir de R$ 300", Price = 300.00m },
-                    new PricingOptionViewModel { Id = 820, Label = "Diária - R$ 400", Price = 400.00m },
+                    new PricingOptionViewModel { Id = 11816, Label = "Até 2h - R$ 700", Price = 700.00m },
+                    new PricingOptionViewModel { Id = 11817, Label = "Até 4h - R$ 1200", Price = 1200.00m },
+                    new PricingOptionViewModel { Id = 11818, Label = "Até 6h - R$ 1700", Price = 1700.00m },
+                    new PricingOptionViewModel { Id = 11819, Label = "Acima de 6h - A combinar", Price = 0 }
                 }
             },
             };
@@ -484,50 +480,44 @@ namespace ChicasEventos.Services
                 new StaffingServiceViewModel {
                 Id = 708, Category = "RH", Title = "Recepcionista", Description = "Boas-vindas e orientação aos convidados",
                 PricingOptions = new List<PricingOptionViewModel> {
-                    new PricingOptionViewModel { Id = 825, Label = "2h - R$ 80", Price = 80.00m },
-                    new PricingOptionViewModel { Id = 826, Label = "4h - R$ 140", Price = 140.00m },
-                    new PricingOptionViewModel { Id = 827, Label = "6h - R$ 190", Price = 190.00m },
+                    new PricingOptionViewModel { Id = 825, Label = "2h - R$ 90", Price = 90.00m },
+                    new PricingOptionViewModel { Id = 826, Label = "4h - R$ 160", Price = 160.00m },
+                    new PricingOptionViewModel { Id = 827, Label = "6h - R$ 220", Price = 220.00m },
                     new PricingOptionViewModel { Id = 828, Label = "Acima de 6h - A combinar", Price = 0}
                 }
             },
                 new StaffingServiceViewModel {
                 Id = 709, Category = "RH", Title = "Segurança", Description = "Proteção e controle de acesso",
                 PricingOptions = new List<PricingOptionViewModel> {
-                    new PricingOptionViewModel { Id = 829, Label = "4h - R$ 150", Price = 150.00m },
-                    new PricingOptionViewModel { Id = 830, Label = "6h - R$ 220", Price = 220.00m },
-                    new PricingOptionViewModel { Id = 831, Label = "8h - R$ 280", Price = 280.00m },
-                    new PricingOptionViewModel { Id = 832, Label = "Acima de 8h - A combinar", Price = 0}
+                    new PricingOptionViewModel { Id = 829, Label = "2h - R$ 100", Price = 100.00m },
+                    new PricingOptionViewModel { Id = 830, Label = "4h - R$ 180", Price = 180.00m },
+                    new PricingOptionViewModel { Id = 831, Label = "6h - R$ 250", Price = 250.00m },
+                    new PricingOptionViewModel { Id = 832, Label = "Acima de 6h - A combinar", Price = 0}
                 }
             },
                 new StaffingServiceViewModel {
                 Id = 710, Category = "RH", Title = "Apoio Operacional", Description = "Suporte logístico completo",
                 PricingOptions = new List<PricingOptionViewModel> {
-                    new PricingOptionViewModel { Id = 833, Label = "4h - R$ 100", Price = 100.00m },
-                    new PricingOptionViewModel { Id = 834, Label = "6h - R$ 150", Price = 150.00m },
-                    new PricingOptionViewModel { Id = 835, Label = "8h - R$ 200", Price = 200.00m },
-                    new PricingOptionViewModel { Id = 836, Label = "Acima de 8h - A combinar", Price = 0}
+                    new PricingOptionViewModel { Id = 833, Label = "2h - R$ 100", Price = 100.00m },
+                    new PricingOptionViewModel { Id = 834, Label = "4h - R$ 150", Price = 150.00m },
+                    new PricingOptionViewModel { Id = 835, Label = "6h - R$ 200", Price = 200.00m },
+                    new PricingOptionViewModel { Id = 836, Label = "Acima de 6h - A combinar", Price = 0}
                 }
             },
                 new StaffingServiceViewModel {
-                Id = 711, Category = "RH", Title = "Bartender", Description = "Preparo de drinks e coquetéis",
+                Id = 711, Category = "RH", Title = "Briefing", Description = "Orientação e prévia da equipe",
                 PricingOptions = new List<PricingOptionViewModel> {
-                    new PricingOptionViewModel { Id = 837, Label = "4h - R$ 200", Price = 200.00m },
-                    new PricingOptionViewModel { Id = 838, Label = "6h - R$ 280", Price = 280.00m },
-                    new PricingOptionViewModel { Id = 839, Label = "8h - R$ 350", Price = 350.00m },
+                    new PricingOptionViewModel { Id = 837, Label = "2h - R$ 120", Price = 120.00m },
+                    new PricingOptionViewModel { Id = 838, Label = "4h - R$ 220", Price = 220.00m },
+                    new PricingOptionViewModel { Id = 839, Label = "6h - R$ 320", Price = 320.00m },
                 }
             },
                 new StaffingServiceViewModel {
-                Id = 712, Category = "RH", Title = "Copeira", Description = "Organização e limpeza da copa",
+                Id = 712, Category = "RH", Title = "Coordenação", Description = "Organização e limpeza da copa",
                 PricingOptions = new List<PricingOptionViewModel> {
-                    new PricingOptionViewModel { Id = 840, Label = "4h - R$ 90", Price = 90.00m },
-                    new PricingOptionViewModel { Id = 841, Label = "6h - R$ 130", Price = 130.00m },
-                    new PricingOptionViewModel { Id = 842, Label = "8h - R$ 170", Price = 170.00m },
-                }
-            },
-                new StaffingServiceViewModel {
-                Id = 713, Category = "RH", Title = "Carregador", Description = "Carga e descarga de materiais",
-                PricingOptions = new List<PricingOptionViewModel> {
-                    new PricingOptionViewModel { Id = 843, Label = "Diária - R$ 150", Price = 150.00m },
+                    new PricingOptionViewModel { Id = 840, Label = "2h - R$ 120", Price = 120.00m },
+                    new PricingOptionViewModel { Id = 841, Label = "4h - R$ 220", Price = 220.00m },
+                    new PricingOptionViewModel { Id = 842, Label = "6h - R$ 320", Price = 320.00m },
                 }
             },
             };
@@ -538,57 +528,43 @@ namespace ChicasEventos.Services
             return new List<StaffingServiceViewModel>
             {
                 new StaffingServiceViewModel {
-                Id = 714, Category = "Cerimonial", Title = "Coordenador de Evento", Description = "Gestão e coordenação completa do evento",
+                Id = 714, Category = "Cerimonial", Title = "Planejamento", Description = "Estratégia completa do evento",
                 PricingOptions = new List<PricingOptionViewModel> {
-                    new PricingOptionViewModel { Id = 844, Label = "Dia do evento - R$ 500", Price = 500.00m },
-                    new PricingOptionViewModel { Id = 845, Label = "Semana do evento - R$ 1200", Price = 1200.00m },
-                    new PricingOptionViewModel { Id = 846, Label = "Mês do evento - R$ 2500", Price = 2500.00m },
-                    new PricingOptionViewModel { Id = 847, Label = "Projeto completo - A combinar", Price = 0}
+                    new PricingOptionViewModel { Id = 844, Label = "R$ 1000", Price = 1000.00m },
                 }
             },
                 new StaffingServiceViewModel {
-                Id = 715, Category = "Cerimonial", Title = "Produtor de Evento", Description = "Produção e execução do evento",
+                Id = 715, Category = "Cerimonial", Title = "Cronograma", Description = "Timeline detalhada e organizada",
                 PricingOptions = new List<PricingOptionViewModel> {
-                    new PricingOptionViewModel { Id = 848, Label = "Dia do evento - R$ 400", Price = 400.00m },
-                    new PricingOptionViewModel { Id = 849, Label = "Semana do evento - R$ 900", Price = 900.00m },
-                    new PricingOptionViewModel { Id = 850, Label = "Mês do evento - R$ 1800", Price = 1800.00m },
-                    new PricingOptionViewModel { Id = 851, Label = "Projeto completo - A combinar", Price = 0}
+                    new PricingOptionViewModel { Id = 848, Label = "R$ 700", Price = 700.00m },
                 }
             },
                 new StaffingServiceViewModel {
-                Id = 716, Category = "Cerimonial", Title = "Assistente de Produção", Description = "Apoio na produção e execução",
+                Id = 716, Category = "Cerimonial", Title = "Fornecedor", Description = "Rede de parceiros confiáveis",
                 PricingOptions = new List<PricingOptionViewModel> {
-                    new PricingOptionViewModel { Id = 852, Label = "Diária - R$ 200", Price = 200.00m },
-                    new PricingOptionViewModel { Id = 853, Label = "Semana - R$ 800", Price = 800.00m },
-                    new PricingOptionViewModel { Id = 854, Label = "Mês - R$ 2000", Price = 2000.00m }
+                    new PricingOptionViewModel { Id = 852, Label = "$ 800", Price = 800.00m },
                 }
             },
                 new StaffingServiceViewModel {
-                Id = 717, Category = "Cerimonial", Title = "Mestre de Cerimônias", Description = "Condução e apresentação do evento",
+                Id = 717, Category = "Cerimonial", Title = "Excecução", Description = "Coordenação do dia do evento",
                 PricingOptions = new List<PricingOptionViewModel> {
-                    new PricingOptionViewModel { Id = 855, Label = "Por evento - a partir de R$ 600", Price = 600.00m },
+                    new PricingOptionViewModel { Id = 855, Label = "R$ 900", Price = 900.00m },
                 }
             },
                 new StaffingServiceViewModel {
-                Id = 718, Category = "Cerimonial", Title = "Celebrante Social", Description = "Realização de cerimônias personalizadas",
+                Id = 718, Category = "Cerimonial", Title = "Coordenação", Description = "Gestão completa do evento",
                 PricingOptions = new List<PricingOptionViewModel> {
-                    new PricingOptionViewModel { Id = 856, Label = "Por cerimônia - a partir de R$ 800", Price = 800.00m },
+                    new PricingOptionViewModel { Id = 856, Label = "R$ 800", Price = 800.00m },
                 }
             },
                 new StaffingServiceViewModel {
-                Id = 719, Category = "Cerimonial", Title = "Protocolo e Etiqueta", Description = "Consultoria e treinamento",
+                Id = 719, Category = "Cerimonial", Title = "Produção", Description = "Criação e desenvolvimento do evento",
                 PricingOptions = new List<PricingOptionViewModel> {
-                    new PricingOptionViewModel { Id = 857, Label = "Workshop - R$ 1500", Price = 1500.00m },
-                    new PricingOptionViewModel { Id = 858, Label = "Consultoria - A combinar", Price = 0 },
-                }
-            },
-                new StaffingServiceViewModel {
-                Id = 720, Category = "Cerimonial", Title = "Roteirista", Description = "Criação de roteiros para o evento",
-                PricingOptions = new List<PricingOptionViewModel> {
-                    new PricingOptionViewModel { Id = 859, Label = "Por roteiro - a partir de R$ 500", Price = 500.00m },
+                    new PricingOptionViewModel { Id = 857, Label = "R$ 1200", Price = 1200.00m },
                 }
             },
             }; 
         }
     }
 }
+

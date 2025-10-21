@@ -29,7 +29,7 @@
 
                 <div class="collapse navbar-collapse" id="navbarNav">
                     
-                    <ul class="navbar-nav mx-auto d-flex align-items-center">
+                    <ul class="navbar-nav mx-auto d-flex align-items-center justify-content-center" style="flex: 1;">
                         <li class="nav-item">
                             <a class="nav-link d-flex align-items-center" asp-controller="Home" asp-action="Index" style="height: 50px;"><b>HOME</b></a>
                         </li>
@@ -66,55 +66,56 @@
         </main>
     </div>
     <footer class="footer">
-    <div class="container">
-        <div class="row gy-4">
-
-            <div class="col-lg-4 col-md-12 footer-about">
-                <a asp-controller="Home" asp-action="Index" class="footer-logo mb-3">
-                    <img src="~/img/props/ChicasLogo.png" alt="Chicas Eventos Logo" >
-                </a>
-                <p class="text-muted">
-                    Transformamos cada evento em uma experiência única, com excelência,
-                    criatividade e cuidado em cada detalhe.
-                </p>
-                <p class="copyright mt-4">
-                 &copy; @DateTime.Now.Year Chicas Eventos. Todos os direitos reservados. Ketsudsgn & Silas-DEV
-                </p>
-            </div>
-
-            <div class="col-lg-2 col-md-4 footer-column">
-                <h4>Serviços</h4>
-                <ul>
-                    <li><a asp-controller="Pages" asp-action="Buffet">Buffet</a></li>
-                    <li><a asp-controller="Pages" asp-action="Audiovisual">Audiovisual</a></li>
-                    <li><a asp-controller="Pages" asp-action="RH">RH</a></li>
-                    <li><a asp-controller="Pages" asp-action="Cerimonial">Cerimonial</a></li>
-                </ul>
-            </div>
-
-            <div class="col-lg-2 col-md-4 footer-column">
-                <h4>Empresa</h4>
-                <ul>
-                    <li><a asp-controller="Home" asp-action="Sobre">Sobre</a></li>
-                    <li><a asp-controller="Home" asp-action="Portifolio">Portfólio</a></li>
-                    <li><a href="#">Contato</a></li>
-                    <li><a href="#">Faça seu evento</a></li>
-                </ul>
-            </div>
-
-            <div class="col-lg-2 col-md-4 footer-column">
-                <h4>Conecte-se</h4>
-                <div class="footer-socials">
-                    <a href="#" class="social-icon instagram" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
-                    <a href="#" class="social-icon linkedin" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
-                    <a href="#" class="social-icon facebook" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
-                    <a href="#" class="social-icon twitter" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-about">
+                    <div class="footer-logo">
+                        <img src="~/img/icons/logo/logo rem.png" alt="Chicas Eventos Logo" class="footer-logo-img">
+                    </div>
+                    <p>Transformamos cada evento em uma experiência exclusiva conduzida com profissionalismo, excelência e dedicação em cada detalhe. 
+                    Nosso compromisso é oferecer soluções personalizadas que refletem a identidade de cada cliente garantindo qualidade e resultados memoráveis.</p>
+                </div>
+                <div class="footer-column">
+                    <h4>Serviços</h4>
+                    <ul>
+                        <li><a href="#">Buffet</a></li>
+                        <li><a href="#">Audiovisual</a></li>
+                        <li><a href="#">RH</a></li>
+                        <li><a href="#">Cerimonial</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h4>Empresa</h4>
+                    <ul>
+                        <li><a href="#">Sobre</a></li>
+                        <li><a href="#">Portfólio</a></li>
+                        <li><a href="#">Contato</a></li>
+                        <li><a href="#">Faça seu evento</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h4>Conecte-se</h4>
+                    <div class="footer-socials">
+                        <a href="#" class="social-icon instagram">
+                            <img src="~/img/icons/icones/Group.svg" alt="Instagram" style="width: 22px; height: 22px;">
+                        </a>
+                        <a href="#" class="social-icon linkedin">
+                            <img src="~/img/icons/icones/LinkedIn - Original.svg" alt="LinkedIn" style="width: 22px; height: 22px;">
+                        </a>
+                        <a href="#" class="social-icon facebook">
+                            <img src="~/img/icons/icones/Facebook - Original.svg" alt="Facebook" style="width: 22px; height: 22px;">
+                        </a>
+                        <a href="#" class="social-icon twitter">
+                            <img src="~/img/icons/icones/Twitter - Original.svg" alt="Twitter" style="width: 22px; height: 22px;">
+                        </a>
+                    </div>
                 </div>
             </div>
-
+            <div class="footer-bottom">
+                <p>&copy; 2025 Chicas Eventos. Todos os direitos reservados. Ketsudsgn & Silas-DEV</p>
+            </div>
         </div>
-    </div>
-</footer>
+    </footer>
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
     <script src="~/js/site.js" asp-append-version="true"></script>

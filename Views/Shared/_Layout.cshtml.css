@@ -311,6 +311,29 @@
             gap: 40px;
         }
 
+        /* Organiza a primeira coluna (logo + texto) e adiciona divisória */
+        .footer-about {
+            display: grid;
+            grid-template-rows: auto auto;
+        }
+
+        .footer-logo {
+            padding: 0 0 12px 0;
+            margin: 0 0 12px 0;
+            border: 0;
+            display: inline-block;
+            place-self: start;
+            justify-self: start; /* evita stretch da célula do grid */
+            align-self: start;    /* fixa no topo da célula */
+        }
+
+        /* Deixa a imagem da logo independente do max-width global */
+        .footer-logo-img {
+    width: 120px !important; /* garante prioridade sobre outras regras */
+            height: auto;
+            max-width: none;
+        }
+
         .footer-about .logo img {
             width: 120px;
             margin-bottom: 15px;
@@ -338,9 +361,18 @@
             color: #c77b5a;
         }
         
+        .footer-socials {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
         .footer-socials a {
             font-size: 1.5rem;
-            margin-right: 15px;
+            margin-right: 0;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
         }
 
         .footer-bottom {
@@ -402,5 +434,3 @@
                 margin-top: 20px;
             }
         }
-        
-

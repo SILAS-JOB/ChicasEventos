@@ -72,7 +72,7 @@ header {
 }
 
 body {
-  margin-bottom: 60px;
+  margin-bottom: 0; /* remove espaço extra no fim da página */
   font-family: 'Outfit' !important;
 }
 
@@ -128,4 +128,21 @@ body {
 .contact-btn:active {
     transform: translateY(0);
     box-shadow: 0 2px 4px rgba(160, 82, 45, 0.3) !important;
+}
+
+/* Overrides do rodapé para garantir aplicação imediata */
+.footer { margin-bottom: 0 !important; }
+.footer .footer-logo {
+  display: inline-block !important;
+  margin: 0 0 12px 0 !important;
+  padding: 0 0 12px 0 !important;
+  border: 0 !important;
+  justify-self: start !important;
+  align-self: start !important;
+}
+
+.footer .footer-logo-img {
+  width: 120px !important;
+  height: auto !important;
+  max-width: none !important;
 }
