@@ -1,0 +1,37 @@
+@{
+    ViewData["Title"] = "Seu Carrinho";
+}
+
+<div class="container my-5">
+    <div class="text-center">
+        <h1>Seu carrinho</h1>
+        <p>Revise os serviços selecionados e finalize seu orçamento</p>
+    </div>
+
+    <div class="row mt-5">
+        <div class="col-md-8" id="cart-items-container">
+            <p>Carregando itens...</p>
+        </div>
+
+        <div class="col-md-4">
+            <div class="card p-3">
+                <h4>Resumo do pedido</h4>
+                <hr>
+                @* O resumo será calculado via JS depois *@
+                <div id="cart-summary">
+                </div>
+                <button id="btn-show-order-form" class="btn btn-primary w-100 mt-3">Finalizar Pedido</button>
+            </div>
+        </div>
+    </div>
+    <div class="modal fade" id="orderFormModal" tabindex="-1">
+        <div class="modal-dialog modal-lg modal-dialog-centered">
+            <div class="modal-content" id="orderFormModalContent">
+        </div>
+    </div>
+</div>
+</div>
+
+@section Scripts {
+    <script src="~/js/CartPage.js"></script>
+}

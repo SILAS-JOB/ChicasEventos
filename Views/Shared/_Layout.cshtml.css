@@ -1,0 +1,436 @@
+﻿/* --- Reset Básico e Estilos Globais --- */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            color: #333;
+            background-color: #ffffff;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        h1, h2, h3 {
+            color: #3b3b3b;
+        }
+        
+        nav li {
+          list-style: none;
+          display:inline;
+        }
+
+        p {
+            color: #666;
+            line-height: 1.6;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        img {
+            max-width: 100%;
+            display: block;
+        }
+
+        /* --- Header / Cabeçalho --- */
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 40px;
+            background-color: #fff;
+        }
+
+        .header .logo {
+            font-weight: 700;
+            font-size: 24px;
+        }
+        
+        .header .logo img {
+            width: 120px; /* Ajuste o tamanho do seu logo */
+        }
+
+        .header nav a {
+            margin: 0 15px;
+            font-weight: 500;
+            color: #555;
+            transition: color 0.3s ease;
+        }
+
+        .header nav a:hover {
+            color: #c77b5a;
+        }
+
+        .header .login-btn {
+            border: 1px solid #c77b5a;
+            padding: 8px 25px;
+            border-radius: 20px;
+            color: #c77b5a;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+
+        .header .login-btn:hover {
+            background-color: #c77b5a;
+            color: #fff;
+        }
+
+        /* --- Seção Hero --- */
+        .hero {
+            display: flex;
+            align-items: center;
+            background-color: #f7f7f7;
+            padding: 0 40px;
+            min-height: 80vh;
+        }
+
+        .hero-text {
+            flex: 1;
+            background-color: #c77b5a;
+            color: #fff;
+            padding: 80px 60px;
+            height: 500px;
+            border-radius: 15px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            position: relative;
+            left: 50px;
+            z-index: 2;
+        }
+
+        .hero-text h1 {
+            font-size: 3rem;
+            color: #fff;
+            line-height: 1.2;
+            margin-bottom: 20px;
+        }
+
+        .hero-text p {
+            color: #f0e2db;
+            font-size: 1rem;
+        }
+
+        .hero-image {
+            flex: 1.2;
+            height: 500px;
+            border-radius: 15px;
+            overflow: hidden;
+            position: relative;
+            right: 50px;
+        }
+
+        .hero-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        /* --- Seção de Serviços --- */
+        .services {
+            text-align: center;
+            padding: 80px 20px;
+        }
+
+        .services h2 {
+            font-size: 2.5rem;
+            margin-bottom: 15px;
+        }
+
+        .services > p {
+            max-width: 600px;
+            margin: 0 auto 50px auto;
+        }
+
+        .service-cards {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            flex-wrap: wrap;
+        }
+
+        .service-card {
+            width: 250px;
+            height: 350px;
+            border-radius: 15px;
+            overflow: hidden;
+            position: relative;
+            color: #fff;
+            display: flex;
+            align-items: flex-end;
+            padding: 20px;
+            transition: transform 0.3s ease;
+        }
+        
+        .service-card:hover {
+            transform: translateY(-10px);
+        }
+
+        .service-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(to top, rgba(0,0,0,0.8), rgba(0,0,0,0.1));
+            z-index: 1;
+        }
+        
+        .service-card img {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .service-card h3 {
+            position: relative;
+            z-index: 2;
+            color: #fff;
+            font-size: 1.5rem;
+        }
+        
+        /* --- Seção "Por que escolher" --- */
+        .why-us {
+            background-color: #f7f7f7;
+            text-align: center;
+            padding: 80px 20px;
+        }
+
+        .why-us .section-subtitle {
+            text-transform: uppercase;
+            color: #c77b5a;
+            font-weight: 600;
+            letter-spacing: 1px;
+        }
+
+        .why-us h2 {
+            font-size: 2.5rem;
+            margin-top: 10px;
+            margin-bottom: 50px;
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .feature-card {
+            background-color: #e9e9e9;
+            padding: 30px;
+            border-radius: 15px;
+            text-align: center;
+        }
+        
+        .feature-card i {
+            font-size: 2.5rem;
+            color: #c77b5a;
+            margin-bottom: 15px;
+        }
+
+        .feature-card h3 {
+            font-size: 1.2rem;
+            margin-bottom: 5px;
+        }
+
+        /* --- Seção Portfólio --- */
+        .portfolio {
+            text-align: center;
+            padding: 80px 20px;
+        }
+
+        .portfolio h2 {
+            font-size: 2.5rem;
+            margin-bottom: 15px;
+        }
+        
+        .portfolio > p {
+            max-width: 600px;
+            margin: 0 auto 30px auto;
+        }
+
+        .portfolio-filters {
+            margin-bottom: 40px;
+        }
+
+        .portfolio-filters button {
+            border: 1px solid #ddd;
+            background-color: #fff;
+            padding: 10px 20px;
+            margin: 0 5px;
+            border-radius: 20px;
+            cursor: pointer;
+            font-weight: 500;
+            transition: all 0.3s ease;
+        }
+
+        .portfolio-filters button:hover, .portfolio-filters button.active {
+            background-color: #c77b5a;
+            color: #fff;
+            border-color: #c77b5a;
+        }
+
+        .portfolio-gallery {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 15px;
+        }
+
+        .portfolio-gallery img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            border-radius: 10px;
+        }
+
+        /* --- Footer / Rodapé --- */
+        .footer {
+            background-color: #f7f7f7;
+            padding: 60px 40px;
+            border-top: 1px solid #e0e0e0;
+        }
+        
+        .footer-content {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1fr;
+            gap: 40px;
+        }
+
+        /* Organiza a primeira coluna (logo + texto) e adiciona divisória */
+        .footer-about {
+            display: grid;
+            grid-template-rows: auto auto;
+        }
+
+        .footer-logo {
+            padding: 0 0 12px 0;
+            margin: 0 0 12px 0;
+            border: 0;
+            display: inline-block;
+            place-self: start;
+            justify-self: start; /* evita stretch da célula do grid */
+            align-self: start;    /* fixa no topo da célula */
+        }
+
+        /* Deixa a imagem da logo independente do max-width global */
+        .footer-logo-img {
+    width: 120px !important; /* garante prioridade sobre outras regras */
+            height: auto;
+            max-width: none;
+        }
+
+        .footer-about .logo img {
+            width: 120px;
+            margin-bottom: 15px;
+        }
+
+        .footer-column h4 {
+            font-size: 1.2rem;
+            margin-bottom: 20px;
+        }
+
+        .footer-column ul {
+            list-style: none;
+        }
+
+        .footer-column ul li {
+            margin-bottom: 10px;
+        }
+
+        .footer-column ul li a {
+            color: #666;
+            transition: color 0.3s ease;
+        }
+
+        .footer-column ul li a:hover {
+            color: #c77b5a;
+        }
+        
+        .footer-socials {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .footer-socials a {
+            font-size: 1.5rem;
+            margin-right: 0;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 30px;
+            margin-top: 40px;
+            border-top: 1px solid #ddd;
+        }
+        
+        .footer-bottom p {
+            font-size: 0.9rem;
+            color: #888;
+        }
+        
+        /* --- Responsividade --- */
+        @media (max-width: 992px) {
+            .hero {
+                flex-direction: column;
+                height: auto;
+                padding: 40px 20px;
+            }
+            .hero-text {
+                position: static;
+                width: 100%;
+                margin-bottom: 20px;
+            }
+            .hero-image {
+                position: static;
+                width: 100%;
+            }
+            .features-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            .portfolio-gallery {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            .footer-content {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .header {
+                flex-direction: column;
+                gap: 15px;
+            }
+            .service-cards {
+                flex-direction: column;
+                align-items: center;
+            }
+            .features-grid {
+                grid-template-columns: 1fr;
+            }
+            .footer-content {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+            .footer-socials {
+                margin-top: 20px;
+            }
+        }

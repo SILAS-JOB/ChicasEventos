@@ -1,0 +1,123 @@
+﻿@{
+    ViewBag.Title = "Sejam Bem Vindos!";
+}
+
+
+<link rel="stylesheet" href="~/css/Home/index.css" />
+
+<main>
+        <section class="hero container">
+            <div class="hero-text">
+                <h1>Seu evento será simplesmente impecável do início ao fim.</h1>
+                <p>NPlanejamos e executamos o seu  evento com profissionalismo e atenção a cada detalhe - do buffet ao audiovisual - para que seu evento seja uma experiência memorável.</p>
+            </div>
+            <div class="hero-image">
+                <img src="https://images.unsplash.com/photo-1542744173-8e7e53415bb0?q=80&w=2070&auto=format&fit=crop" alt="Pessoas em um evento corporativo">
+            </div>
+        </section>
+
+        <section class="services container">
+            <h2>Nossos serviços</h2>
+            <p>Pensamos em cada detalhe com uma equipe altamente capacitada que combina excelência e organização a fim de garantir que seu evento seja uma experiência inesquecível.</p>
+            <div class="service-cards">
+                <div class="service-card">
+                    <img src="~/img/products/brunch/bb3.jpg" alt="Buffet corporativo">
+                    <div class="service-card-content">
+                        <h3>Buffet </h3>
+                        <p>Coquetel, coffee break, brunch e refeição completa.</p>
+                        <a asp-controller="Pages" asp-action="Buffet" class="service-btn">VER DETALHES</a>
+                    </div>
+                </div>
+                <div class="service-card">
+                    <img src="~/img/products/fotografia/ff1.jpg" alt="Captação audiovisual">
+                    <div class="service-card-content">
+                        <h3>Captação audiovisual</h3>
+                        <p>Foto, vídeo, cobertura social e drone</p>
+                        <a asp-controller="Pages" asp-action="Audiovisual" class="service-btn">VER DETALHES</a>
+                    </div>
+                </div>
+                <div class="service-card">
+                    <img src="~/img/products/garçom/gg1.jpg" alt="Recursos humanos">
+                    <div class="service-card-content">
+                        <h3>Recursos humanos</h3>
+                        <p>Recepção, apoio e controle de acesso</p>
+                        <a asp-controller="Pages" asp-action="RH" class="service-btn">VER DETALHES</a>
+                    </div>
+                </div>
+                <div class="service-card">
+                    <img src="https://images.unsplash.com/photo-1587825140708-dfaf72ae4b04?q=80&w=2070&auto=format&fit=crop" alt="Organização cerimonial">
+                    <div class="service-card-content">
+                        <h3>Organização cerimonial</h3>
+                        <p>Planejamento, fornecedores e execução</p>
+                        <a asp-controller="Pages" asp-action="Cerimonial" class="service-btn">VER DETALHES</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <section class="why-us">
+            <div class="container">
+                <h2>Por que escolher a Chicas Eventos?</h2>
+                <p class="section-description">Transformamos cada detalhe em uma experiência única. Conheça os diferenciais que fazem da Chicas a escolha certa para o seu evento.</p>
+                <div class="features-grid">
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <img src="~/img/icons/icones/integraçaõ.png" alt="Integração completa">
+                        </div>
+                        <h3>Integração completa</h3>
+                        <p>Tudo em um só lugar: buffet, audiovisual, RH e cerimonial com gestão unificada.</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <img src="~/img/icons/icones/raio.png" alt="Agilidade garantida">
+                        </div>
+                        <h3>Agilidade garantida</h3>
+                        <p>Equipe treinada e cronograma ágil para montar e executar sem atrasos.</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <img src="~/img/icons/icones/coração.png" alt="Beleza funcional">
+                        </div>
+                        <h3>Beleza funcional</h3>
+                        <p>Soluções que unem estética impecável e praticidade no dia do evento.</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <img src="~/img/icons/icones/check.png" alt="Rede confiável">
+                        </div>
+                        <h3>Rede confiável</h3>
+                        <p>Fornecedores homologados que asseguram qualidade em cada etapa.</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <img src="~/img/icons/icones/regional.png" alt="Identidade regional">
+                        </div>
+                        <h3>Identidade regional</h3>
+                        <p>Valorizamos a cultura amazônica, trazendo um toque único e autêntico.</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <img src="~/img/icons/icones/calendar.png" alt="Acompanhamento total">
+                        </div>
+                        <h3>Acompanhamento total</h3>
+                        <p>Estamos ao seu lado do pré até o pós-evento, sem deixar nada escapar.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="portfolio container">
+            <h2>Portfólio</h2>
+            <p>Uma seleção dos nossos melhores projetos para você se inspirar e conhecer a qualidade do nosso trabalho.</p>
+            <div class="portfolio-gallery">
+                <img src="~/img/port/1.jpg" alt="Evento corporativo - Sala de conferências">
+                <img src="~/img/port/2.png" alt="Evento social - Decoração elegante">
+                <img src="~/img/port/3.png" alt="Evento temático - Decoração criativa">
+                <img src="~/img/port/4.png" alt="Evento corporativo - Apresentação">
+                <img src="~/img/port/5.JPG" alt="Evento social - Decoração festiva">
+                <img src="~/img/port/6.JPG" alt="Evento corporativo - Networking">
+                <img src="~/img/port/7.JPG" alt="Evento social - Celebração">
+                <img src="~/img/port/8.jpeg" alt="Evento temático - Decoração especial".>
+            </div>
+        </section>
+    </main>

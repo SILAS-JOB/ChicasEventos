@@ -1,0 +1,73 @@
+@model ChicasEventos.Models.ServiceViewModel
+
+@{
+    var carouselId = $"serviceCarousel_{Model.Id}";
+    
+    var allImages = new List<string> { Model.ImagemGrandeModal };
+    allImages.AddRange(Model.ImagensPequenasModal);
+}
+
+<div class="p-4">
+    <div class="d-flex justify-content-between align-items-center mb-3">
+        <h3 class="modal-title">@Model.Titulo</h3>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+    </div>
+
+    <div class="row">
+        <div class="col-lg-6">
+            <div class="info-block p-4 mb-4" style="background-color: #f8f9fa; border-radius: 0.5rem;">
+                <h6 class="fw-bold" style="color: #d97706;">@Model.DescricaoBreve</h6>
+                <p>@Model.SubtituloModal</p>
+            </div>
+            
+            <div class="info-block p-4" style="background-color: #f8f9fa; border-radius: 0.5rem;">
+                <h6 class="fw-bold">O QUE ESTÁ INCLUSO:</h6>
+                <ul class="list-unstyled">
+                    @foreach (var item in Model.ItensInclusos)
+                    {
+                        <li><i class="include bi bi-check text-success"></i> @item</li>
+                    }
+                </ul>
+            </div>
+        </div>
+
+        <div class="col-lg-6">
+            <div id="@carouselId" class="carousel slide mb-3" data-bs-ride="carousel">
+                <div class="carousel-inner rounded">
+                    @for (int i = 0; i < allImages.Count; i++)
+                    {
+                        var activeClass = i == 0 ? "active" : "";
+                        <div class="carousel-item @activeClass">
+                            <img src="@allImages[i]" class="d-block w-100" alt="Imagem @(i + 1) de @Model.Titulo">
+                        </div>
+                    }
+                </div>
+                <button class="carousel-control-prev" type="button" data-bs-target="#@carouselId" data-bs-slide="prev">
+                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Anterior</span>
+                </button>
+                <button class="carousel-control-next" type="button" data-bs-target="#@carouselId" data-bs-slide="next">
+                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Próximo</span>
+                </button>
+            </div>
+
+            <div class="row">
+                @for (int i = 0; i < allImages.Count; i++)
+                {
+                    <div class="col-4">
+                        <img src="@allImages[i]" class="img-fluid rounded carousel-thumbnail" 
+                             data-bs-target="#@carouselId" 
+                             data-bs-slide-to="@i" 
+                             alt="Miniatura @(i + 1)">
+                    </div>
+                }
+            </div>
+        </div>
+    </div>
+
+    <div class="modal-footer border-0 mt-4">
+        <button type="button" class="btn" style="background-color: #ca8a04; color: white;">FALAR COM ESPECIALISTA</button>
+        <button type="button" class="btn btn-primary btn-add-to-cart" data-id="@Model.Id" data-type="service">ADICIONAR AO CARRINHO</button>
+    </div>
+</div>

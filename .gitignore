@@ -1,0 +1,11 @@
+#vs
+.vs
+
+#build
+/bin
+/obj
+
+
+#settings
+appsettings.json
+appsettings.Development.json
