@@ -336,7 +336,7 @@ namespace ChicasEventos.Services
                 DescricaoBreve = "Boas-vindas e orientação aos convidados",
                 SubtituloModal = "Equipe de recepção para dar as boas-vindas aos convidados, orientar sobre o evento e garantir uma experiência acolhedora.",
                 ItensInclusos = ["Recepcionistas treinadas", "Boas-vindas personalizadas", "Orientação sobre o evento", "Controle de acesso", "Atendimento cordial"],
-                ImagemPrincipalCard = "/img/products/recepo/rr3.jpg",
+                ImagemPrincipalCard = "/img/products/recepção/rr3.jpg",
                 ImagemGrandeModal = "/img/products/recepção/rr3.jpg",
                 ImagensPequenasModal = ["/img/products/recepção/rr4.jpg", "/img/products/recepção/rr1.jpeg"],
                 },
