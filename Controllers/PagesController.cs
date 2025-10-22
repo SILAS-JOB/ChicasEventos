@@ -251,7 +251,7 @@ namespace ChicasEventos.Controllers
                 var companyEmail = _emailSettings.SenderEmail;
                 var subject = $"Novo Orçamento de {fullOrder.FormData.Nome}";
                 await _emailService.SendOrderEmailAsync(companyEmail, subject, emailBody.ToString());
-                return Ok(new { message = "Orçamento enviado com sucesso!" });
+                return Ok(new { message = "Orçamento enviado com sucesso! A Nossa Equipe entrará em contato em breve" });
             }
             catch (Exception ex)
             {
