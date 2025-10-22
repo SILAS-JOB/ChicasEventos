@@ -25,7 +25,7 @@
                 <ul class="list-unstyled">
                     @foreach (var item in Model.ItensInclusos)
                     {
-                        <li><i class="include bi bi-check text-success"></i> @item</li>
+                        <li><i class="include bi bi-check text-success"></i> &checkmark; @item</li>
                     }
                 </ul>
             </div>
@@ -67,7 +67,9 @@
     </div>
 
     <div class="modal-footer border-0 mt-4">
-        <button type="button" class="btn" style="background-color: #ca8a04; color: white;">FALAR COM ESPECIALISTA</button>
+        <a href="https://wa.me/5591991722306?text=Olá! Gostaria de saber mais sobre os serviços ." target="_blank">
+            <button  type="button" class="btn" style="background-color: #ca8a04; color: white;">FALAR COM ESPECIALISTA</button>
+        </a>
         @* <button type="button" class="btn btn-primary btn-add-to-cart" data-id="@Model.Id" data-type="service">ADICIONAR AO CARRINHO</button> *@
     </div>
 </div>
