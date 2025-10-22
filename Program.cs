@@ -22,7 +22,7 @@ if (!app.Environment.IsDevelopment())
     app.UseHsts();
 }
 //Deploy main
-// app.UseHttpsRedirection();
+app.UseHttpsRedirection();
 app.UseRouting();
 
 app.UseAuthorization();
